@@ -27,7 +27,7 @@ export default function Addphim() {
     category_id: ''
   });
 
-  const data_quocgia = [
+  const dt_quocgia = [
     { quocgia: "Trung Quốc" },
     { quocgia: "Hàn Quốc" },
     { quocgia: "Nhật Bản" },
@@ -270,7 +270,7 @@ export default function Addphim() {
                   onChange={handleChange}
                 >
                   <option value="" disabled>Chọn quốc gia</option>
-                  {data_quocgia.map((dt, index) => (
+                  {dt_quocgia.map((dt, index) => (
                     <option key={index} value={dt.quocgia}>
                       {dt.quocgia}
                     </option>
