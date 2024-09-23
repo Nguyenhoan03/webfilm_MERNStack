@@ -169,7 +169,7 @@ useEffect(() => {
         }
     };
 
-    handleResize(); // Gọi ngay khi component mount
+    handleResize(); 
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);

@@ -1,28 +1,62 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Defaultcomponent from './compoment/Defaultcompoment/Defaultcompoment'; // Corrected import path
 import { HomeProvider } from './store/HomeContext';
 import { routes } from './routers/index';
 import './App.scss'
+import { useEffect } from 'react';
+
 function App() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SCBG4YH65W';
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-SCBG4YH65W');
+    };
+  }, []); 
+  
   return (
-    <div className="App" style={{backgroundColor:'black'}}>
-      <Router>
+    <div className="App" style={{ backgroundColor: 'black' }}>
+    <Router>
       <HomeProvider>
         <Routes>
           {routes.map((route) => {
             const Page = route.page;
             const Layout = route.isShowHeader ? Defaultcomponent : Fragment;
-
+  
+            if (!Page) {
+              console.warn(`Route at ${route.path} does not have a valid page component.`);
+              return null;
+            }
+  
             return (
-              <Route key={route.path} path={route.path} element={<Layout><Page /></Layout>} />
+              <Route
+                key={route.path}
+                path={route.path}
+                element={
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Layout>
+                      <Page />
+                    </Layout>
+                  </Suspense>
+                }
+              />
             );
           })}
         </Routes>
-        </HomeProvider>
-      </Router>
-    </div>
+      </HomeProvider>
+    </Router>
+  </div>
+  
   );
 }
 
