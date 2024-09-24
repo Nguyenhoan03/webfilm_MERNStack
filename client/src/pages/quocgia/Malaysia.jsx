@@ -30,6 +30,12 @@ export default function Malaysia() {
   
     return (
         <div className="">
+            <Helmet>
+            <title>Phim Malaysia | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Malaysia tại nghienphim. Xem phim Malaysia miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Malaysia, phim Malaysia hay, xem phim Malaysia, phim Malaysia 2024, phim châu Âu, phim Malaysia phụ đề tiếng Việt" />
+
+            </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

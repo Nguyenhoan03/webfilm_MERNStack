@@ -30,6 +30,12 @@ export default function Danmach() {
   
     return (
         <div className="">
+            <Helmet>
+            <title>Phim Đan Mạch | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Đan Mạch tại nghienphim. Xem phim Đan Mạch miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Đan Mạch, phim Đan Mạch hay, xem phim Đan Mạch, phim Đan Mạch 2024, phim châu Âu, phim Đan Mạch phụ đề tiếng Việt" />
+
+            </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

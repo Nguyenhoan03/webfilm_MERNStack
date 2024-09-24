@@ -4,7 +4,7 @@ import { IoIosHome } from "react-icons/io";
 import Homepagebodyright from "../../../compoment/Homepagebodyright/Homepagebodyright";
 import { Productdanhmucphimkhoahoc } from "../../../services/Productservices";
 
-import Itemsdanhmucfilm from "../../../compoment/Itemsdanhmucfilm/Itemsdanhmucfilm";
+// import Itemsdanhmucfilm from "../../../compoment/Itemsdanhmucfilm/Itemsdanhmucfilm";
 import { Helmet } from "react-helmet";
 const FilterfilmCompoment = React.lazy(()=>import("../../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 export default function Khoahoc() {

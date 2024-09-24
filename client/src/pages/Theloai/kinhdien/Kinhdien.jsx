@@ -29,6 +29,12 @@ export default function Kinhdien() {
   
     return (
         <div className="">
+             <Helmet>
+             <title>Phim Kinh điển | nghienphim - Xem phim online</title>
+<meta name="description" content="Khám phá những tác phẩm điện ảnh kinh điển trường tồn với thời gian tại nghienphim. Xem phim kinh điển miễn phí, chất lượng cao." />
+<meta name="keywords" content="phim kinh điển, phim cũ, phim điện ảnh nổi tiếng, xem phim kinh điển, phim kinh điển 2024, phim kinh điển miễn phí" />
+
+</Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

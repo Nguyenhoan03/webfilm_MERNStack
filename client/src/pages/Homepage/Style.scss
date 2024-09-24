@@ -253,13 +253,55 @@ a{
 }
 }
 .img_ad {
-margin: auto; /* Căn giữa phần tử khi có đủ không gian */
-width: fit-content; /* Để phần tử chỉ chiếm không gian cần thiết */
+  margin: 10px; /* Căn giữa và thêm khoảng cách bên trên dưới */
+
+  width: fit-content; /* Giữ kích thước vừa đủ nội dung */
+  background-color: rgba(0, 0, 0, 0.7); /* Màu nền đen trong suốt */
+  padding: 5px 20px; /* Thêm khoảng cách bên trong */
+  border-radius: 8px; /* Bo tròn góc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+ 
 }
+
+.img_ad_text {
+  color: white; /* Màu chữ trắng */
+  font-size: 18px; /* Cỡ chữ */
+  font-family: bold;
+  animation: blink 4s step-start infinite;
+  font-family: 'Roboto', sans-serif;
+
+}
+@keyframes blink {
+  0% {
+    color: yellow;
+  }
+  20% {
+    color: pink;
+  }
+  40% {
+    color: cyan;
+  }
+  60% {
+    color: limegreen;
+  }
+  80% {
+    color: violet;
+  }
+  100% {
+    color: orangered;
+  }
+}
+.highlight {
+  color: tomato; /* Màu chữ nổi bật */
+  font-weight: bold; /* Làm đậm chữ */
+  text-decoration: underline; /* Gạch dưới chữ */
+}
+
+
 
 @media screen and (max-width: 765px) {
 .img_ad {
-    background-color: red;
+   
     position: relative; /* Thay đổi từ float: left */
     left: 0;
     width: 100%; /* Đảm bảo .img_ad chiếm toàn bộ chiều rộng */

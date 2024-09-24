@@ -76,10 +76,13 @@ export default function Homepage() {
 </Helmet>
       <div className="container">
       <div className="img_ad">
-    <img src="https://motchillhot.net/banner/xembong88-607x75.gif" alt="" />
+  <p className="img_ad_text">
+    Hãy luôn truy cập <span className="highlight">nghienphim.click</span> để luôn được cập nhật được những bộ phim mới nhất
+  </p>
+
 </div>
 
-        <div className="homepagebody">
+        <div className="homepagebody" style={{marginTop:-20}}>
           <div className="phimhot" style={{backgroundColor:'black'}}>
             <h2 style={{ fontSize: 25, fontFamily: 'roboto', fontWeight: 300, textTransform: 'uppercase', color: '#ff9601' }}>PHIM HOT</h2>
             <div className="slider-container">

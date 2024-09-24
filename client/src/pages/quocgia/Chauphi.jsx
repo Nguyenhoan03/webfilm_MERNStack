@@ -30,6 +30,12 @@ export default function Chayphi() {
   
     return (
         <div className="">
+            <Helmet>
+            <title>Phim châu phi | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ châu phi tại nghienphim. Xem phim châu phi miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim châu phi, phim châu phi hay, xem phim châu phi, phim châu phi 2024, phim châu Âu, phim châu phi phụ đề tiếng Việt" />
+
+            </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

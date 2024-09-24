@@ -30,6 +30,12 @@ export default function Thuydien() {
   
     return (
         <div className="">
+            <Helmet>
+            <title>Phim Thụy Điển | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Thụy Điển tại nghienphim. Xem phim Thụy Điển miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Thụy Điển, phim Thụy Điển hay, xem phim Thụy Điển, phim Thụy Điển 2024, phim châu Âu, phim Thụy Điển phụ đề tiếng Việt" />
+
+            </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

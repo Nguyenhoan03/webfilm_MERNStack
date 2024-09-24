@@ -30,6 +30,12 @@ export default function Namphi() {
   
     return (
         <div className="">
+            <Helmet>
+            <title>Phim Nam phi | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Nam phi tại nghienphim. Xem phim Nam phi miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Nam phi, phim Nam phi hay, xem phim Nam phi, phim Nam phi 2024, phim châu Âu, phim Nam phi phụ đề tiếng Việt" />
+
+            </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

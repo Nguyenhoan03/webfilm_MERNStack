@@ -30,6 +30,10 @@ export default function Uae() {
   
     return (
         <div className="">
+            <title>Phim UAE | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ UAE tại nghienphim. Xem phim UAE miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim UAE, phim UAE hay, xem phim UAE, phim UAE 2024, phim châu Âu, phim UAE phụ đề tiếng Việt" />
+
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

@@ -30,6 +30,12 @@ export default function Bodaonha() {
   
     return (
         <div className="">
+            <Helmet>
+            <title>Phim Bồ Đào Nha | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Bồ Đào Nha tại nghienphim. Xem phim Bồ Đào Nha miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Bồ Đào Nha, phim Bồ Đào Nha hay, xem phim Bồ Đào Nha, phim Bồ Đào Nha 2024, phim châu Âu, phim Bồ Đào Nha phụ đề tiếng Việt" />
+
+            </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>

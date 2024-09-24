@@ -30,6 +30,12 @@ export default function Nauy() {
   
     return (
         <div className="">
+            <Helmet>
+            <title>Phim Nauy | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Nauy tại nghienphim. Xem phim Nauy miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Nauy, phim Nauy hay, xem phim Nauy, phim Nauy 2024, phim châu Âu, phim Nauy phụ đề tiếng Việt" />
+
+            </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
