@@ -8,5 +8,7 @@
 #     "starselect": 5
 # }
 
-GET https://webphim-mernstack-nodejs.onrender.com/product/product-home
+# GET https://webphim-mernstack-nodejs.onrender.com/product/product-home
+# Content-Type: : application/json
+GET http://localhost:5000/update_sitemap
 Content-Type: : application/json

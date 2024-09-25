@@ -23,7 +23,13 @@ function App() {
       gtag('config', 'G-SCBG4YH65W');
     };
   }, []); 
-  
+  const LoadingSpinner = () => (
+    <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+      <div className="spinner-border text-light" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  );
   return (
     <div className="App" style={{ backgroundColor: 'black' }}>
     <Router>
@@ -43,7 +49,7 @@ function App() {
                 key={route.path}
                 path={route.path}
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
+                  <Suspense fallback={<LoadingSpinner />}>
                     <Layout>
                       <Page />
                     </Layout>

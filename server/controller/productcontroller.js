@@ -11,12 +11,12 @@ const Product_home = async (req, res) => {
     });
   }
 };
-const Product =async (req,res,next ) => {
+const Product =async (req,res ) => {
       try {
         const data = await Productservices.Productservice();
         return res.status(200).json(data);
       } catch (error) {
-         next(error);
+         console.log(error);
       }
 }
 const Product_edit =async (req,res,next)=>{

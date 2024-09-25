@@ -9,6 +9,7 @@ const Categorycontroller = require('../controller/Categorycontroller');
 
 const initRoutes = (app) => {
   app.use('/product', Product);
+  // app.get('/update_sitemap',Crawlphim.Updatesitemap);
   app.use('/admin', Admin);
   app.post('/dang-nhap', Usercontroller.Login);
   app.post('/dang-ky', Usercontroller.Register);
