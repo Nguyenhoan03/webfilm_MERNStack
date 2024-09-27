@@ -79,7 +79,6 @@ export default function Homepage() {
   <p className="img_ad_text">
     Hãy luôn truy cập <span className="highlight">nghienphim.click</span> để luôn được cập nhật được những bộ phim mới nhất
   </p>
-
 </div>
 
         <div className="homepagebody" style={{marginTop:-20}}>

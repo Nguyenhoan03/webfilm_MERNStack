@@ -41,7 +41,7 @@ const MovieCard = ({ data }) => {
                 </p>
                 <picture>
                   <source
-                    srcSet={pbm.hinhanh.replace(/\.(jpg|jpeg|png)$/, ".webp")}
+                    srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")}
                     type="image/webp"
                   />
                   <img

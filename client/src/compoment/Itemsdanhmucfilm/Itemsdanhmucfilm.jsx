@@ -38,7 +38,7 @@ import { useState } from "react";
                   {pbm.trangthai}-{pbm.ngonngu}
                 </p>
                 <picture>
-                <source srcSet={pbm.hinhanh.replace(/\.(jpg|jpeg|png)$/, ".webp")} type="image/webp" />
+                <source srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")} type="image/webp" />
                 <img style={{ width: 175, height: 245 }} src={pbm.hinhanh} alt={pbm.title} loading="lazy"/>
               </picture>
 

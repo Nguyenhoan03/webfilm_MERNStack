@@ -47,7 +47,7 @@ export default function Anh() {
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
-                    <p>Ấn Độ</p>
+                    <p>Anh quốc</p>
                 </div>
                 <p
                     style={{
