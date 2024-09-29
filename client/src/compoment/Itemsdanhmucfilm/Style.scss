@@ -1,0 +1,35 @@
+@media screen and (min-width:300px) and (max-width: 390px) {
+    .category_phim_card_itemdanhmuc{
+        width: 46% !important;
+        border-radius: 5px;
+      
+    }  
+
+}
+
+@media screen and (min-width:400px) and (max-width: 576px) {
+    .category_phim_card_itemdanhmuc{
+        width: 46% !important;
+        border-radius: 5px;
+    }  
+}
+
+@media screen and (min-width:576px) and (max-width: 900px) {
+    .category_phim_card_itemdanhmuc{
+        width: 30% !important;
+        border-radius: 5px;
+    }  
+}
+
+@media screen and (min-width:1200px){
+    .category_phim_card_itemdanhmuc{
+        width: 20% !important;
+        border-radius: 5px;
+      
+    }  
+}
+
+.category_phim_card_itemdanhmuc:hover {
+    transform: scale(1.2); 
+    transition: transform 0.3s ease-in-out;
+}

@@ -17,19 +17,16 @@ export default function Slickslider({ settings, data = [] }) {
               <div className="news_outstanding_card border-radius-3" style={{ marginLeft: 0, marginRight: 20, borderRadius: 7, width: 190, backgroundColor: 'white', border: '1px solid gray' }}>
                 <div className="image-container" style={{ position: 'relative', textAlign: 'center' }}>
                 <picture>
-                <source srcSet={dt.hinhanh.replace(/\.(jpg|jpeg|png)$/, ".webp")} type="image/webp" />
+                <source srcSet={dt.hinhanh.replace(/\.(jpeg|png)$/, ".webp")} type="image/webp" />
                 <img src={dt.hinhanh} alt={dt.title} loading="lazy" style={{ display: 'inline-block', height: 235, borderRadius: '7px 7px 0 0' }}
                 />
-              </picture>
-
-                  
+              </picture>                  
                   <p className="title-badge" style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 107, textAlign: 'center' }}>
                     {dt.trangthai}-{dt.ngonngu}
                   </p>
                   <p className="description-badge" style={{marginLeft:0}}>
                 {dt.sotap.includes('Tập') ? dt.sotap : `${dt.sotap} Tập`}
               </p>
-
                   <p style={{ position: 'absolute', top: 5, right: 10, color: 'white' }}>
                     <FaRegHeart />
                   </p>

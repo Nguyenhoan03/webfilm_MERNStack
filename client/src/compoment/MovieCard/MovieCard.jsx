@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './MovieCard.scss'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 const MovieCard = ({ data }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -16,11 +18,12 @@ const MovieCard = ({ data }) => {
                 position: "relative",
                 height: "100%",
                 marginBottom: "20px",
+                
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Link to={`/${pbm.title}`} style={{ color: "white" }}>
+              <Link to={`/${pbm.title}`} style={{ color: "white",height:255}}>
                 <p
                   className="title-badge"
                   style={{
@@ -44,12 +47,15 @@ const MovieCard = ({ data }) => {
                     srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")}
                     type="image/webp"
                   />
-                  <img
+                
+                  <LazyLoadImage
                     style={{ width: 175, height: 245, borderRadius: "8px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)" }}
                     src={pbm.hinhanh}
                     alt={pbm.title}
-                    loading="lazy" 
+                  
+                     effect="blur"
                   />
+                 
                 </picture>
                 <p
                   className="description-badge2"

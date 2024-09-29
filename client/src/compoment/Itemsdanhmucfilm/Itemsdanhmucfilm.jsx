@@ -19,7 +19,7 @@ import { useState } from "react";
         return (
           <>
             {currentItems && currentItems.map((pbm, index) => (
-              <div key={index} className="category_phim_card col-md-3" style={{ position: 'relative', height: '100%' }}>
+              <div key={index} className="category_phim_card_itemdanhmuc col-md-3" style={{ position: 'relative', height: '100%' }}>
                 <p
                   className="title-badge"
                   style={{
@@ -39,13 +39,13 @@ import { useState } from "react";
                 </p>
                 <picture>
                 <source srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")} type="image/webp" />
-                <img style={{ width: 175, height: 245 }} src={pbm.hinhanh} alt={pbm.title} loading="lazy"/>
-              </picture>
-
-                <p className="description-badge2" style={{ marginLeft: 12 }}>
+                <img style={{ width: 175, height: 245 }} className="img-fluid" src={pbm.hinhanh} alt={pbm.title} loading="lazy"/>
+                <p className="description-badge2" style={{ marginLeft: 12 , color: 'white',position:'absolute',bottom:40,width:100,height: 30,borderRadius:10,alignContent:'center',textAlign:'center',backgroundColor:'#522e75'}}>
                   {pbm.sotap && pbm.sotap.includes('Tập') ? pbm.sotap : `${pbm.sotap} Tập`}
                 </p>
-                <p className="description-badge" style={{ marginLeft: 12, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              </picture>
+
+                <p className="description-badge" style={{ marginLeft: 12, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',backgroundColor:'#181818',color:'white',fontSize:17,fontWeight:550,borderRadius:5 }}>
                   <Link to={`/${pbm.title}`} style={{ color: 'white' }}>
                     {pbm.title}
                   </Link>
