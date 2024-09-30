@@ -1,4 +1,4 @@
-import React, {createContext,useState,useEffect,useMemo} from 'react'
+import React, { createContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { Producthome } from '../services/Productservices';
 export const HomeContext = createContext();
 export const HomeProvider = ({children}) =>{
@@ -6,13 +6,12 @@ export const HomeProvider = ({children}) =>{
     const [trendingData, settrendingData] = useState([]);
     const [phimsapchieu, setphimsapchieu] = useState([]);
     const [phimhot, setPhimhot] = useState([]);
-    const token = sessionStorage.getItem('token');
-    const id = sessionStorage.getItem('id');
-    const name = sessionStorage.getItem('name'); 
-    const email = sessionStorage.getItem('email');
-    const roles = sessionStorage.getItem('roles'); 
-    const permissions = sessionStorage.getItem('permissions'); 
-
+    const token = useMemo(() => sessionStorage.getItem('token'), []);
+    const id = useMemo(() => sessionStorage.getItem('id'), []);
+    const name = useMemo(() => sessionStorage.getItem('name'), []);
+    const email = useMemo(() => sessionStorage.getItem('email'), []);
+    const roles = useMemo(() => sessionStorage.getItem('roles'), []);
+    const permissions = useMemo(() => sessionStorage.getItem('permissions'), []);
     function SampleNextArrow(props) {
       const { className, style, onClick } = props;
       return (
@@ -56,23 +55,23 @@ export const HomeProvider = ({children}) =>{
         { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 2 }},
         { breakpoint: 470, settings: { slidesToShow: 2, slidesToScroll: 1 }},
         { breakpoint: 330, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-      ]
+      ],
     }), []);
     
     
 
+    const fetchData = useCallback(async () => {
+      const data = await Producthome();
+      setphimhanhdong(data.phimhanhdong);
+      settrendingData(data.phimtrending);
+      setphimsapchieu(data.phimsapchieu);
+      setPhimhot(data.phimhot);
+    }, []);
+  
+   
     useEffect(() => {
-        const fetchData = async () => {
-         console.log("dataaaafirst")
-          const data = await Producthome();
-          setphimhanhdong(data.phimhanhdong);
-          settrendingData(data.phimtrending);
-           setphimsapchieu(data.phimsapchieu);
-           setPhimhot(data.phimhot);
-
-        };
-        fetchData();
-      }, []);
+      fetchData();
+    }, [fetchData]);
      return (
         <HomeContext.Provider value={{ phimhanhdong, trendingData, phimsapchieu,phimhot,settings,token,name ,id,email,roles,permissions}}>
              {children}
