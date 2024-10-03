@@ -1,5 +1,5 @@
 .homepagebodyright_phimmsapchieu_detail{
-    
+    min-height: 100px;
     p{
       margin-top: -15px;
       margin-left: 10px;
@@ -108,5 +108,13 @@
         }
       }
     }
+  }
+  .movie-title {
+    font-size: 14px;
+    line-height: 1.2; 
+    color: #fff; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   

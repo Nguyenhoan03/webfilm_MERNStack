@@ -43,20 +43,29 @@ const MovieCard = ({ data }) => {
                   {pbm.trangthai}-{pbm.ngonngu}
                 </p>
                 <picture>
-                  <source
-                    srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")}
-                    type="image/webp"
-                  />
-                
-                  <LazyLoadImage
-                    style={{ width: 175, height: 245, borderRadius: "8px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)" }}
-                    src={pbm.hinhanh}
-                    alt={pbm.title}
-                  
-                     effect="blur"
-                  />
-                 
-                </picture>
+  <source
+    srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")}
+    className="lazyload"
+    type="image/webp"
+    style={{ width: 175, height: 245 }}
+  />
+  <LazyLoadImage
+    style={{
+      width: 175,
+      height: 245,
+      borderRadius: "8px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+      display: "block" 
+    }}
+    src={pbm.hinhanh}
+    alt={pbm.title}
+    className="lazyload"
+    effect="blur"
+    width={175}
+    height={245} 
+  />
+</picture>
+
                 <p
                   className="description-badge2"
                   style={{

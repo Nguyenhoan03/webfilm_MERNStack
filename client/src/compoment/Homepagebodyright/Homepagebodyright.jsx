@@ -12,7 +12,7 @@ export default function Homepagebodyright() {
           PHIM HÀNH ĐỘNG
         </h2>
         {phimhanhdong.map((phd, index) => (
-          <div key={index} className="d-flex mt-2">
+          <div key={index} className="d-flex mt-2" style={{minHeight:100}}>
             <img style={{ width: 85, height: 105 }} src={phd.hinhanh} alt="" />
             <Link to={`/${phd.title}`}>
               <div className="homepagebodyright_phimmsapchieu_detail">
@@ -62,19 +62,28 @@ export default function Homepagebodyright() {
         <h2 style={{ fontSize: 25, fontFamily: 'roboto', fontWeight: 300, textTransform: 'uppercase', color: '#ff9601' }}>
           PHIM SẮP CHIẾU
         </h2>
-        {phimsapchieu.map((phd, index) => (
-          <div key={index} className="d-flex mt-2">
-            <img style={{ width: 85, height: 105 }} src={phd.hinhanh} alt="" />
-            <Link to={`/${phd.title}`}>
-              <div className="homepagebodyright_phimmsapchieu_detail">
-                <p style={{ marginTop: 0 }}>{phd.title}</p>
-                <p>Phát hành năm: {phd.namphathanh}</p>
-                <p>Lượt xem: {phd.views}</p>
-                
-              </div>
-            </Link>
-          </div>
-        ))}
+        {phimsapchieu.length === 0 ? (
+  <div className="skeleton-loader">Loading...</div> 
+) : (
+  phimsapchieu.map((phd, index) => (
+    <div key={index} className="d-flex mt-2">
+      <img 
+        style={{ width: 85, height: 105 }} 
+        src={phd.hinhanh} 
+        alt={phd.title} 
+        loading="lazy" 
+      />
+      <Link to={`/${phd.title}`}>
+        <div className="homepagebodyright_phimmsapchieu_detail">
+          <p style={{ marginTop: 0 }}>{phd.title}</p>
+          <p>Phát hành năm: {phd.namphathanh}</p>
+          <p>Lượt xem: {phd.views}</p>
+        </div>
+      </Link>
+    </div>
+  ))
+)}
+
       </div>
 
     </div>

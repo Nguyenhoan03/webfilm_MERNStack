@@ -49,11 +49,13 @@ function App() {
   }, [routes]);
   // useEffect để thêm Google Analytics
   useEffect(() => {
+    // Create and append the script element for GTM
     const script = document.createElement('script');
-    script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SCBG4YH65W';
-    document.head.appendChild(script);
+    script.async = true;
+    document.body.appendChild(script);
 
+    // Add the GTM configuration script after the main GTM script loads
     script.onload = () => {
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -62,8 +64,12 @@ function App() {
       gtag('js', new Date());
       gtag('config', 'G-SCBG4YH65W');
     };
+    
+    // Clean up script when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
-
   return (
     <div className="App" style={{ backgroundColor: 'black' }}>
       <Router>

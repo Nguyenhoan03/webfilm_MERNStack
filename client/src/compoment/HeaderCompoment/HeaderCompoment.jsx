@@ -37,7 +37,7 @@ export default function HeaderComponent() {
     const fetchData = async () => {
       try {
         const response = await Getallproduct();
-        // setData(response.data);
+       
         const filterSearch = response.data
           .filter(item => item.title && item.title.toLowerCase().includes(search.toLowerCase()))
           .slice(0, 5);
@@ -154,11 +154,14 @@ export default function HeaderComponent() {
     <header className="header-component">
       <div className="header-inner">
         <Link to="/" className="logo">
-          <img
-            src="https://motchillj.net/motchill.png?v1.0.2"
-            alt="Motchill Logo"
-            className="logo-image"
-          />
+        <Link to="/" className="logo">
+  <img 
+    src="https://motchillj.net/motchill.png?v1.0.2"
+    alt="Motchill Logo"
+    className="logo-image"  
+  />
+</Link>
+
         </Link>
         <div className="header-search">
           <div className="search-container">

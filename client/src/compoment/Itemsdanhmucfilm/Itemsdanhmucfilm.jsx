@@ -38,8 +38,8 @@ import { useState } from "react";
                   {pbm.trangthai}-{pbm.ngonngu}
                 </p>
                 <picture>
-                <source srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")} type="image/webp" />
-                <img style={{ width: 175, height: 245 }} className="img-fluid" src={pbm.hinhanh} alt={pbm.title} loading="lazy"/>
+                <source srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")} type="image/webp" className="lazyload" style={{ width: 175, height: 245 }}/>
+                <img style={{ width: 175, height: 245 }} className="img-fluid lazyload" src={pbm.hinhanh} alt={pbm.title} loading="lazy"/>
                 <p className="description-badge2" style={{ marginLeft: 12 , color: 'white',position:'absolute',bottom:40,width:100,height: 30,borderRadius:10,alignContent:'center',textAlign:'center',backgroundColor:'#522e75'}}>
                   {pbm.sotap && pbm.sotap.includes('Tập') ? pbm.sotap : `${pbm.sotap} Tập`}
                 </p>

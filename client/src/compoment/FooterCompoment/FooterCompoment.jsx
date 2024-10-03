@@ -21,7 +21,12 @@ export default function FooterCompoment() {
         </ul>
         <div style={{ }}>
         <li><a href="#" style={{ color: '#ccc', textDecoration: 'none', marginLeft: '15px' }}>Giới thiệu</a></li>
-          <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=322e5f60-41cb-4fd7-8e45-d8188e2d0e87" alt="DMCA Protected" style={{ marginLeft: '15px' }} />
+        <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=322e5f60-41cb-4fd7-8e45-d8188e2d0e87" 
+     alt="DMCA Protected" 
+     width="120" 
+     height="50" 
+     style={{ marginLeft: '15px' }} />
+
          
         </div>
       </div>

@@ -50,7 +50,14 @@ export default function Homepage() {
       </div>
     </LazyLoad>
   );
+  const [contentVisible, setContentVisible] = useState(false);
 
+  useEffect(() => {
+    // Đợi cho trang load xong
+    window.onload = () => {
+      setContentVisible(true);
+    };
+  }, []);
 
   return (
     
@@ -76,10 +83,12 @@ export default function Homepage() {
 </Helmet>
       <div className="container">
       <div className="img_ad">
-  <p className="img_ad_text">
-    Hãy luôn truy cập <span className="highlight">nghienphim.click</span> để luôn được cập nhật được những bộ phim mới nhất
-  </p>
-</div>
+      {contentVisible && (
+        <p className="img_ad_text">
+          Hãy luôn truy cập <span className="highlight">nghienphim.click</span> để luôn được cập nhật những bộ phim mới nhất
+        </p>
+      )}
+    </div>
 
         <div className="homepagebody" style={{marginTop:-20}}>
           <div className="phimhot" style={{backgroundColor:'black'}}>
