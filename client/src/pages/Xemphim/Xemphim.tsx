@@ -9,6 +9,7 @@ import { TbPlayerTrackNext } from "react-icons/tb";
 import { IoIosHome } from 'react-icons/io';
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Helmet } from 'react-helmet';
+import {usePageXemPhim} from '../../hook/usePageXemPhim';
 import { CommentComponentProps } from '../../compoment/CommentCompoment/CommentCompoment';
 const Homepagebodyright = React.lazy(() => import('../../compoment/Homepagebodyright/Homepagebodyright'));
 const CommentCompoment = React.lazy(() => import('../../compoment/CommentCompoment/CommentCompoment'));
@@ -33,65 +34,10 @@ interface DetailData {
 
 const Xemphim: React.FC = () => {
   const { title, episode } = useParams<{ title: string; episode: string }>();
-  const [datafilm, setDataFilm] = useState<FilmData | null>(null);
-  const [datadetail, setDataDetail] = useState<DetailData | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<Error | null>(null);
-  const [ktranextepisode, setKtraNextEpisode] = useState<boolean>(false);
-  const [parent_id, setParentId] = useState<string | null>(null);
-  const [comment, setComment] = useState<CommentComponentProps[] | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        if (title && episode) {
-          const response = await Dataxemphim({title, episode:parseInt(episode)});
-          setDataFilm(response.data);
-        }
-      } catch (error) {
-        setError(error as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [title, episode]);
-
-  useEffect(() => {
-    const fetchDetail = async () => {
-      try {
-        if (title) {
-          const data = await ProductDetail({title});
-          setDataDetail(data.datafilm);
-          setComment(data.comments);
-          setParentId(data.parent_id);
-        }
-      } catch (error) {
-        setError(error as Error);
-      }
-    };
-
-    fetchDetail();
-  }, [title]);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  if (!datafilm) return null;
-
-  const tongsotapfilm = datadetail?.linkfilms.length ?? 0;
-  const numbertapfilmcurent = parseInt(episode?.replace('tap-', '') ?? '0', 10);
-  const tapTiepTheo = numbertapfilmcurent + 1;
-
-  const handlenextepisode = () => {
-    if (numbertapfilmcurent < tongsotapfilm) {
-      window.location.href = `/xem-phim/${datadetail?.title}/tap-${tapTiepTheo}`;
-    } else {
-      setKtraNextEpisode(true);
-    }
-  };
-
+ const {datafilm, datadetail, ktranextepisode, parent_id, comment, handlenextepisode, loading, error,numbertapfilmcurent} = usePageXemPhim(title,episode);
+ if (loading) return <div>Loading...</div>;
+ if (error) return <div>Error: {error.message}</div>;
+ if (!datafilm) return null;
   return (
     <div className=''>
       <Helmet>

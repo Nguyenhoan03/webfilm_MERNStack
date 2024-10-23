@@ -63,7 +63,7 @@ const Update_user_roles = async(id_user_update:number,edited_roles:string)=>{
       throw(error)
      }
 }
-const Update_user_permission = async(id_user_update:number,edited_Permissions:string)=>{
+const Update_user_permission = async(id_user_update:number,edited_Permissions:string| string[] | any)=>{
   try {
      const data = await axios.post(`${process.env.REACT_APP_API_URL}/update_permissions`,{id_user_update,edited_Permissions});
      if(data.status === 200){

@@ -1,62 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Leftadmincompoment from '../../../compoment/AdminCompoment/Leftadmincompoment/Leftadmincompoment';
 import Right_navbarcompoment from '../../../compoment/AdminCompoment/Right_navbarcompoment/Right_navbarcompoment';
 import { MdShoppingCart, MdAttachMoney, MdOutlineShoppingBag } from "react-icons/md";
 import { FaUserFriends } from "react-icons/fa";
-import { Getalluser } from '../../../services/Users';
-import { Update_user_roles } from '../../../services/Users';
-import { Update_user_permission } from '../../../services/Users';
+import { usePageUser } from "../../../hook/admin/usePageUser";
 import StatusCard from '../../../compoment/StatusCard';
+
 export default function Users() {
-    const [datauser, setdatauser] = useState<any[]>([]);
+    const { users, loading, error, handleRoleChange, handlePermissionChange } = usePageUser();
 
-    useEffect(() => {
-        const fetchAllUsers = async () => {
-            try {
-                const data = await Getalluser();
-                if (data) {
-                    setdatauser(data.data);
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchAllUsers();
-    }, []);
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
- 
-   const handleRoleChange =async (e:React.ChangeEvent<HTMLSelectElement>,index:number)=>{
-    try {
-        const edited_roles = e.target.value;
-        const id_user_update = datauser[index].id;
-        const data = await Update_user_roles(id_user_update,edited_roles);
-         if(data && data.success){
-              alert("update quyền người dùng" +datauser[index].username+ "thành công");
-              window.location.reload();
-        }
-    } catch (error) {
-        console.log(error)
-    }    
-   }
-   const handlePermissionChange = async (e: React.ChangeEvent<HTMLInputElement>, index: number, permissionType: string) => {
-    try {
-      const id_user_update = datauser[index].id;
-      const isChecked = e.target.checked;
-  
-      const edited_Permissions = isChecked
-        ? [...datauser[index].permissions, permissionType]  
-        : datauser[index].permissions.filter((permission:string | any[]) => permission !== permissionType);  
-      console.log("Edited Permissions", edited_Permissions);
-     const data = await Update_user_permission(id_user_update, edited_Permissions);
-     if(data && data.success){
-         datauser[index].permissions = edited_Permissions;
-         setdatauser([...datauser]); 
-         alert("Cập nhật thành công người dùng" + datauser[index].username);
-     }   
-    } catch (error) {
-      console.log(error);
-    }
-  };
     return (
         <div className="container-fluid">
             <div className="row">
@@ -67,7 +22,7 @@ export default function Users() {
                     <Right_navbarcompoment />
                     <div className="row mt-4">
                         <div className="col-12 col-md-6 col-lg-3 mb-3">
-                            <StatusCard icon={<MdShoppingCart />} count="1,995" title="Total Sales" />
+                            <StatusCard icon={<MdShoppingCart />} count={users.length.toString()} title="Total Users" />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3 mb-3">
                             <StatusCard icon={<MdAttachMoney />} count="$2,632" title="Total Income" />
@@ -91,29 +46,33 @@ export default function Users() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {datauser.map((data, index) => (
-                                    <tr key={index}>
-                                        <td>{data.email}</td>
-                                        <td>{data.password}</td>
-                                        <td>{data.username}</td>
+                                {users.map((user, index) => (
+                                    <tr key={user.id}>
+                                        <td>{user.email}</td>
+                                        <td>{user.password}</td>
+                                        <td>{user.username}</td>
                                         <td>
-                                            <select className="form-control" value={data.roles} onChange={(e) => handleRoleChange(e, index)}>
+                                            <select 
+                                                className="form-control" 
+                                                value={user.roles} 
+                                                onChange={(e) => handleRoleChange(e, index)}
+                                            >
                                                 <option value="user">User</option>
                                                 <option value="admin">Admin</option>
                                             </select>
                                         </td>
                                         <td>
                                             <input
-                                            type="checkbox"
-                                            value="VIP1"
-                                            checked={datauser[index].permissions.includes('VIP1')}
-                                            onChange={(e) => handlePermissionChange(e, index, 'VIP1')}
+                                                type="checkbox"
+                                                value="VIP1"
+                                                checked={user.permissions.includes('VIP1')}
+                                                onChange={(e) => handlePermissionChange(e, index, 'VIP1')}
                                             /> VIP1
                                             <input
-                                            type="checkbox"
-                                            value="VIP2"
-                                            checked={datauser[index].permissions.includes('VIP2')}
-                                            onChange={(e) => handlePermissionChange(e, index, 'VIP2')}
+                                                type="checkbox"
+                                                value="VIP2"
+                                                checked={user.permissions.includes('VIP2')}
+                                                onChange={(e) => handlePermissionChange(e, index, 'VIP2')}
                                             /> VIP2
                                         </td>
                                     </tr>
