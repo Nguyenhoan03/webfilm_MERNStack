@@ -126,7 +126,7 @@ const Getdetailfilm =async (titlefilm: string) : Promise<any>=>{
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const fetchData = async ({ endpoint, filters = {} }: FetchDataParams): Promise<any> => {
+const fetchData = async ({ endpoint, filters = {} }: FetchDataParams): Promise<string[] | any> => {
   try {
     const queryParams = new URLSearchParams(filters).toString();
     const url = `${process.env.REACT_APP_API_URL}/product/${endpoint}${queryParams ? `?${queryParams}` : ''}`;

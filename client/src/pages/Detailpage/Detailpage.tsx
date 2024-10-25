@@ -13,11 +13,13 @@ import { Helmet } from 'react-helmet';
 import { HandleRating } from '../../services/Productservices';
 import { ProductServiceUpdateView } from '../../services/Productservices';
 import { HandleRatingParams } from '../../services/Productservices';
+import { useDetailPage } from '../../hook/usePagedetail';
 const Slickslider = React.lazy(()=>import('../../compoment/Slickslider/Slickslider'));
 const Homepagebodyright = React.lazy(()=>import('../../compoment/Homepagebodyright/Homepagebodyright'))
 const CommentCompoment = React.lazy(()=>import('../../compoment/CommentCompoment/CommentCompoment'))
 export interface DataDetail {
   title: string;
+  nameenglish: string;
   hinhanh: string;
   theloai: string;
   trangthai: string;
@@ -39,12 +41,35 @@ export interface DataDetail {
   comments?: string; 
 }
 export default function Detailpage() {
-  const { token,id,email,phimhot,permissions,roles} = useContext(HomeContext) || {};
-  const memophimhot = useMemo(()=> phimhot, [phimhot])
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState(null);
-  const [hoveredStar, setHoveredStar] = useState<number>(0); 
-  const [selectedStar, setSelectedStar] = useState<number>(0);
+ const {
+    loading,
+    error,
+    hoveredStar,
+    setHoveredStar,
+    selectedStar,
+    checkbutton,
+    datadetail,
+    comment,
+    parent_id,
+    ratingtotal,
+    averageRating,
+    memophimhot,
+    handlecheckbutton,
+    handlebuttonxemfilm,
+    handleFormSubmit,
+    title
+  } = useDetailPage();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 991);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const settings = useMemo(() => ({
     dots: false,
     infinite: true,
@@ -138,98 +163,8 @@ export default function Detailpage() {
     );
   }
 
- 
- const [checkbutton,setcheckbutton] = useState(1);
- const handlecheckbutton = (key:number)=>{
-     setcheckbutton(key);
-    }
-    const {title} = useParams();
-    const [datadetail, setdatadetail] = useState<DataDetail | null | any>(null); 
-    const [comment, setcomment] = useState(null);
-    const [parent_id, setparent_id] = useState(null);
-    const [ratingtotal, setratingtotal] = useState(0);
-const [averageRating, setAverageRating] = useState(0);
-   
- 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const data = await ProductDetail({ title, id, permissions, roles });
-      if (data.error1) {
-        alert("Bạn cần đăng nhập và mua gói xem VIP để có thể xem được phim này!");
-        window.history.back();
-      } else if (data.error) {
-        alert("Bạn cần mua gói xem VIP để có thể xem được phim này!");
-        window.history.back();
-      } else {
-        await ProductServiceUpdateView(title);
-        setdatadetail(data.datafilm);
-        setcomment(data.comments);
-        setparent_id(data.parent_id);
-        setSelectedStar(data.rating_star ? data.rating_star.rating : 0);
-        setratingtotal(Number(data.general_assessment.totalRatings) || 0);
-        setAverageRating(Number(data.general_assessment.averageRating) || 0);
-      }
-    } catch (error:any) {
-      setError(error);
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchData();
-}, [title, id, permissions, roles]);
-const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-useEffect(() => {
-    const handleResize = () => {
-        if (window.innerWidth < 991) {
-            setIsSmallScreen(true);
-        } else {
-            setIsSmallScreen(false);
-        }
-    };
-
-    handleResize(); 
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-}, []);
-
-   console.log("firstratingtotal",ratingtotal);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {(error as Error).message}</div>; 
-
-  const handlebuttonxemfilm = (): void => {
-    if (datadetail?.linkfilms && datadetail.linkfilms.length > 0) {
-      window.location.href = `/xem-phim/${datadetail.title}/tap-1`;
-    } else {
-      alert('Hiện tại phim này chưa cập nhật để xem !');
-    }
-  }
-
-
-  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>, starselect: number): Promise<void> => {
-    event.preventDefault();
-    try {
-      if (!token) {
-        alert("Bạn cần đăng nhập để có thể đánh giá");
-      } else {
-       const ratingParams : HandleRatingParams = {
-        token,
-        titlefilm: title,
-        id: id || '', 
-        email: email || '',
-        starselect
-       }
-        // await HandleRating(token, title, id, email, starselect);
-        await HandleRating(ratingParams);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
 
   return (
@@ -267,9 +202,9 @@ useEffect(() => {
       <div className="caption caption_title mt-1 d-flex">
                 <p><IoIosHome /> Motchill</p>
                 <p>{'>'}</p>
-                <p> {datadetail.theloai.split(',')[0] || ''}</p>
+                <p> {datadetail?.theloai.split(',')[0] || ''}</p>
                 <p>{'>'}</p>
-                <p style={{color:'white'}}> {datadetail.title}</p>
+                <p style={{color:'white'}}> {datadetail?.title}</p>
             </div>
             <div className="content_detailpage">
         <div className="row content_detailpage_child">
@@ -277,7 +212,7 @@ useEffect(() => {
             <div className="content_detailpage_card ">
             <div className="d-flex flex-column flex-md-row content_detail_card_child">
   <div className="col-md-4 image_card_detailpage" style={{display:'inline-block',position:'relative',width:290}}>
-    <img style={{width: 290,height: 400}} src={datadetail.hinhanh ? datadetail.hinhanh : ''} alt="" />
+    <img style={{width: 290,height: 400}} src={datadetail?.hinhanh ? datadetail.hinhanh : ''} alt="" />
     <div className="content_detailpage_card_button" style={{position:'absolute',bottom: 0, left:0,height:75,width:'100%',backgroundColor:'rgba(0,0,0,0.8)'}}>
       <button className='btn btn-primary'><Link to="">Tải phim</Link></button>
       <button className='btn btn-tomato' onClick={handlebuttonxemfilm}>
@@ -287,20 +222,20 @@ useEffect(() => {
   </div>
   <div className='col-md-8 card_detailpage_film' style={{marginLeft:15}}>
                   <div className="">
-                <h1 className="movie-title">{datadetail.title}</h1>
-          <h2 className="movie-subtitle text-light">{datadetail.nameenglish}</h2>
+                <h1 className="movie-title">{datadetail?.title}</h1>
+          <h2 className="movie-subtitle text-light">{datadetail?.nameenglish}</h2>
           <ul className="movie-details">
-            <li><strong>Trạng thái:</strong> {datadetail.trangthai}</li>
-            <li><strong>Thời luọng:</strong> {datadetail.thoiluong}</li>
-            <li><strong>Đạo diễn:</strong> {datadetail.daodien}</li>
-            <li><strong>Thời lượng:</strong> {datadetail.thoiluong}</li>
-            <li><strong>Số tập:</strong> {datadetail.sotap}</li>
-            <li><strong>Chất lượng:</strong>{datadetail.chatluong} </li>
-            <li><strong>Ngôn ngữ:</strong> {datadetail.ngonngu}</li>
-            <li><strong>Năm phát hành:</strong> {datadetail.namphathanh}</li>
-            <li><strong>Quốc gia:</strong> {datadetail.quocgia}</li>
-            <li><strong>Thể loại:</strong> {datadetail.theloai}</li>
-            <li><strong>Diễn viên:</strong> {datadetail.dienvien}</li>
+            <li><strong>Trạng thái:</strong> {datadetail?.trangthai}</li>
+            <li><strong>Thời luọng:</strong> {datadetail?.thoiluong}</li>
+            <li><strong>Đạo diễn:</strong> {datadetail?.daodien}</li>
+            <li><strong>Thời lượng:</strong> {datadetail?.thoiluong}</li>
+            <li><strong>Số tập:</strong> {datadetail?.sotap}</li>
+            <li><strong>Chất lượng:</strong>{datadetail?.chatluong} </li>
+            <li><strong>Ngôn ngữ:</strong> {datadetail?.ngonngu}</li>
+            <li><strong>Năm phát hành:</strong> {datadetail?.namphathanh}</li>
+            <li><strong>Quốc gia:</strong> {datadetail?.quocgia}</li>
+            <li><strong>Thể loại:</strong> {datadetail?.theloai}</li>
+            <li><strong>Diễn viên:</strong> {datadetail?.dienvien}</li>
           </ul>
           </div>
           <div className="mt-1">
@@ -360,8 +295,8 @@ useEffect(() => {
                     checkbutton === 1 ? (<div className="">
                     <p style={{fontSize:22,fontWeight:550,color:'rgb(182, 179, 179)'}}>DANH SÁCH TẬP</p>
                     <div className="list_episode">
-                      {datadetail.linkfilms.map((episodelist: {episode:number},key:number)=>(
-                        <button key={key}><Link to={`/xem-phim/${datadetail.title}/tap-${episodelist.episode}`}>Tập {episodelist.episode}</Link></button>
+                      {datadetail?.linkfilms.map((episodelist: {episode:number},key:number)=>(
+                        <button key={key}><Link to={`/xem-phim/${datadetail?.title}/tap-${episodelist.episode}`}>Tập {episodelist.episode}</Link></button>
 
                       ))}
                         
@@ -370,7 +305,7 @@ useEffect(() => {
                     ) : (
                       <div className="">
                       <p style={{fontSize:22,fontWeight:550,color:'rgb(182, 179, 179)'}}>Tóm tắt</p>
-                      <p style={{color:'rgb(182, 179, 179)'}}>{datadetail.descripts}</p>
+                      <p style={{color:'rgb(182, 179, 179)'}}>{datadetail?.descripts}</p>
                       </div>
                     )
                   }

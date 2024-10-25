@@ -22,20 +22,7 @@ export default function Search() {
           <p> &gt; </p>
           <p>Kết quả tìm kiếm : {params.content_search}</p>
         </div>
-        {/* <p
-          style={{
-            textTransform: "uppercase",
-            fontSize: 23,
-            color: "white",
-            justifyContent: "center",
-            alignContent: "center",
-            textAlign: "center",
-            borderBottom: "1px solid gray",
-            paddingBottom: 10,
-          }}
-        >
-          Phim Ấn Độ
-        </p> */}
+    
         <div className="row">
           <div className="hanhdongleft col-md-9">
             <div className="">

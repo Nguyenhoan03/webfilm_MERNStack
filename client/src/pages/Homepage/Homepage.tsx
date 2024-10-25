@@ -3,65 +3,14 @@ import { Producthome } from '../../services/Productservices';
 import './Style.scss';
 import { Helmet } from 'react-helmet';
 import { HomeContext, HomeContextType } from '../../store/HomeContext';
-
+import usePageHome from '../../hook/usePageHome';
 const Homepagebodyright = React.lazy(() => import('../../compoment/Homepagebodyright/Homepagebodyright'));
 const Slickslider = React.lazy(() => import('../../compoment/Slickslider/Slickslider'));
 const MovieCard = React.lazy(() => import('../../compoment/MovieCard/MovieCard'));
 export default function Homepage() {
-  const { settings,phimhot } = useContext(HomeContext) as HomeContextType;
- 
-  const [phimbomoi, setphimbomoi] = useState([]);
-  const [phimlemoi, setphimlemoi] = useState([]);
-  const [phimhoanthanh, setphimhoanthanh] = useState([]);
- 
-  const [phimhoathinh, setphimhoathinh] = useState<string[]>([]);
-  const [phimtamlytinhcam, setphimtamlytinhcam] = useState<string[]>([]);
-  const [phimvientuong, setphimvientuong] = useState<string[]>([]);
-  const [dataphim, setDataphim] = useState<string[]|any>([]);
-  const [activeTab, setActiveTab] = useState(0);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await Producthome();
-      setphimbomoi(data.phimbomoicapnhat);
-      setphimlemoi(data.phimlemoicapnhat);
-      setphimhoanthanh(data.phimdahoanthanh);
-      setphimhoathinh(data.phimhoathinh);
-      setphimtamlytinhcam(data.phimtamlytimcam);
-      setphimvientuong(data.phimvientuong);
-      setDataphim(data.phimbomoicapnhat); 
-      console.log(data,"dataaaaa");
-      console.log(settings,"dataaaaacontext");
-      console.log(phimhot,"dataaaaa");
-    };
-    fetchData();
-  }, []);
-
-  const handleClickpb = (key:number) => {
-    setActiveTab(key);    
-    const newData = [phimbomoi, phimlemoi, phimhoanthanh][key];
-    setDataphim(newData);
-  };
-  
-  const rendercategorycontent = (title:string, data:string[]|any) => (
-    <Suspense fallback={<div>Loadding...</div>}>
-      <div className="phimhanquoc mt-4">
-        <h2 style={{ fontSize: 25, fontFamily: 'roboto', fontWeight: 300, textTransform: 'uppercase', color: '#ff9601' }}>{title}</h2>
-        <MovieCard data={data} />
-      </div>
-    </Suspense>
-  );
-  const [contentVisible, setContentVisible] = useState(false);
-
-  useEffect(() => {
-    // Đợi cho trang load xong
-    window.onload = () => {
-      setContentVisible(true);
-    };
-  }, []);
+  const {rendercategorycontent,handleClickpb,contentVisible,phimhot,settings,dataphim,activeTab,phimhoathinh,phimtamlytinhcam,phimvientuong} = usePageHome();
 
   return (
-    
     <div className='homepage'>
         <Helmet>
   <title>Nghiện Phim | Xem Phim Online Miễn Phí - Tổng Hợp Phim Hay Nhất 2024</title>
