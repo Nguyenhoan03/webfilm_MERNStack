@@ -1,8 +1,9 @@
+const { closetag } = require('sitemap/dist/lib/sitemap-stream');
 const Userservice = require('../services/Userservices') 
 const Login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const data = await Userservice.Servicelogin(email, password);
+        const { email, password,googleToken } = req.body;
+        const data = await Userservice.Servicelogin(email, password,googleToken);
        
         if (data.success) {
             res.status(200).json({ token: data.token,refreshToken: data.refreshToken, name: data.name, id: data.id,roles:data.roles,permissions:data.permissions});
@@ -14,6 +15,7 @@ const Login = async (req, res) => {
         res.status(500).json("Server error");
     }
 }
+
 const Refreshtoken =async (req,res ) => {
      try {
         const refeshToken = req.body.token;

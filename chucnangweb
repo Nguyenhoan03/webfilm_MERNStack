@@ -6,4 +6,10 @@ Quản lý thông tin cá nhân.
 
 fix admin/user purchased package
 phân quyền hiển thị product admin vip2 purchased package
-273061
+
+
+các phần cần update:
+-bình luận realtime socket (^_^)
+-checkbox để chọn nhiều cùng lúc ở trong admin để xử lý (^_^)
+-tạo trang thông tin tài khoản, thêm login với google (^_^)
+-tối ưu lại code

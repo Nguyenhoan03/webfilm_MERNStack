@@ -82,12 +82,7 @@ export default function Dashboard() {
                     </div>
                     <div className="col-12">
                         <div className="card full-height">
-                            <Chart
-                                options={chartOptions.options}
-                                series={chartOptions.series}
-                                type='line'
-                                height='350'
-                            />
+                          /
                         </div>
                     </div>
                 </div>

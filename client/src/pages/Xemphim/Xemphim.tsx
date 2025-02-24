@@ -1,16 +1,13 @@
-import React, { useState, useEffect, Suspense } from 'react';
-import './Style.scss';
-import { useParams, Link } from 'react-router-dom';
-import { ProductDetail } from '../../services/Productservices';
-import { Dataxemphim } from '../../services/Xemfilmservices';
-import { MdError } from "react-icons/md";
-import { FaRegLightbulb } from "react-icons/fa";
-import { TbPlayerTrackNext } from "react-icons/tb";
-import { IoIosHome } from 'react-icons/io';
-import { BsArrowsFullscreen } from "react-icons/bs";
+import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import {usePageXemPhim} from '../../hook/usePageXemPhim';
-import { CommentComponentProps } from '../../compoment/CommentCompoment/CommentCompoment';
+import { BsArrowsFullscreen } from "react-icons/bs";
+import { FaRegLightbulb } from "react-icons/fa";
+import { IoIosHome } from 'react-icons/io';
+import { MdError } from "react-icons/md";
+import { TbPlayerTrackNext } from "react-icons/tb";
+import { Link, useParams } from 'react-router-dom';
+import { usePageXemPhim } from '../../hook/usePageXemPhim';
+import './Style.scss';
 const Homepagebodyright = React.lazy(() => import('../../compoment/Homepagebodyright/Homepagebodyright'));
 const CommentCompoment = React.lazy(() => import('../../compoment/CommentCompoment/CommentCompoment'));
 

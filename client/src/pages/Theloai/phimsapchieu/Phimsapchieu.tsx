@@ -1,4 +1,4 @@
-import React, { useEffect, useState,Suspense } from "react";
+import React, { Suspense } from "react";
 
 import { IoIosHome } from "react-icons/io";
 import Homepagebodyright from "../../../compoment/Homepagebodyright/Homepagebodyright";

@@ -30,6 +30,7 @@ const initRoutes = (app) => {
     error.stack = new Error().stack;
     next(error);  
   });
+  
 
   // Error handler should be the last middleware
   app.use(ErrorHandler);

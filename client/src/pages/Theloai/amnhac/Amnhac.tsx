@@ -1,10 +1,10 @@
-import React, { useEffect, useState,Suspense } from "react";
+import React, { Suspense } from "react";
 
+import { Helmet } from "react-helmet";
 import { IoIosHome } from "react-icons/io";
 import Homepagebodyright from "../../../compoment/Homepagebodyright/Homepagebodyright";
 import { useFilteredData } from "../../../hook/FilterData/useFilteredData";
 import { Productdanhmucphimamnhac } from "../../../services/Productservices";
-import { Helmet } from "react-helmet";
 const FilterfilmCompoment = React.lazy(()=>import("../../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 export default function Amnhac() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productdanhmucphimamnhac);

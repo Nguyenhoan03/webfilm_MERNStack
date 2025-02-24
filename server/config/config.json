@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "webphim",
+    "database": "chuyenn7_db_webphim",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

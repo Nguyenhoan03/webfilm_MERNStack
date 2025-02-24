@@ -5,7 +5,7 @@ import Defaultcomponent from './compoment/Defaultcompoment/Defaultcompoment'; //
 import { HomeProvider } from './store/HomeContext';
 import { routes } from './routers/index';
 import './App.scss';
-
+import {GoogleOAuthProvider} from '@react-oauth/google'
 function App() {
   // Component Loading Spinner
   const LoadingSpinner = () => (
@@ -74,7 +74,9 @@ function App() {
     <div className="App" style={{ backgroundColor: 'black' }}>
       <Router>
         <HomeProvider>
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID} >
           {renderRoutes} 
+          </GoogleOAuthProvider>
         </HomeProvider>
       </Router>
     </div>

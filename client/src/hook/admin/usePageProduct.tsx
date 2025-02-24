@@ -95,7 +95,7 @@ export const usePageProduct = () => {
           console.error("Error updating VIP1:", error);
         }
       };
-      const handledeleteproduct =async (title:string)=>{
+      const handledeleteproduct =async (title: string[])=>{
           try {
             const data = await services_delete_productphim(title);
             if(data.success){
@@ -106,6 +106,7 @@ export const usePageProduct = () => {
               console.log(error)
           }
       }    
+      
 
   return {
     dataphim,

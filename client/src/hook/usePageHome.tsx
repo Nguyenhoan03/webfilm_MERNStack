@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, Suspense } from 'react';
+import { useContext, useEffect, useState, Suspense } from 'react';
 import { HomeContext, HomeContextType } from '../store/HomeContext';
 import MovieCard from '../compoment/MovieCard/MovieCard';
 import { Producthome } from '../services/Productservices';

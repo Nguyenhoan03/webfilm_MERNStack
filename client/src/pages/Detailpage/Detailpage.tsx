@@ -1,18 +1,14 @@
-import React, { useState,useContext, useEffect,useMemo,Suspense } from 'react'
-import './Style.scss'
-import { IoIosHome } from "react-icons/io";
-import { Link, useParams } from 'react-router-dom';
+import React, { Suspense, useEffect, useMemo, useState } from 'react';
 import { AiFillLike } from "react-icons/ai";
+import { IoIosHome } from "react-icons/io";
 import { IoBookmark } from "react-icons/io5";
+import { Link } from 'react-router-dom';
+import './Style.scss';
 
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
-import { HomeContext } from '../../store/HomeContext';
-import { ProductDetail } from '../../services/Productservices';
+
 import { Helmet } from 'react-helmet';
-import { HandleRating } from '../../services/Productservices';
-import { ProductServiceUpdateView } from '../../services/Productservices';
-import { HandleRatingParams } from '../../services/Productservices';
 import { useDetailPage } from '../../hook/usePagedetail';
 const Slickslider = React.lazy(()=>import('../../compoment/Slickslider/Slickslider'));
 const Homepagebodyright = React.lazy(()=>import('../../compoment/Homepagebodyright/Homepagebodyright'))

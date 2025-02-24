@@ -36,7 +36,7 @@ useEffect(() => {
         .slice(0, 5);
       setFilteredData(filterSearch);
     } catch (error) {
-      console.error(error);
+      console.error(error); 
     }
   };
   fetchData();

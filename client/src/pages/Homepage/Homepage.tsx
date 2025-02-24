@@ -1,8 +1,7 @@
-import React, { useEffect, useState,useContext,Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Producthome } from '../../services/Productservices';
 import './Style.scss';
 import { Helmet } from 'react-helmet';
-import { HomeContext, HomeContextType } from '../../store/HomeContext';
 import usePageHome from '../../hook/usePageHome';
 const Homepagebodyright = React.lazy(() => import('../../compoment/Homepagebodyright/Homepagebodyright'));
 const Slickslider = React.lazy(() => import('../../compoment/Slickslider/Slickslider'));

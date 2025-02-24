@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+//useCommentHook
+import { useState } from 'react';
 import { usercomment, userchildcomment } from '../services/Productservices';
 
 export const useComments = (titlefilm: string | null | any, initialComments: any[] | null) => {
@@ -29,7 +30,6 @@ export const useComments = (titlefilm: string | null | any, initialComments: any
       await userchildcomment({token, titlefilm, contentcomment: childContentComment, parent_id});
       setChildContentComment('');
       setReplyParentId(null);
-      // Cập nhật danh sách bình luận ở đây nếu cần
     } catch (error) {
       console.log(error);
     }

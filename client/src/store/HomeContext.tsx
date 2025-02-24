@@ -1,6 +1,5 @@
-import React, { createContext, useState, useEffect, useMemo, useCallback, ReactNode } from 'react';
+import { createContext, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { Producthome } from '../services/Productservices';
-import { FaUnderline } from 'react-icons/fa';
 export interface HomeContextType {
   phimhanhdong: any[];
   trendingData: any[];

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+
 import Leftadmincompoment from "../../../compoment/AdminCompoment/Leftadmincompoment/Leftadmincompoment";
 import Right_navbarcompoment from "../../../compoment/AdminCompoment/Right_navbarcompoment/Right_navbarcompoment";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StatusCard from "../../../compoment/StatusCard";
 import {usePageCrawlPhim} from "../../../hook/admin/usePageCrawlPhim";
@@ -11,7 +11,6 @@ import {
   MdOutlineShoppingBag,
 } from "react-icons/md";
 import { FaUserFriends } from "react-icons/fa";
-import axios from "axios";
 import "./Autocrawlphim.scss";
 
 interface CrawlData {

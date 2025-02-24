@@ -32,7 +32,7 @@ const home = async () => {
       attributes: options.attributes || commonAttributes,
       order: options.order || [['id', 'DESC']],
       limit: options.limit || 18,
-      // logging: console.log, // Add this for debugging to see the generated SQL
+      raw: true,  
     });
 
     const promises = [
@@ -361,21 +361,32 @@ const quocgia = async (quocgia, filters = {}) => {
 
 
 
-const post_comment = async (userId, titlefilm, contentcomment,parent_id) => {
-  // Kiểm tra dữ liệu đầu vào
+const post_comment = async (userId, titlefilm, contentcomment, parent_id) => {
   if (userId == null || titlefilm == null || contentcomment == null) {
     throw new Error('Missing required fields: userId, titlefilm, or contentcomment');
   }
 
   try {
-    await Comment.create({
+    // Tạo comment và lấy luôn thông tin user
+    const newComment = await Comment.create({
       titlefilm: titlefilm,
       comment: contentcomment,
       user_id: userId,
       parent_id: parent_id || null,
     });
-    return { success: true };
+
+    // Lấy thông tin user
+    const user = await User.findByPk(userId);
+
+    return { 
+      success: true,
+      id: newComment.id,
+      username: user.username,  
+      comment: contentcomment,
+      parent_id: parent_id
+    };
   } catch (error) {
+    console.error("Error in post_comment:", error);
     throw error;
   }
 };
@@ -449,7 +460,7 @@ const Productservices_updateview = async (title) => {
       throw error;
     }
   } else {
-    return { success: true }; // View count not incremented due to throttling
+    return { success: true };
   }
 };
 
@@ -457,12 +468,12 @@ const Productservices_delete = async (title) => {
   const transaction = await sequelize.transaction();
   try {
      const linkfilmDelete = await Linkfilm.destroy({
-       where: {title: title },
+       where: {title: {[Op.in]: title} },
        transaction
      });
      
      const productDelete = await Product.destroy({
-       where: { title: title },
+      where: {title: {[Op.in]: title} },
        transaction
      });
 

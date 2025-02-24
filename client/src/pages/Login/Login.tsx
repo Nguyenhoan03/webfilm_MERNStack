@@ -4,6 +4,7 @@ import "./Style.scss";
 import { ServiceUserlogin } from "../../services/Users";
 import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+import { GoogleLogin } from "@react-oauth/google";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +29,24 @@ export default function Login() {
     if (e.key === "Enter") { 
       handleLogin();
     }
+  };
+  const handleSuccess = async (response: any) => {
+    try {
+      console.log("Login Success:", response);
+      const data = await ServiceUserlogin({ email: '', password: '', googleToken: response.credential });
+      if (data.success) {
+        window.location.href = "/";
+      } else {
+        setError('Đăng nhập thất bại. Vui lòng thử lại.');
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setError('Đã xảy ra lỗi khi đăng nhập. Vui lòng thử lại sau.dfvsdsdf');
+    }
+  };
+
+  const handleError = () => {
+    console.error("Login Failed");
   };
 
   return (
@@ -96,6 +115,7 @@ export default function Login() {
                 <a href="#">Quên mật khẩu ? </a> <Link to='/dang-ky'> Đăng kí tài khoản mới</Link>
               </div>
             </div>
+            <GoogleLogin onSuccess={handleSuccess} onError={handleError}/>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <button type="button" onClick={handleLogin} className="submit-btn">
               Đăng nhập

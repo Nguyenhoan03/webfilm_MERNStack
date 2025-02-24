@@ -1,4 +1,3 @@
-import React from 'react';
 import Leftadmincompoment from '../../../compoment/AdminCompoment/Leftadmincompoment/Leftadmincompoment';
 import Right_navbarcompoment from '../../../compoment/AdminCompoment/Right_navbarcompoment/Right_navbarcompoment';
 import { MdShoppingCart, MdAttachMoney, MdOutlineShoppingBag } from "react-icons/md";

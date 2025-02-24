@@ -1,6 +1,4 @@
-import React from 'react';
-import './RegisterVIP.scss'; // Assuming you're using a separate CSS file for styling
-import { Link } from 'react-router-dom';
+import './RegisterVIP.scss';
 import { HomeContext, HomeContextType } from '../../store/HomeContext';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';

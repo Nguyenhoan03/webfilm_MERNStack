@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Dataxemphim } from '../services/Xemfilmservices';
 import { ProductDetail } from '../services/Productservices';

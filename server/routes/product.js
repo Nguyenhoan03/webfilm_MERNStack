@@ -3,13 +3,14 @@ const router = express.Router();
 const productController = require('../controller/productcontroller');
 const XemphimController = require('../controller/Xemphimcontroller')
 const {verifyToken} = require('../middleware/Authmiddlware')
+const Socketmiddleware = require('../middleware/Socketmiddlware');
 router.post('/comment',verifyToken, productController.Product_comment);
 router.post('/rating_star',verifyToken, productController.Rating_star);
 router.get('/product-home', productController.Product_home);
 router.get('/product-phimbo', productController.Product_phimbo);
 router.get('/product-phimle', productController.Product_phimle);
 router.get('/product-phimshows', productController.Product_phimshows);
-router.get('/product-phimsapchieu', productController.Product_phimsapchieu);
+router.get('/product-phimsapchieu', productController.Product_phimsapchieu);    
 router.get('/product-phimbo', productController.Product_danhmucphimbo);
 router.get('/product-phimle', productController.Product_danhmucphimle);
 router.get('/product-phimshows', productController.Product_danhmucphimshows);

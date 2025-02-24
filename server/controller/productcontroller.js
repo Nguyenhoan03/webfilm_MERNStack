@@ -1,5 +1,6 @@
 const Productservices = require('../services/Productservices');
 const Sendmailcontroller = require('../controller/Sendmailcontroller')
+const SocketManager = require('../lib/socket/SocketManager');
 const Product_home = async (req, res) => {
   try {
     const data = await Productservices.home();
@@ -85,7 +86,6 @@ const getProductByCategory = async (req, res, categoryId) => {
     });
   }
 };
-
 const Product_phimbo = (req, res) => getProductByCategory(req, res, 24);
 const Product_phimle = (req, res) => getProductByCategory(req, res, 25);
 const Product_phimshows = (req, res) => getProductByCategory(req, res, 26);
@@ -154,21 +154,45 @@ const handledanhmucphim = async (req, res,category, next) => {
 const Product_comment = async (req, res, next) => {
   try {
     const userId = req.userId;
-    const { titlefilm, contentcomment,parent_id } = req.body;
+    const { titlefilm, contentcomment, parent_id } = req.body;
    
-    const data = await Productservices.post_comment(userId, titlefilm, contentcomment,parent_id);
-    if (data.success) {
-      res.status(200).json({ message: 'Create success token' });
-    } else {
-    next(error);
+    const data = await Productservices.post_comment(userId, titlefilm, contentcomment, parent_id);
+    
+    console.log("Comment data from service:", data);
 
+    if (data.success) {
+      const io = req.app.get('io');
+      
+      const commentData = {
+        id: data.id,
+        comment: contentcomment,
+        parent_id: parent_id || null, 
+        createdAt: new Date().toISOString(),
+        users: {
+          username: data.username
+        },
+        titlefilm: titlefilm
+      };
+
+      // Debug logs
+      console.log('Room:', titlefilm);
+      console.log('Comment data to emit:', commentData);
+      
+      // Emit to specific room
+      io.to(titlefilm).emit('SocketRealtimeComment', commentData);
+      
+      res.status(200).json({ 
+        message: 'Comment created successfully',
+        comment: commentData 
+      });
+    } else {
       throw new Error('Failed to create comment');
     }
   } catch (error) {
+    console.error('Error in Product_comment:', error);
     next(error);
   }
-}
-
+};
 //rating star
 const Rating_star = async (req, res) => {
   try {
@@ -355,7 +379,7 @@ const Product_updateview = async (req, res) => {
 const Delete_product = async (req, res) => {
   try {
     const { title } = req.query
-    console.log("firsttittttle", title);
+    console.log("firsttitttle", title);
 
     const data = await Productservices.Productservices_delete(title);
     if (data.success) {

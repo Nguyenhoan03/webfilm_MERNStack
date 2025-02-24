@@ -1,13 +1,11 @@
-// Đường dẫn: client/src/compoment/HeaderCompoment/HeaderCompoment.tsx
-import React, { useEffect, useState } from "react";
+
 import "./Styles.scss";
 import { CiSearch, CiLogin, CiBookmark } from "react-icons/ci";
 import { RxAvatar } from "react-icons/rx";
-import { Link, useNavigate } from "react-router-dom";
-import { Getallproduct } from "../../services/Productservices";
+import { Link } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLayoutHeader } from "../../hook/useLayoutHeader";
 
@@ -233,7 +231,6 @@ const {
             {isLoggedIn && <CiBookmark size={28} className="bookmark-icon" />}
           </div>
         </nav>
-    
         <div className="tab_menu" style={{ float: 'right', marginLeft: 15 }}>
           <IoMdMenu onClick={handleTabMenuToggle} style={{ fontSize: 38, color: 'white' }} />
         </div>

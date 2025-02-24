@@ -1,4 +1,4 @@
-import React, { useEffect, useState,Suspense } from "react";
+import React, { Suspense, useState } from "react";
 
 import Leftadmincompoment from "../../../compoment/AdminCompoment/Leftadmincompoment/Leftadmincompoment";
 import Right_navbarcompoment from "../../../compoment/AdminCompoment/Right_navbarcompoment/Right_navbarcompoment";
@@ -20,8 +20,7 @@ interface ItemsProps {
   handleEditClick: (index: number) => void;
 }
 export default function Product() {
- 
-  const {dataphim, selectedRow, currentPage, searchQuery, setSearchQuery, handleEditClick, handlesaveedit, handleCheckboxChange, handledeleteproduct, handlePageClick} = usePageProduct();
+  const { dataphim, selectedRow, currentPage, searchQuery, setSearchQuery, handleEditClick, handlesaveedit, handleCheckboxChange, handledeleteproduct, handlePageClick } = usePageProduct();
 
   const itemsPerPage = 50;
   const offset = currentPage * itemsPerPage;
@@ -29,22 +28,29 @@ export default function Product() {
     ? dataphim.slice(offset, offset + itemsPerPage)
     : [];
   const pageCount = Math.ceil(dataphim.length / itemsPerPage);
-
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const handleCheckbox = (title: string): void => {
+    setSelectedIds(prev =>
+      prev.includes(title) ? prev.filter(i => i !== title) : [...prev, title]
+    );
+  };
  
 
-  
+
+  console.log(selectedIds, "selectedIdsselectedIds")
   const Items: React.FC<ItemsProps> = ({ currentItems, selectedRow, handleEditClick }) => {
     return (
       <tbody>
         {currentItems &&
-          currentItems.map((data, index:number) => (
+          currentItems.map((data, index: number) => (
             <Suspense fallback={
-                <tr>
-                  <td colSpan={19}>Loading...</td>
-                </tr>
-              }
+              <tr>
+                <td colSpan={19}>Loading...</td>
+              </tr>
+            }
             >
               <tr>
+                <th>{data.id}</th>
                 <th>Title</th>
                 <th>Image</th>
                 <th>Name (English)</th>
@@ -65,6 +71,13 @@ export default function Product() {
                 <th>VIP1</th>
               </tr>
               <tr>
+                <td className="">
+                  <input
+                    type="checkbox"
+                    checked={selectedIds.includes(data.title)}
+                    onChange={() => handleCheckbox(data.title)}
+                  />
+                </td>
                 <td>{data.title}</td>
                 <td>
                   <img
@@ -89,12 +102,12 @@ export default function Product() {
                 <td>{data.likes}</td>
                 <td>{data.category_id}</td>
                 <td>
-                <input
-                  type="checkbox"
-                  checked={data.VIP1 === 1}
-                  onChange={() => handleCheckboxChange(index)}
-                />
-              </td>
+                  <input
+                    type="checkbox"
+                    checked={data.VIP1 === 1}
+                    onChange={() => handleCheckboxChange(index)}
+                  />
+                </td>
 
                 {selectedRow !== index ? (
                   <>
@@ -105,7 +118,7 @@ export default function Product() {
                       />
                     </td>
                     <td>
-                      <MdDeleteForever onClick={()=>handledeleteproduct(data.title)} style={{ fontSize: 25, color: "red" }} />
+                      <MdDeleteForever onClick={() => handledeleteproduct([data.title])} style={{ fontSize: 25, color: "red" }} />
                     </td>
                   </>
                 ) : (
@@ -135,7 +148,7 @@ export default function Product() {
                       type="text"
                       defaultValue={data.hinhanh}
                       name="hinhanh"
-                      style={{ display: "none" }} 
+                      style={{ display: "none" }}
                     />
                   </td>
                   <td>
@@ -316,19 +329,19 @@ export default function Product() {
                   className=""
                   style={{ display: "inline-block", position: "relative" }}
                 >
-                <input
-                type="text"
-                placeholder="Nhập phim cần tìm ..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  paddingLeft: "10px",
-                  position: "relative",
-                  width: "400px",
-                  height: "40px",
-                  borderRadius: "10px",
-                }}
-              />
+                  <input
+                    type="text"
+                    placeholder="Nhập phim cần tìm ..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{
+                      paddingLeft: "10px",
+                      position: "relative",
+                      width: "400px",
+                      height: "40px",
+                      borderRadius: "10px",
+                    }}
+                  />
 
                   <FaSearch
                     style={{
@@ -341,6 +354,13 @@ export default function Product() {
                   />
                 </div>
               </div>
+              {selectedIds.length > 0 && (
+                <div className="flex position-fixed bottom-0 end-0 mx-4">
+                  <button className="btn btn-danger" onClick={()=>handledeleteproduct(selectedIds)}>
+                    Xóa các film đã chọn
+                  </button>
+                </div>
+              )}
 
               <table className="tableadminproduct">
                 <Items

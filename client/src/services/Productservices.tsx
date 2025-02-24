@@ -425,7 +425,8 @@ const usercomment = async ({ token, titlefilm, contentcomment }: UserCommentPara
     );
 
     if (response.status === 200) {
-      window.location.reload();
+      //window.location.reload();
+    
     } else if (response.status === 401 || response.status === 403) {
       const newToken = await refreshToken();
       if (newToken) {
@@ -498,7 +499,8 @@ const userchildcomment = async ({ token, titlefilm, contentcomment, parent_id }:
     );
 
     if (response.status === 200) {
-      window.location.reload();
+     //window.location.reload();
+      
     } else if (response.status === 401 || response.status === 403) {
       const newToken = await refreshToken();
       if (newToken) {
@@ -532,7 +534,7 @@ const ProductServiceUpdateView = async (title:string| any) => {
   }
 };
 
-const services_delete_productphim = async (title:string) : Promise<{success:boolean}>=> {
+const services_delete_productphim = async (title:string[]) : Promise<{success:boolean}>=> {
   try {
     const data = await axios.delete(`${process.env.REACT_APP_API_URL}/product/delete_product`, {
       params: { title }
@@ -547,7 +549,6 @@ const services_delete_productphim = async (title:string) : Promise<{success:bool
 };
 
 
-// Existing exports
 export {
   services_delete_productphim,
   ProductServiceUpdateView,

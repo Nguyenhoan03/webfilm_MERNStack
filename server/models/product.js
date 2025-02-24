@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     hinhanh: DataTypes.TEXT,
     nameenglish: DataTypes.TEXT,
     trangthai: DataTypes.TEXT,
-    sotap: DataTypes.TEXT,
-    thoiluong: DataTypes.TEXT,
+    sotap: DataTypes.STRING(255),
+    thoiluong: DataTypes.STRING(255),
     namphathanh: DataTypes.TEXT,
     chatluong: DataTypes.TEXT,
     ngonngu: DataTypes.TEXT,
@@ -41,7 +41,25 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Product',
     timestamps: false, 
-    tableName: 'products'
+    tableName: 'products',
+    indexes: [
+      {
+        name: "title_index",
+        fields: ["title"]
+      },
+      {
+        name: "views_index",
+        fields: ["views"]
+      },
+      {
+        name: "category_id_index",
+        fields: ["category_id"]
+      },
+      {
+        name: "sotap_thoiluong_index",
+        fields: ["sotap", "thoiluong"]
+      }
+    ]
   });
   return Product;
 };

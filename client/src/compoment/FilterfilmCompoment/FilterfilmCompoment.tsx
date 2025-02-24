@@ -47,7 +47,6 @@ export default function FilterfilmCompoment({ data, filters, setFilters, applied
                         <option value=""></option>
                         <option value="createdAt">Mới Cập Nhật</option>
                         <option value="views">Lượt Xem</option>
-                       
                     </select>
                 </div>
                 <div className="hanhdongleft_filter">

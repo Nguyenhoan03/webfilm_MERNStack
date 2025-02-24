@@ -3,29 +3,28 @@ interface ServiceUserloginParam {
   email: string,
   password?: string,
   name?: string,
+  googleToken?: string
 }
-const ServiceUserlogin = async ({email, password}: ServiceUserloginParam) : Promise<{success: boolean}> => {
-    try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/dang-nhap`, { email, password });
-        if (response.status === 200) {
-            const data= response.data;
-           
-            sessionStorage.setItem('token', data.token);
-            sessionStorage.setItem('name', data.name);
-            sessionStorage.setItem('id', data.id);
-            sessionStorage.setItem('email', email);
-            sessionStorage.setItem('refreshToken', data.refreshToken);
-            sessionStorage.setItem('roles', data.roles);
-            sessionStorage.setItem('permissions', data.permissions);
-        return {success: true}
-        } else {
-         
-            return {success: false}
-        }
-    } catch (error) {
-        console.error('An error occurred during login:', error);
-        throw error;
+const ServiceUserlogin = async ({ email, password, googleToken }: ServiceUserloginParam) : Promise<{ success: boolean }> => {
+  try {
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/dang-nhap`, { email, password, googleToken });
+    if (response.status === 200) {
+      const data = response.data;
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('name', data.name);
+      sessionStorage.setItem('id', data.id);
+      sessionStorage.setItem('email', email);
+      sessionStorage.setItem('refreshToken', data.refreshToken);
+      sessionStorage.setItem('roles', data.roles);
+      sessionStorage.setItem('permissions', data.permissions);
+      return { success: true };
+    } else {
+      return { success: false };
     }
+  } catch (error) {
+    console.error('An error occurred during login:', error);
+    throw error;
+  }
 };
 
 

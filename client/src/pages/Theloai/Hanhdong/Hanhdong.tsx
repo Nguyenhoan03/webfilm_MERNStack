@@ -1,17 +1,13 @@
-import React, { useEffect, useState,Suspense } from "react";
+import React, { Suspense } from "react";
 
 import { IoIosHome } from "react-icons/io";
 import Homepagebodyright from "../../../compoment/Homepagebodyright/Homepagebodyright";
 import { useFilteredData } from "../../../hook/FilterData/useFilteredData";
 import { Productdanhmucphimhanhdong } from "../../../services/Productservices";
 import { Helmet } from "react-helmet";
-
-const FilterfilmCompoment = React.lazy(()=>import("../../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+import FilterfilmCompoment from "../../../compoment/FilterfilmCompoment/FilterfilmCompoment";
 export default function Hanhdong() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productdanhmucphimhanhdong);
-    
-
-  
     return (
         <div className="">
             <Helmet>

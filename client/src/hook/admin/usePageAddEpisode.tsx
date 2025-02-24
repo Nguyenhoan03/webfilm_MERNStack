@@ -47,6 +47,7 @@ const handleTitleSelect = (title:string) => {
     setSearchTerm(title);
 };
 
+
 const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {

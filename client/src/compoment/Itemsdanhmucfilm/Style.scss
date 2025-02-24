@@ -33,3 +33,18 @@
     transform: scale(1.2); 
     transition: transform 0.3s ease-in-out;
 }
+.loading-placeholder {
+    background: #f0f0f0;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .loaded {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.6; }
+  }
