@@ -3,9 +3,26 @@ const router = express.Router();
 const productController = require('../controller/productcontroller');
 const XemphimController = require('../controller/Xemphimcontroller')
 const {verifyToken} = require('../middleware/Authmiddlware')
-const Socketmiddleware = require('../middleware/Socketmiddlware');
-router.post('/comment',verifyToken, productController.Product_comment);
+const {initializeSocket}  = require('../middleware/Socketmiddlware');
+const paymentController = require('../controller/paymentcontroller');
+router.post('/comment', verifyToken, (req, res, next) => {
+    try {
+        if (!req.app.get('io')) {
+            console.log("Initializing Socket.IO...");
+            const server = req.app.get('server');
+            const io = initializeSocket(server);
+            req.app.set('io', io);
+        }
+        productController.Product_comment(req, res, next);
+    } catch (error) {
+        next(error);
+    }
+});
 router.post('/rating_star',verifyToken, productController.Rating_star);
+
+router.post('/vnpay', paymentController.createPayment);
+router.get('/vnpay-return', paymentController.paymentReturn);
+
 router.get('/product-home', productController.Product_home);
 router.get('/product-phimbo', productController.Product_phimbo);
 router.get('/product-phimle', productController.Product_phimle);
@@ -82,10 +99,10 @@ router.post('/edit_packageVIP1',productController.Product_editpackageVIP1);
 router.delete('/delete_product', productController.Delete_product);
 router.get('/getdetail_xemphim/:titlefilm',productController.Product_Getdetail_xemphim);
 router.post('/create_xemphim',productController.Product_create_xemphim);
+router.get('/:titlefilm/tap-:episode', XemphimController.datafilm);
 router.get('/:detailfilm',productController.Product_Detailphim);
 router.post('/:update_view',productController.Product_updateview);
 router.post('/edit_productphim',productController.Product_edit);
-router.get('/:titlefilm/tap-:episode', XemphimController.datafilm);
 
 router.get('/',productController.Product);
 

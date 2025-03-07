@@ -33,7 +33,7 @@ const SubscriptionPlans = () => {
             alert("Bạn cần đăng nhập để có thể đăng ký gói cao cấp")
           }
       }
-     // to={`${plan.name}?price=${plan.price}`}
+     
     return (
         <div className="subscription-plans">
             <h2>Bước 1/3: Chọn gói</h2>
@@ -57,12 +57,12 @@ const SubscriptionPlans = () => {
                 ))}
             </div>
             <div className="offers">
-                <h3>Chương trình ưu đãi gói VIP HBO GO</h3>
+                <h3>Chương trình ưu đãi gói VIP</h3>
                 <ul>
                     <li>Giảm 10% (tối đa 20.000đ) khi thanh toán qua ZaloPay với mã <strong>ANHTRAI</strong>. Xem chi tiết <a href="#">tại đây</a></li>
                     <li>Giảm 15% (tối đa 20.000đ) khi thanh toán bằng VNPAY QRCode với mã <strong>VNPAYSAYHI</strong>. Xem chi tiết <a href="#">tại đây</a></li>
                 </ul>
-                <button>Nhập mã VieON</button>
+                <button>Nhập mã Motchill</button>
                 <p style={{color:'white'}}>Dành cho khách hàng có mã ưu đãi tặng gói</p>
             </div>
         </div>

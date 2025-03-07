@@ -1,35 +1,34 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './RegisterVIP2.scss';
-import { useLocation } from 'react-router';
-import { useParams } from 'react-router';
-import { useNavigate } from 'react-router';
+import { useLocation, useParams, useNavigate } from 'react-router';
 import { HomeContext, HomeContextType } from '../../store/HomeContext';
+import axios from 'axios';
 
 const RegisterVIP2 = () => {
-  const {token} = useContext(HomeContext) as HomeContextType;
+  const { token } = useContext(HomeContext) as HomeContextType;
   const navigate = useNavigate();
-  const [selectedPlan, setSelectedPlan] = useState<any>('1'); 
+  const [selectedPlan, setSelectedPlan] = useState<any>('1');
   const [selectedPayment, setSelectedPayment] = useState('momo');
   const [selectedPricePlan, setSelectedPricePlan] = useState(0);
-  const [nextPaymentDate, setNextPaymentDate] = useState(''); 
+  const [nextPaymentDate, setNextPaymentDate] = useState('');
   const location = useLocation();
   const title_package = useParams();
-  
+
   const currentDate = new Date();
   const day = String(currentDate.getDate()).padStart(2, '0');
   const month = String(currentDate.getMonth() + 1).padStart(2, '0');
   const year = currentDate.getFullYear();
   const formattedDate = `${day}/${month}/${year}`;
-  
+
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const price = queryParams.get('price');
 
     if (price) {
-      const priceMatch = price.match(/^\d+/); 
+      const priceMatch = price.match(/^\d+/);
       if (priceMatch) {
         const numberPriceFinish = Number(priceMatch[0]);
-        setSelectedPricePlan(numberPriceFinish); 
+        setSelectedPricePlan(numberPriceFinish);
       }
     }
   }, [location.search]);
@@ -37,31 +36,47 @@ const RegisterVIP2 = () => {
   useEffect(() => {
     const nextPayment = new Date(currentDate);
     nextPayment.setMonth(nextPayment.getMonth() + Number(selectedPlan));
-    
+
     const nextPaymentDay = String(nextPayment.getDate()).padStart(2, '0');
     const nextPaymentMonth = String(nextPayment.getMonth() + 1).padStart(2, '0');
     const nextPaymentYear = nextPayment.getFullYear();
-    
+
     const formattedNextPaymentDate = `${nextPaymentDay}/${nextPaymentMonth}/${nextPaymentYear}`;
     setNextPaymentDate(formattedNextPaymentDate);
+  }, [selectedPlan]);
 
-  }, [selectedPlan]); 
-  
   const calculatedPrice = selectedPricePlan * Number(selectedPlan);
-  console.log("firstPay_banktranferv",selectedPayment)
-  const Handle_pay = (selectedPayment:string) =>{
-    
-      if(token ){
-         navigate(`${selectedPayment}?price=${selectedPricePlan * selectedPlan}`)
-      }else{
-        alert("Bạn cần đăng nhập để có thể đăng ký gói cao cấp")
+
+  const Handle_pay = async (selectedPayment: string) => {
+   
+    if (token) {
+      if (selectedPayment === 'Vnpay') {
+        try {
+          const response = await axios.post(`${process.env.REACT_APP_API_URL}/product/vnpay`, {
+            amount: selectedPricePlan * selectedPlan *10,
+            orderInfo: `Payment for package ${title_package.title}`,
+            returnUrl: `${window.location.origin}/dang-ky-goi-vip/${title_package.title}/payment/vnpay-return`,
+            ipAddr: 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html',
+            }, {
+           
+          });
+          window.location.href = response.data.paymentUrl;
+        } catch (error) {
+          console.error('Payment error:', error);
+        }
+      } else {
+        navigate(`${selectedPayment}?price=${selectedPricePlan * selectedPlan}`);
       }
-  }
+    } else {
+      alert('Bạn cần đăng nhập để có thể đăng ký gói cao cấp');
+    }
+  };
+
   return (
     <div className="subscription-page">
       <div className="row">
         <div className="col-md-9">
-          <h2 className="step-title">Bước 1/3: Chọn thời hạn gói VIP HBO GO</h2>
+          <h2 className="step-title">Bước 1/3: Chọn thời hạn gói VIP</h2>
           <div className="plan-options">
             <label className={`plan-option ${selectedPlan === '1' ? 'selected' : ''}`}>
               <input
@@ -114,15 +129,15 @@ const RegisterVIP2 = () => {
 
           <h2 className="step-title">Bước 2/3: Chọn phương thức thanh toán</h2>
           <div className="payment-options">
-            <label className={`payment-option ${selectedPayment === 'momo' ? 'selected' : ''}`}>
+            <label className={`payment-option ${selectedPayment === 'Vnpay' ? 'selected' : ''}`}>
               <input
                 type="radio"
                 name="payment"
-                value="momo"
-                checked={selectedPayment === 'momo'}
-                onChange={() => setSelectedPayment('momo')}
+                value="Vnpay"
+                checked={selectedPayment === 'Vnpay'}
+                onChange={() => setSelectedPayment('Vnpay')}
               />
-              <span>Ví MoMo</span>
+              <span>Vnpay</span>
             </label>
 
             <label className={`payment-option ${selectedPayment === 'zalopay' ? 'selected' : ''}`}>
@@ -155,14 +170,14 @@ const RegisterVIP2 = () => {
             <p>Thời hạn gói: {selectedPlan} tháng</p>
             <p>Ngày hiệu lực: {formattedDate}</p>
             <p>Sử dụng đến: Khi bạn hủy</p>
-            <p>Kỳ thanh toán tiếp theo: {nextPaymentDate}</p> {/* Display next payment date */}
+            <p>Kỳ thanh toán tiếp theo: {nextPaymentDate}</p>
             <p>Trị giá: {calculatedPrice}.000 VND</p>
             <p>Giảm giá: 0 VND</p>
             <div className="total">
-              <span style={{color:'red'}}>Thành tiền:</span>
+              <span style={{ color: 'red' }}>Thành tiền:</span>
               <span>{calculatedPrice}.000 VND</span>
             </div>
-            <button className="pay-button" onClick={()=>Handle_pay(selectedPayment)}>Thanh toán</button>
+            <button className="pay-button" onClick={() => Handle_pay(selectedPayment)}>Thanh toán</button>
           </div>
         </div>
       </div>

@@ -1,16 +1,11 @@
-const { Product,Linkfilm ,Comment,User,Rating, sequelize} = require('../models');
-const { Op, where ,fn,col,literal } = require('sequelize');
+const { Product, Linkfilm, Comment, User, Rating, sequelize } = require('../models');
+const { Op} = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const cache = require('memory-cache');
-const { body, validationResult } = require('express-validator');
-const CheckNull = require ('../middleware/Validate/Checknull');
-const { title } = require('process');
-const { group } = require('console');
-const { xemphim } = require('./Xemphimservices');
 
 
-// Hàm ghi log vào file
+
 const logToFile = (filename, data) => {
   const logFilePath = path.join(__dirname, filename);
   fs.appendFileSync(logFilePath, data + '\n', 'utf8');
@@ -18,33 +13,33 @@ const logToFile = (filename, data) => {
 
 const home = async () => {
   try {
-    const cacheKey = 'home_data';
-    let data = cache.get(cacheKey);
-    //  cache.del('home_data');
-    if (data) return data;
+    // const cacheKey = 'home_data';
+    // let data = cache.get(cacheKey);
+    // //  cache.del('home_data');
+    // if (data) return data;
 
-    // Common attributes for all queries
+    
     const commonAttributes = ['id', 'theloai', 'namphathanh', 'trangthai', 'ngonngu', 'hinhanh', 'title', 'views', 'sotap', 'descripts'];
 
-    // Utility function for querying films
+
     const findFilms = (options) => Product.findAll({
       ...options,
       attributes: options.attributes || commonAttributes,
       order: options.order || [['id', 'DESC']],
       limit: options.limit || 18,
-      raw: true,  
+      raw: true,
     });
 
     const promises = [
       findFilms({
         order: [['views', 'DESC']],
-        limit: 30, 
-        attributes: ['id','trangthai','ngonngu', 'hinhanh', 'title','sotap']
+        limit: 30,
+        attributes: ['id', 'trangthai', 'ngonngu', 'hinhanh', 'title', 'sotap']
       }),
       findFilms({
         where: {
-          sotap: { [Op.gt]: 15 }, 
-          thoiluong: { [Op.gt]: 25 } 
+          sotap: { [Op.gt]: 15 },
+          thoiluong: { [Op.gt]: 25 }
         },
         //  order: [['sotap', 'DESC'], ['thoiluong', 'DESC']],
       }),
@@ -62,7 +57,7 @@ const home = async () => {
         attributes: ['hinhanh', 'title', 'namphathanh', 'views'],
       }),
       findFilms({
-        attributes: ['title','views'], // Trending films
+        attributes: ['title', 'views'], // Trending films
         limit: 10, // Fetch only top 10 trending films
         order: [['views', 'DESC']],
       }),
@@ -96,10 +91,9 @@ const home = async () => {
       phimCategory9, phimCategory10
     ] = await Promise.all(promises);
 
-    // Combine categories 9 and 10 into one result set
+
     const phimtamlytimcam = [...phimCategory9, ...phimCategory10];
 
-    // Result object
     data = {
       phimhot, phimbomoicapnhat, phimlemoicapnhat,
       phimdahoanthanh, phimhanhdong, phimtrending,
@@ -107,8 +101,8 @@ const home = async () => {
       phimsapchieu
     };
 
-    // Cache the result for 1 hour (3600 * 1000 milliseconds)
-    cache.put(cacheKey, data, 3600 * 1000);
+    // // Cache the result for 1 hour (3600 * 1000 milliseconds)
+    // cache.put(cacheKey, data, 3600 * 1000);
 
     return data;
 
@@ -123,18 +117,18 @@ const home = async () => {
 const Productservice = async () => {
   try {
     const data = await Product.findAll({
-      order: [['id', 'DESC']], 
+      order: [['id', 'DESC']],
     });
     return data;
   } catch (error) {
-    throw(error);
-  }  
+    throw (error);
+  }
 }
 
 const Productservices_edit = async (data) => {
   try {
     const updatedProduct = await Product.update(
-      { ...data },  
+      { ...data },
       { where: { id: data.id } }
     );
 
@@ -158,22 +152,22 @@ const Productservices_edit = async (data) => {
 //file services
 const getProductByCategory = async (categoryId) => {
   try {
-  const products = await Product.findAll({
-    where: {
-      category_id: categoryId,
-    },
-    order: [['id', 'DESC']],
-    attributes: ['trangthai', 'ngonngu', 'hinhanh', 'title', 'views', 'sotap'],
-  });
-  return products;
-} catch (error) {
+    const products = await Product.findAll({
+      where: {
+        category_id: categoryId,
+      },
+      order: [['id', 'DESC']],
+      attributes: ['trangthai', 'ngonngu', 'hinhanh', 'title', 'views', 'sotap'],
+    });
+    return products;
+  } catch (error) {
     console.log(error)
-}
+  }
 };
 const detailfilm = async (titlefilm, userId) => {
   try {
     const datafilm = await Product.findOne({
-      where: {title:titlefilm},
+      where: { title: titlefilm },
       include: [{
         model: Linkfilm,
         as: 'linkfilms',
@@ -200,20 +194,18 @@ const detailfilm = async (titlefilm, userId) => {
       group: ['rating']
     });
 
-    // Calculate the average rating
     let totalRatings = 0;
     let sumOfRatings = 0;
-    
+
     general_assessment.forEach(ratingGroup => {
       const rating = ratingGroup.dataValues.rating;
       const count = parseInt(ratingGroup.dataValues.ratingTotal, 10);
       totalRatings += count;
       sumOfRatings += rating * count;
     });
-    
+
     const averageRating = totalRatings > 0 ? (sumOfRatings / totalRatings).toFixed(1) : 0;
 
-    // Fetch the rating by the user if userId is provided
     let rating_star = null;
     if (userId) {
       rating_star = await Rating.findOne({
@@ -224,15 +216,15 @@ const detailfilm = async (titlefilm, userId) => {
       });
     }
 
-    // Return all data in one response object
-    return { 
-      datafilm, 
-      comments, 
-      rating_star, 
-      general_assessment: { 
-        averageRating, 
-        totalRatings 
-      } 
+   
+    return {
+      datafilm,
+      comments,
+      rating_star,
+      general_assessment: {
+        averageRating,
+        totalRatings
+      }
     };
 
   } catch (error) {
@@ -241,43 +233,41 @@ const detailfilm = async (titlefilm, userId) => {
   }
 };
 
-const Productservices_Getdetail_xemphim =async (titlefilm)=>{
+const Productservices_Getdetail_xemphim = async (titlefilm) => {
   try {
-     const data = await Linkfilm.findAll({
-      where:{title: titlefilm}
-     })
-     console.log("firstdataProductservices_Getdetail_xemphim",data);
-     if(data){
+    const data = await Linkfilm.findAll({
+      where: { title: titlefilm }
+    })
+    if (data) {
       return data;
-     }
+    }
   } catch (error) {
-    throw(error)
+    throw (error)
   }
 }
 
 const Productservices_create_xemphim = async (selectedTitle, episode, linkfilm) => {
   try {
-      const newFilm = await Linkfilm.create({ title:selectedTitle, episode, linkfilm });
+    const newFilm = await Linkfilm.create({ title: selectedTitle, episode, linkfilm });
 
-      if (newFilm) {
-          return { success: true };
-      } else {
-          return { success: false };
-      }
+    if (newFilm) {
+      return { success: true };
+    } else {
+      return { success: false };
+    }
   } catch (error) {
-      throw error;
+    throw error;
   }
 };
 
 
 //phim bộ
 const danhmucphim = async (category_id, filters = {}) => {
-  
+
   try {
     const { orderBy, category, country, typeId, year } = filters;
     const where = { category_id };
 
-    // Build dynamic conditions based on filters
     if (category) {
       where.theloai = { [Op.like]: `%${category}%` };
     }
@@ -298,7 +288,7 @@ const danhmucphim = async (category_id, filters = {}) => {
       orderClause = [['views', 'DESC']];
     } else if (orderBy == "year") {
       orderClause = [['year', 'ASC']];
-    }else{
+    } else {
       orderClause = [['id', 'DESC']];
     }
 
@@ -341,7 +331,7 @@ const quocgia = async (quocgia, filters = {}) => {
       orderClause = [['views', 'DESC']];
     } else if (orderBy === "year") {
       orderClause = [['namphathanh', 'ASC']];
-    }else{
+    } else {
       orderClause = [['id', 'DESC']];
     }
 
@@ -378,10 +368,10 @@ const post_comment = async (userId, titlefilm, contentcomment, parent_id) => {
     // Lấy thông tin user
     const user = await User.findByPk(userId);
 
-    return { 
+    return {
       success: true,
       id: newComment.id,
-      username: user.username,  
+      username: user.username,
       comment: contentcomment,
       parent_id: parent_id
     };
@@ -406,10 +396,10 @@ const post_ratingstar = async (titlefilm, id, starselect) => {
         }
       });
 
-      // Nếu bản ghi đã tồn tại, cập nhật giá trị rating
+     
       if (!created) {
-        rating.rating = starselect; // Cập nhật rating
-        await rating.save(); // Lưu thay đổi
+        rating.rating = starselect; 
+        await rating.save(); 
       }
 
       return { success: true };
@@ -419,14 +409,14 @@ const post_ratingstar = async (titlefilm, id, starselect) => {
   }
 }
 
-const Productservices_editpackageVIP1 = async (title,VIP1) => {
+const Productservices_editpackageVIP1 = async (title, VIP1) => {
   try {
     const data = await Product.update(
-      { VIP1: VIP1 }, 
-      { where: { title: title }} 
+      { VIP1: VIP1 },
+      { where: { title: title } }
     );
-    console.log("firstdataaaserrviceseditpackageVIP1",data);
-    if (data[0] > 0){
+    console.log("firstdataaaserrviceseditpackageVIP1", data);
+    if (data[0] > 0) {
       return { success: true };
     } else {
       return { success: false };
@@ -436,7 +426,7 @@ const Productservices_editpackageVIP1 = async (title,VIP1) => {
     throw error;
   }
 };
-const lastUpdated = {}; 
+const lastUpdated = {};
 const THROTTLE_TIME = 500;
 
 const Productservices_updateview = async (title) => {
@@ -445,7 +435,7 @@ const Productservices_updateview = async (title) => {
   if (!lastUpdated[title] || (currentTime - lastUpdated[title]) > THROTTLE_TIME) {
     try {
       const data = await Product.increment(
-        { views: 1 }, 
+        { views: 1 },
         { where: { title: title } }
       );
 
@@ -467,29 +457,29 @@ const Productservices_updateview = async (title) => {
 const Productservices_delete = async (title) => {
   const transaction = await sequelize.transaction();
   try {
-     const linkfilmDelete = await Linkfilm.destroy({
-       where: {title: {[Op.in]: title} },
-       transaction
-     });
-     
-     const productDelete = await Product.destroy({
-      where: {title: {[Op.in]: title} },
-       transaction
-     });
+    const linkfilmDelete = await Linkfilm.destroy({
+      where: { title: { [Op.in]: title } },
+      transaction
+    });
 
-     if (productDelete > 0 && linkfilmDelete >= 0) {
-         await transaction.commit();
-         return { success: true };
-     } else {
-         await transaction.rollback();
-         return { success: false, message: "No product or associated links found with the given title" };
-     }
+    const productDelete = await Product.destroy({
+      where: { title: { [Op.in]: title } },
+      transaction
+    });
+
+    if (productDelete > 0 && linkfilmDelete >= 0) {
+      await transaction.commit();
+      return { success: true };
+    } else {
+      await transaction.rollback();
+      return { success: false, message: "No product or associated links found with the given title" };
+    }
   } catch (error) {
-     await transaction.rollback();
-     throw error;
+    await transaction.rollback();
+    throw error;
   }
 }
 
 
 
-module.exports = {Productservices_delete,Productservices_updateview,Productservices_edit, home, getProductByCategory,detailfilm,danhmucphim,quocgia,post_comment,post_ratingstar,Productservice,Productservices_Getdetail_xemphim,Productservices_create_xemphim,Productservices_editpackageVIP1};
+module.exports = { Productservices_delete, Productservices_updateview, Productservices_edit, home, getProductByCategory, detailfilm, danhmucphim, quocgia, post_comment, post_ratingstar, Productservice, Productservices_Getdetail_xemphim, Productservices_create_xemphim, Productservices_editpackageVIP1 };

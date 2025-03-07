@@ -44,7 +44,7 @@ export default function CommentComponent({ comments:initialComments, titlefilm }
       });
 
       socketRef.current.on("connect", () => {
-        console.log("Socket connected:", socketRef.current?.id);
+       
         if (titlefilm) {
           socketRef.current?.emit("join_room", titlefilm);
         }
@@ -60,7 +60,7 @@ export default function CommentComponent({ comments:initialComments, titlefilm }
       socketRef.current = null; 
     };
   }, [titlefilm]);
-  console.log(allComments,"allCommentsallcommetaaaa")
+  
   const handleCommentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     handleComment(token);

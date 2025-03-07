@@ -19,17 +19,16 @@ const Servicelogin = async (email, password, googleToken) => {
       const payload = ticket.getPayload();
       email = payload.email;
       const name = payload.name;
-      console.log("Google token payload:", payload);
-
+    
       
       user = await User.findOne({ where: { email } });
-      console.log("User found:", user);
+    
       if (!user) {
         user = await User.create({
           email,
           username: name,
         });
-        console.log("User created:", user);
+       
         const userRole = await roles.findOne({ where: { name: 'user' } });
         if (userRole) {
           await role_user.create({ userid: user.id, roleid: userRole.id });
@@ -123,7 +122,7 @@ const ServicegetallUser = async () => {
       users.map(async (user) => {
         const roles = await User.getRoles(user.id);
         const permissions = await User.getPermissions(user.id);
-        console.log("firstpermission", permissions);
+       
         return {
           ...user.dataValues,
           roles: roles.roles,

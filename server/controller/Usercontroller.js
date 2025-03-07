@@ -1,4 +1,4 @@
-const { closetag } = require('sitemap/dist/lib/sitemap-stream');
+// const { closetag } = require('sitemap/dist/lib/sitemap-stream');
 const Userservice = require('../services/Userservices') 
 const Login = async (req, res) => {
     try {

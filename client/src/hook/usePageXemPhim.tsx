@@ -28,7 +28,7 @@ interface UsePageXemphimResult {
     handlenextepisode: () => void;
     numbertapfilmcurent: number;
   }
-export const usePageXemPhim = (title: string | undefined, episode: string | undefined): UsePageXemphimResult => {
+export const usePageXemPhim = (title: string | undefined, episode: string | any): UsePageXemphimResult => {
     const [datafilm, setDataFilm] = useState<FilmData | null>(null);
     const [datadetail, setDataDetail] = useState<DetailData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -36,13 +36,12 @@ export const usePageXemPhim = (title: string | undefined, episode: string | unde
     const [ktranextepisode, setKtraNextEpisode] = useState<boolean>(false);
     const [parent_id, setParentId] = useState<string | null>(null);
     const [comment, setComment] = useState<CommentComponentProps[] | null>(null);
-
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
                 if (title && episode) {
-                    const response = await Dataxemphim({ title, episode: parseInt(episode) });
+                    const response = await Dataxemphim({ title, episode });
                     setDataFilm(response.data);
                 }
             } catch (error) {

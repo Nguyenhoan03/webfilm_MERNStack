@@ -88,7 +88,9 @@ import NotFound from '../pages/Notfound/Notfound';
 import RegisterVIP from '../pages/RegisterVIP/RegisterVIP';
 import Pay_banktranfer from '../pages/Pay/Pay_banktranfer/Pay_banktranfer';
 import RegisterVIP2 from '../pages/RegisterVIP2/RegisterVIP2';
+import VnpayReturn from '../compoment/Payment/VnpayReturn';
   export const routes = [
+   
     {
       path: '/not-found',
       page: NotFound,
@@ -114,6 +116,12 @@ import RegisterVIP2 from '../pages/RegisterVIP2/RegisterVIP2';
       page: Pay_banktranfer,
       isShowHeader: true,
     },
+    {
+      path: '/dang-ky-goi-vip/:title/payment/vnpay-return',
+      page: VnpayReturn,
+      isShowHeader: true,
+    },
+
   // Admin Routes
   {
     path: '/admin/products',
@@ -124,6 +132,7 @@ import RegisterVIP2 from '../pages/RegisterVIP2/RegisterVIP2';
     ),
     isShowHeader: false,
   },
+ 
   {
     path: '/admin/products/add_phim',
     page: ()=>(
@@ -192,7 +201,6 @@ import RegisterVIP2 from '../pages/RegisterVIP2/RegisterVIP2';
     page: Xemphim,
     isShowHeader: true,
   },
-
   {
     path: '/dang-nhap',
     page: Login,

@@ -1,4 +1,4 @@
-const { Product,Category } = require('../../models');
+const { Product } = require('../../models');
 
 const Addphimservices = async (formdata) => {
   try {
@@ -13,15 +13,5 @@ const Addphimservices = async (formdata) => {
   }
 };
 
-// const categoryservice = async ()=>{
-//     try {
-//         const data = await Category.all();
-//         if(data){
-//             return 
-//         }
-//     } catch (error) {
-//         throw(error)
-//     }
-// }
 
 module.exports = { Addphimservices };

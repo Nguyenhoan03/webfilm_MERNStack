@@ -8,8 +8,9 @@ import { TbPlayerTrackNext } from "react-icons/tb";
 import { Link, useParams } from 'react-router-dom';
 import { usePageXemPhim } from '../../hook/usePageXemPhim';
 import './Style.scss';
-const Homepagebodyright = React.lazy(() => import('../../compoment/Homepagebodyright/Homepagebodyright'));
-const CommentCompoment = React.lazy(() => import('../../compoment/CommentCompoment/CommentCompoment'));
+import Homepagebodyright from '../../compoment/Homepagebodyright/Homepagebodyright';
+import CommentCompoment from '../../compoment/CommentCompoment/CommentCompoment';
+
 
 interface FilmData {
   title: string;

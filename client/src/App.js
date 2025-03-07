@@ -1,81 +1,53 @@
-import React, { Fragment, Suspense, memo, useEffect,useMemo } from 'react';
+import React, { Fragment, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Defaultcomponent from './compoment/Defaultcompoment/Defaultcompoment'; // Corrected import path
+import Defaultcomponent from './compoment/Defaultcompoment/Defaultcompoment'; 
 import { HomeProvider } from './store/HomeContext';
 import { routes } from './routers/index';
 import './App.scss';
-import {GoogleOAuthProvider} from '@react-oauth/google'
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 function App() {
-  // Component Loading Spinner
-  const LoadingSpinner = () => (
-    <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-      <div className="spinner-border text-light" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  );
-
-  // Component render các route
-  const renderRoutes = useMemo(() => {
-    return (
-      <Routes>
-        {routes.map((route) => {
-          const Page = route.page;
-          const Layout = route.isShowHeader ? Defaultcomponent : Fragment;
-
-          // If there's no valid Page, skip this route
-          if (!Page) {
-            console.warn(`Route at ${route.path} does not have a valid page component.`);
-            return null;
-          }
-
-          return (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={
-                <Suspense fallback={<LoadingSpinner />}>
-                  <Layout>
-                    <Page />
-                  </Layout>
-                </Suspense>
-              }
-            />
-          );
-        })}
-      </Routes>
-    );
-  }, [routes]);
-  // useEffect để thêm Google Analytics
   useEffect(() => {
-    // Create and append the script element for GTM
     const script = document.createElement('script');
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SCBG4YH65W';
     script.async = true;
     document.body.appendChild(script);
 
-    // Add the GTM configuration script after the main GTM script loads
     script.onload = () => {
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
+      function gtag() { window.dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-SCBG4YH65W');
     };
-    
-    // Clean up script when component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
+
+    return () => document.body.removeChild(script);
   }, []);
+
   return (
     <div className="App" style={{ backgroundColor: 'black' }}>
       <Router>
         <HomeProvider>
-        <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID} >
-          {renderRoutes} 
+          <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
+            <Routes>
+              {routes.map(({ path, page: Page, isShowHeader }) => 
+                Page && (
+                  <Route 
+                    key={path} 
+                    path={path} 
+                    element={
+                      <Suspense fallback={<div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+                        <div className="spinner-border text-light" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                      </div>}>
+                        {isShowHeader ? <Defaultcomponent><Page /></Defaultcomponent> : <Page />}
+                      </Suspense>
+                    } 
+                  />
+                )
+              )}
+            </Routes>
           </GoogleOAuthProvider>
         </HomeProvider>
       </Router>

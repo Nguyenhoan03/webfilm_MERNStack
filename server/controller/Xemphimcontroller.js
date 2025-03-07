@@ -3,7 +3,7 @@ const Xemphim = require('../services/Xemphimservices.js');
 const datafilm = async (req, res) => {
    try {
        const { titlefilm, episode } = req.params;
-      
+      console.log("objectEEPISODE",titlefilm)
        const filmData = await Xemphim.xemphim(titlefilm, episode);
        res.status(200).json({ success: true, data: filmData });
    } catch (error) {
