@@ -33,16 +33,14 @@ const initializeSocket = (server) => {
             });
         });
 
-        console.log("Socket.IO server initialized.");
+        console.log("Socket.IO server initialized");
     }
     return io;
 };
-
 const getIO = () => {
     if (!io) {
-        throw new Error("Socket.IO has not been initialized. Call initializeSocket() first.");
+        throw new Error("Socket.IO has not been initialized. Call initializeSocket first");
     }
     return io;
 };
-
 module.exports = { initializeSocket, getIO };
