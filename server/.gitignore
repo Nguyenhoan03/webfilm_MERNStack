@@ -1,2 +1,7 @@
-*.env
+# Remove * before .env
+.env
 node_modules/
+.env.local
+.env.development
+.env.test
+.env.production
