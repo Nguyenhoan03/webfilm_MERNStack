@@ -1,4 +1,4 @@
-import React, { Fragment, Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Defaultcomponent from './compoment/Defaultcompoment/Defaultcompoment'; 
@@ -10,7 +10,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 function App() {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SCBG4YH65W';
+    script.src = process.env.REACT_ID_GG;
     script.async = true;
     document.body.appendChild(script);
 
