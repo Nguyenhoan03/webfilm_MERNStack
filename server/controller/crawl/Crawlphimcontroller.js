@@ -139,6 +139,7 @@ const crawlPhimFromUrl = async (category) => {
         quocgia: dataFilm['Quốc Gia'],
         views: 0,
         likes: 0,
+        VIP1: 0,
         category_id: category_id,
       };
     } catch (error) {
@@ -233,20 +234,20 @@ cron.schedule('0 0 * * *', async () => {
   }
 });
 
-const Schedule_crawl =async (req,res)=>{
+const Schedule_crawl = async (req, res) => {
   try {
     const data = await scheduled_crawl.findAll();
-    if(data){
-       return res.json(data);
-    }  
+    if (data) {
+      return res.json(data);
+    }
   } catch (error) {
     console.log(error)
-  }    
-  
+  }
+
 }
 const Delete_Scheduled_crawls = async (req, res) => {
   try {
-    const { id } = req.query;  
+    const { id } = req.query;
     if (!id) {
       return res.status(400).json({ error: "ID is required" });
     }
@@ -267,4 +268,4 @@ const Delete_Scheduled_crawls = async (req, res) => {
 }
 
 
-module.exports = {Delete_Scheduled_crawls, Schedule_crawl,Crawlphim, Scheduled_crawls };
+module.exports = { Delete_Scheduled_crawls, Schedule_crawl, Crawlphim, Scheduled_crawls };

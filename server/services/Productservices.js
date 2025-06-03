@@ -340,7 +340,7 @@ const quocgia = async (quocgia, filters = {}) => {
         quocgia: { [Op.like]: `%${quocgia}%` },
         ...wherefilters,
       },
-      order: orderClause,  // Add the order clause if necessary
+      order: orderClause,
     });
 
     return data;

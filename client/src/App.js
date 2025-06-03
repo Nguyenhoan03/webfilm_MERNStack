@@ -8,22 +8,6 @@ import './App.scss';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = process.env.REACT_ID_GG;
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { window.dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-SCBG4YH65W');
-    };
-
-    return () => document.body.removeChild(script);
-  }, []);
-
   return (
     <div className="App" style={{ backgroundColor: 'black' }}>
       <Router>

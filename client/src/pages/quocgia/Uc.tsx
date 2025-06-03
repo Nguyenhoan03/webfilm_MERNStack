@@ -6,18 +6,18 @@ import { useFilteredData } from "../../hook/FilterData/useFilteredData";
 import { Productquocgia_uc } from "../../services/Productservices";
 
 import { Helmet } from "react-helmet";
-const FilterfilmCompoment = React.lazy(()=>import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+const FilterfilmCompoment = React.lazy(() => import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 
 export default function Uc() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productquocgia_uc);
 
-  
+
     return (
         <div className="">
             <Helmet>
-            <title>Phim Úc | nghienphim - Xem phim online</title>
-<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Úc tại nghienphim. Xem phim Úc miễn phí, chất lượng cao với phụ đề tiếng Việt." />
-<meta name="keywords" content="phim Úc, phim Úc hay, xem phim Úc, phim Úc 2024, phim châu Âu, phim Úc phụ đề tiếng Việt" />
+                <title>Phim Úc | nghienphim - Xem phim online</title>
+                <meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Úc tại nghienphim. Xem phim Úc miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+                <meta name="keywords" content="phim Úc, phim Úc hay, xem phim Úc, phim Úc 2024, phim châu Âu, phim Úc phụ đề tiếng Việt" />
 
             </Helmet>
             <div className="container">
@@ -44,16 +44,16 @@ export default function Uc() {
                     <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-<Suspense fallback={<div>Loadding...</div>}>
+                                <Suspense fallback={<div>Loadding...</div>}>
 
-                            <FilterfilmCompoment
-                            data={data}
-                            filters={filters}
-                            setFilters={setFilters}
-                            appliedFilters={appliedFilters}
-                            setAppliedFilters={setAppliedFilters}
-                        />
-</Suspense>
+                                    <FilterfilmCompoment
+                                        data={data}
+                                        filters={filters}
+                                        setFilters={setFilters}
+                                        appliedFilters={appliedFilters}
+                                        setAppliedFilters={setAppliedFilters}
+                                    />
+                                </Suspense>
 
                             </div>
 

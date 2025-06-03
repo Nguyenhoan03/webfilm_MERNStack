@@ -6,12 +6,12 @@ import { useFilteredData } from "../../hook/FilterData/useFilteredData";
 import { Productquocgia_ukraina } from "../../services/Productservices";
 
 import { Helmet } from "react-helmet";
-const FilterfilmCompoment = React.lazy(()=>import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+const FilterfilmCompoment = React.lazy(() => import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 
 export default function Ukraina() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productquocgia_ukraina);
 
-  
+
     return (
         <div className="">
             <div className="container">
@@ -38,16 +38,16 @@ export default function Ukraina() {
                     <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-<Suspense fallback={<div>Loadding...</div>}>
+                                <Suspense fallback={<div>Loadding...</div>}>
 
-                            <FilterfilmCompoment
-                            data={data}
-                            filters={filters}
-                            setFilters={setFilters}
-                            appliedFilters={appliedFilters}
-                            setAppliedFilters={setAppliedFilters}
-                        />
-</Suspense>
+                                    <FilterfilmCompoment
+                                        data={data}
+                                        filters={filters}
+                                        setFilters={setFilters}
+                                        appliedFilters={appliedFilters}
+                                        setAppliedFilters={setAppliedFilters}
+                                    />
+                                </Suspense>
 
                             </div>
 

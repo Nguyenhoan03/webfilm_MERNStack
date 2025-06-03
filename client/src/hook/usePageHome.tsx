@@ -4,17 +4,17 @@ import MovieCard from '../compoment/MovieCard/MovieCard';
 import { Producthome } from '../services/Productservices';
 
 export default function usePageHome() {
-    const { settings,phimhot } = useContext(HomeContext) as HomeContextType;
- 
+  const { settings, phimhot } = useContext(HomeContext) as HomeContextType;
+
   const [phimbomoi, setphimbomoi] = useState([]);
   const [phimlemoi, setphimlemoi] = useState([]);
   const [phimhoanthanh, setphimhoanthanh] = useState([]);
- 
+
   const [phimhoathinh, setphimhoathinh] = useState<string[]>([]);
   const [phimtamlytinhcam, setphimtamlytinhcam] = useState<string[]>([]);
   const [phimvientuong, setphimvientuong] = useState<string[]>([]);
-  const [dataphim, setDataphim] = useState<string[]|any>([]);
-  const [activeTab, setActiveTab] = useState(0);
+  const [dataphim, setDataphim] = useState<string[] | any>([]);
+  const [activeTab, setActiveTab] = useState(0); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,21 +25,21 @@ export default function usePageHome() {
       setphimhoathinh(data.phimhoathinh);
       setphimtamlytinhcam(data.phimtamlytimcam);
       setphimvientuong(data.phimvientuong);
-      setDataphim(data.phimbomoicapnhat); 
-      console.log(data,"dataaaaa");
-      console.log(settings,"dataaaaacontext");
-      console.log(phimhot,"dataaaaa");
+      setDataphim(data.phimbomoicapnhat);
+      console.log(data, "dataaaaa");
+      console.log(settings, "dataaaaacontext");
+      console.log(phimhot, "dataaaaa");
     };
     fetchData();
   }, []);
 
-  const handleClickpb = (key:number) => {
-    setActiveTab(key);    
+  const handleClickpb = (key: number) => {
+    setActiveTab(key);
     const newData = [phimbomoi, phimlemoi, phimhoanthanh][key];
     setDataphim(newData);
   };
-  
-  const rendercategorycontent = (title:string, data:string[]|any) => (
+
+  const rendercategorycontent = (title: string, data: string[] | any) => (
     <Suspense fallback={<div>Loadding...</div>}>
       <div className="phimhanquoc mt-4">
         <h2 style={{ fontSize: 25, fontFamily: 'roboto', fontWeight: 300, textTransform: 'uppercase', color: '#ff9601' }}>{title}</h2>

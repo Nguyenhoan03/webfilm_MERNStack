@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { FaRegLightbulb } from "react-icons/fa";
@@ -8,10 +8,12 @@ import { TbPlayerTrackNext } from "react-icons/tb";
 import { Link, useParams } from 'react-router-dom';
 import { usePageXemPhim } from '../../hook/usePageXemPhim';
 import './Style.scss';
+import { SlickSettings, SampleNextArrow, SamplePrevArrow } from '../../utils/SlickSettings';
 import Homepagebodyright from '../../compoment/Homepagebodyright/Homepagebodyright';
 import CommentCompoment from '../../compoment/CommentCompoment/CommentCompoment';
-
-
+import Slickslider from '../../compoment/Slickslider/Slickslider';
+import { useLocation } from 'react-router-dom';
+import { CiStar } from "react-icons/ci";
 interface FilmData {
   title: string;
   episode: string;
@@ -31,11 +33,19 @@ interface DetailData {
 
 
 const Xemphim: React.FC = () => {
+  const settings = useMemo(() => ({
+    ...SlickSettings,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
+  }), []);
+  const location = useLocation();
+  const { data_phimhot } = location.state || {};
   const { title, episode } = useParams<{ title: string; episode: string }>();
- const {datafilm, datadetail, ktranextepisode, parent_id, comment, handlenextepisode, loading, error,numbertapfilmcurent} = usePageXemPhim(title,episode);
- if (loading) return <div>Loading...</div>;
- if (error) return <div>Error: {error.message}</div>;
- if (!datafilm) return null;
+  const { datafilm, datadetail, ktranextepisode, parent_id, comment, handlenextepisode, loading, error, numbertapfilmcurent } = usePageXemPhim(title, episode);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!datafilm) return null;
+
   return (
     <div className=''>
       <Helmet>
@@ -49,31 +59,48 @@ const Xemphim: React.FC = () => {
 
       <div className="container">
         <Breadcrumb datadetail={datadetail} datafilm={datafilm} />
-        
+
         <div className="row pagexemphim">
           <div className="xemphim_left col-md-9">
             <VideoPlayer linkfilm={datafilm.linkfilm} />
-            <VideoControls 
-              handlenextepisode={handlenextepisode} 
-              ktranextepisode={ktranextepisode} 
+            <VideoControls
+              handlenextepisode={handlenextepisode}
+              ktranextepisode={ktranextepisode}
             />
-            <EpisodeList 
-              datadetail={datadetail} 
-              numbertapfilmcurent={numbertapfilmcurent} 
+            <EpisodeList
+              datadetail={datadetail}
+              numbertapfilmcurent={numbertapfilmcurent}
             />
-            <Description 
-              datadetail={datadetail} 
-              datafilm={datafilm} 
+            <Description
+              datadetail={datadetail}
+              datafilm={datafilm}
             />
             <Suspense fallback={<div>Loading...</div>}>
-              <CommentCompoment 
-                titlefilm={title ?? ''} 
-                comments={comment} 
-                parent_id={parent_id} 
+              <CommentCompoment
+                titlefilm={title ?? ''}
+                comments={comment}
+                parent_id={parent_id}
               />
             </Suspense>
+
+            
+            <div className="mt-3 detail_page__slider">
+              <div className="" style={{ paddingLeft: 10 }}>
+                <div className="d-flex">
+                  <p><CiStar style={{ color: 'tomato' }} /></p>
+                  <h2 style={{ fontSize: 18, fontFamily: 'roboto', fontWeight: 600, textTransform: 'uppercase', color: 'white', marginLeft: 10, paddingTop: 5 }}>PHIM ĐỀ CỬ</h2>
+                </div>
+                <div className="detail_page__slider">
+                 <Suspense fallback={<div>Loadding...</div>}>
+                <Slickslider settings={settings} data={data_phimhot} />
+              </Suspense>
+                </div>
+              </div>
+            </div>
+
+
           </div>
-          
+
           <div className="xemphim_right col-md-3">
             <Suspense fallback={<div>Loading...</div>}>
               <Homepagebodyright />
@@ -106,7 +133,7 @@ interface VideoPlayerProps {
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ linkfilm }) => (
   <div className="xemphim" style={{ paddingLeft: 15, position: 'relative' }}>
-    <iframe 
+    <iframe
       id="videoFrame"
       src={linkfilm}
       frameBorder="0"
@@ -122,21 +149,33 @@ interface VideoControlsProps {
 }
 
 const VideoControls: React.FC<VideoControlsProps> = ({ handlenextepisode, ktranextepisode }) => (
-  <div className="container mt-2 d-flex justify-content-between">
-    <div className="d-flex">
-      <button className='btn text-white' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
+  <div className="container mt-2 d-flex flex-column flex-md-row justify-content-between align-items-stretch gap-2 px-0">
+    <div className="d-flex flex-row flex-md-column gap-2 w-100 justify-content-center justify-content-md-start">
+      <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
         <BsArrowsFullscreen /> Phóng to
       </button>
-      <button className='btn text-white ms-2' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
+      <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
         <MdError /> Báo lỗi
       </button>
     </div>
-    <ServerSwitch />
-    <div className="d-flex">
-      <button className='btn text-white' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
+    <div className="my-2 my-md-0 w-100 d-flex justify-content-center align-items-center">
+      <ServerSwitch />
+    </div>
+    <div className="d-flex flex-row flex-md-column gap-2 w-100 justify-content-center justify-content-md-end">
+      <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
         <FaRegLightbulb /> Tắt đèn
       </button>
-      <button onClick={handlenextepisode} className='btn ms-2' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12, color: ktranextepisode ? 'gray' : 'white' }}>
+      <button
+        onClick={handlenextepisode}
+        className='btn w-100'
+        style={{
+          backgroundColor: '#27272A',
+          fontWeight: 550,
+          fontSize: 12,
+          color: ktranextepisode ? 'gray' : 'white'
+        }}
+        disabled={ktranextepisode}
+      >
         <TbPlayerTrackNext /> Tập tiếp
       </button>
     </div>
@@ -144,7 +183,7 @@ const VideoControls: React.FC<VideoControlsProps> = ({ handlenextepisode, ktrane
 );
 
 const ServerSwitch: React.FC = () => (
-  <div className="xemphim_btnserver text-center">
+  <div className="xemphim_btnserver text-center col-md-4">
     <p style={{ textTransform: 'uppercase', fontWeight: 500, color: 'white' }}>Đổi Server (Nếu Lag)</p>
     <div className="d-flex justify-content-center">
       <button className='btn mx-2' style={{ backgroundColor: '#27272A', color: 'white' }}>Server 1</button>

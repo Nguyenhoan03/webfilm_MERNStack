@@ -11,10 +11,10 @@ const FilterfilmCompoment = React.lazy(() => import("../../../compoment/Filterfi
 export default function Plus18() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productdanhmucphim18plus);
 
-  
+
     return (
         <div className="">
-             <Helmet>
+            <Helmet>
                 <title>Phim 18+ | nghienphim - Xem phim online</title>
                 <meta name="description" content="Tuyển tập phim sex, xnxx, sex viet, jav, hentaiz. Khám phá hàng loạt các bộ phim 18+ hấp dẫn và chất lượng cao tại nghienphim" />
                 <meta name="keywords" content="phim sex, xnxx, sex viet, jav, hentaiz, phim 18+, phim người lớn, phim nóng, xem phim online" />
@@ -43,16 +43,16 @@ export default function Plus18() {
                     <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-<Suspense fallback={<div>Loadding...</div>}>
+                                <Suspense fallback={<div>Loadding...</div>}>
 
-                            <FilterfilmCompoment
-                            data={data}
-                            filters={filters}
-                            setFilters={setFilters}
-                            appliedFilters={appliedFilters}
-                            setAppliedFilters={setAppliedFilters}
-                        />
-</Suspense>
+                                    <FilterfilmCompoment
+                                        data={data}
+                                        filters={filters}
+                                        setFilters={setFilters}
+                                        appliedFilters={appliedFilters}
+                                        setAppliedFilters={setAppliedFilters}
+                                    />
+                                </Suspense>
 
                             </div>
 

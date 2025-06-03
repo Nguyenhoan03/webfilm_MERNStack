@@ -6,27 +6,27 @@ import { useFilteredData } from "../../hook/FilterData/useFilteredData";
 import { Productquocgia_phap } from "../../services/Productservices";
 
 import { Helmet } from "react-helmet";
-const FilterfilmCompoment = React.lazy(()=>import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+const FilterfilmCompoment = React.lazy(() => import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 
 export default function Phap() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productquocgia_phap);
 
-  
+
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Pháp Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Xem phim Pháp mới nhất, chất lượng cao với đa dạng thể loại: tình cảm, hài hước, tâm lý và nhiều thể loại khác tại Nghiện Phim." />
-  <meta name="keywords" content="phim Pháp, xem phim Pháp, phim tình cảm Pháp, phim hài Pháp, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Pháp Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Thưởng thức những bộ phim Pháp đặc sắc với đa dạng thể loại. Xem phim chất lượng cao tại Nghiện Phim." />
-  <meta property="og:image" content="URL_ảnh_đại_diện_trang_Pháp" />
-  <meta property="og:url" content="https://www.nghienphim.com/phap" />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/phap" />
-  <meta name="robots" content="index, follow" />
-</Helmet>
-        
+                <title>Xem Phim Pháp Hay Nhất 2024 | Nghiện Phim</title>
+                <meta name="description" content="Xem phim Pháp mới nhất, chất lượng cao với đa dạng thể loại: tình cảm, hài hước, tâm lý và nhiều thể loại khác tại Nghiện Phim." />
+                <meta name="keywords" content="phim Pháp, xem phim Pháp, phim tình cảm Pháp, phim hài Pháp, phim hay 2024" />
+                <meta property="og:title" content="Xem Phim Pháp Hay Nhất 2024 | Nghiện Phim" />
+                <meta property="og:description" content="Thưởng thức những bộ phim Pháp đặc sắc với đa dạng thể loại. Xem phim chất lượng cao tại Nghiện Phim." />
+                <meta property="og:image" content="URL_ảnh_đại_diện_trang_Pháp" />
+                <meta property="og:url" content="https://www.nghienphim.com/phap" />
+                <meta property="og:type" content="website" />
+                <link rel="canonical" href="https://www.nghienphim.com/phap" />
+                <meta name="robots" content="index, follow" />
+            </Helmet>
+
             <div className="container">
                 <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
@@ -51,16 +51,16 @@ export default function Phap() {
                     <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-<Suspense fallback={<div>Loadding...</div>}>
+                                <Suspense fallback={<div>Loadding...</div>}>
 
-                            <FilterfilmCompoment
-                            data={data}
-                            filters={filters}
-                            setFilters={setFilters}
-                            appliedFilters={appliedFilters}
-                            setAppliedFilters={setAppliedFilters}
-                        />
-</Suspense>
+                                    <FilterfilmCompoment
+                                        data={data}
+                                        filters={filters}
+                                        setFilters={setFilters}
+                                        appliedFilters={appliedFilters}
+                                        setAppliedFilters={setAppliedFilters}
+                                    />
+                                </Suspense>
 
                             </div>
 
