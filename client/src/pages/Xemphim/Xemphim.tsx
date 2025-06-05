@@ -83,7 +83,7 @@ const Xemphim: React.FC = () => {
               />
             </Suspense>
 
-            
+
             <div className="mt-3 detail_page__slider">
               <div className="" style={{ paddingLeft: 10 }}>
                 <div className="d-flex">
@@ -91,9 +91,9 @@ const Xemphim: React.FC = () => {
                   <h2 style={{ fontSize: 18, fontFamily: 'roboto', fontWeight: 600, textTransform: 'uppercase', color: 'white', marginLeft: 10, paddingTop: 5 }}>PHIM ĐỀ CỬ</h2>
                 </div>
                 <div className="detail_page__slider">
-                 <Suspense fallback={<div>Loadding...</div>}>
-                <Slickslider settings={settings} data={data_phimhot} />
-              </Suspense>
+                  <Suspense fallback={<div>Loadding...</div>}>
+                    <Slickslider settings={settings} data={data_phimhot} />
+                  </Suspense>
                 </div>
               </div>
             </div>
@@ -149,35 +149,37 @@ interface VideoControlsProps {
 }
 
 const VideoControls: React.FC<VideoControlsProps> = ({ handlenextepisode, ktranextepisode }) => (
-  <div className="container mt-2 d-flex flex-column flex-md-row justify-content-between align-items-stretch gap-2 px-0">
-    <div className="d-flex flex-row flex-md-column gap-2 w-100 justify-content-center justify-content-md-start">
-      <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
-        <BsArrowsFullscreen /> Phóng to
-      </button>
-      <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
-        <MdError /> Báo lỗi
-      </button>
-    </div>
-    <div className="my-2 my-md-0 w-100 d-flex justify-content-center align-items-center">
-      <ServerSwitch />
-    </div>
-    <div className="d-flex flex-row flex-md-column gap-2 w-100 justify-content-center justify-content-md-end">
-      <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
-        <FaRegLightbulb /> Tắt đèn
-      </button>
-      <button
-        onClick={handlenextepisode}
-        className='btn w-100'
-        style={{
-          backgroundColor: '#27272A',
-          fontWeight: 550,
-          fontSize: 12,
-          color: ktranextepisode ? 'gray' : 'white'
-        }}
-        disabled={ktranextepisode}
-      >
-        <TbPlayerTrackNext /> Tập tiếp
-      </button>
+  <div className="container mt-2 px-0">
+    <div className="row gy-2">
+      <div className="col-12 col-md-4 d-flex flex-column gap-2">
+        <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 13 }}>
+          <BsArrowsFullscreen /> Phóng to
+        </button>
+        <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 13 }}>
+          <MdError /> Báo lỗi
+        </button>
+      </div>
+      <div className="col-12 col-md-4 d-flex align-items-center justify-content-center">
+        <ServerSwitch />
+      </div>
+      <div className="col-12 col-md-4 d-flex flex-column gap-2">
+        <button className='btn text-white w-100' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 13 }}>
+          <FaRegLightbulb /> Tắt đèn
+        </button>
+        <button
+          onClick={handlenextepisode}
+          className='btn w-100'
+          style={{
+            backgroundColor: '#27272A',
+            fontWeight: 550,
+            fontSize: 13,
+            color: ktranextepisode ? 'gray' : 'white'
+          }}
+          disabled={ktranextepisode}
+        >
+          <TbPlayerTrackNext /> Tập tiếp
+        </button>
+      </div>
     </div>
   </div>
 );

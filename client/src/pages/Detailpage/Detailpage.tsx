@@ -98,13 +98,13 @@ export default function Detailpage() {
 
         <meta property="og:title" content={datadetail ? `${datadetail.title} | Xem Phim Online - Nghiện Phim` : "Nghiện Phim | Xem Phim Online Miễn Phí"} />
         <meta property="og:description" content={datadetail ? `Xem phim ${datadetail.title} thể loại ${datadetail.theloai}, phụ đề tiếng Việt, chất lượng cao tại Nghiện Phim.` : "Khám phá kho phim online miễn phí với đầy đủ các thể loại: hành động, tình cảm, hài hước, kinh dị, cổ trang, khoa học viễn tưởng, phim bộ, phim lẻ, và nhiều hơn nữa. Trải nghiệm phim chất lượng cao tại Nghiện Phim."} />
-        <meta property="og:image" content={datadetail ? datadetail.hinhanh : "https://motchillj.net/motchill.png?v1.0.2"} />
+        <meta property="og:image" content={datadetail ? datadetail.hinhanh : "/motchill.png"} />
         <meta property="og:url" content={datadetail ? `https://nghienphim.com/phim/${datadetail.title}` : "https://nghienphim.com/"} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={datadetail ? `${datadetail.title} | Xem Phim Online - Nghiện Phim` : "Nghiện Phim | Xem Phim Online Miễn Phí"} />
         <meta name="twitter:description" content={datadetail ? `Xem phim ${datadetail.title}, thể loại ${datadetail.theloai}, phụ đề tiếng Việt tại Nghiện Phim.` : "Xem phim online miễn phí với nhiều thể loại: hành động, tình cảm, hài hước, kinh dị, cổ trang, khoa học viễn tưởng, và nhiều thể loại khác tại Nghiện Phim."} />
-        <meta name="twitter:image" content={datadetail ? datadetail.hinhanh : "https://motchillj.net/motchill.png?v1.0.2"} />
+        <meta name="twitter:image" content={datadetail ? datadetail.hinhanh : "/motchill.png"} />
         <link rel="canonical" href={datadetail ? `https://nghienphim.com/phim/${datadetail.title}` : "https://nghienphim.com/"} />
         <meta name="robots" content="index, follow" />
       </Helmet>

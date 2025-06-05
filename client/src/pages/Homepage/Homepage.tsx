@@ -18,14 +18,14 @@ export default function Homepage() {
 
         <meta property="og:title" content="Nghiện Phim | Xem Phim Online Miễn Phí - Tổng Hợp Phim Hay Nhất 2024" />
         <meta property="og:description" content="Khám phá kho phim online miễn phí với đầy đủ các thể loại: hành động, tình cảm, hài hước, kinh dị, cổ trang, khoa học viễn tưởng, phim bộ, phim lẻ, và nhiều hơn nữa. Trải nghiệm phim chất lượng cao tại Nghiện Phim." />
-        <meta property="og:image" content="https://motchillj.net/motchill.png?v1.0.2" />
+        <meta property="og:image" content="/motchill.png" />
         <meta property="og:url" content="https://www.nghienphim.com/" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Nghiện Phim | Xem Phim Online Miễn Phí - Tổng Hợp Phim Hay Nhất 2024" />
         <meta name="twitter:description" content="Xem phim online miễn phí với nhiều thể loại: hành động, tình cảm, hài hước, kinh dị, cổ trang, khoa học viễn tưởng, và nhiều thể loại khác tại Nghiện Phim." />
-        <meta name="twitter:image" content="https://motchillj.net/motchill.png?v1.0.2" />
+        <meta name="twitter:image" content="/motchill.png" />
 
         <link rel="canonical" href="https://nghienphim.click/" />
         <meta name="robots" content="index, follow" />

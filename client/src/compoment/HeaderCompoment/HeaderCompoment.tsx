@@ -105,7 +105,7 @@ const {
       <div className="header-inner">
         <Link to="/" className="logo">
           <img 
-            src="https://motchillj.net/motchill.png?v1.0.2"
+            src="/motchill.png"
             alt="Motchill Logo"
             className="logo-image"  
           />
