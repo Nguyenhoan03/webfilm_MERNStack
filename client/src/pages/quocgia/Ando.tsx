@@ -25,7 +25,7 @@ export default function Ando() {
             </Helmet>
 
             <div className="container">
-                <div className="caption mt-3 d-flex">
+                <div className="caption mt-3 d-flex align-items-center gap-2">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p>Ấn Độ</p>
@@ -45,7 +45,7 @@ export default function Ando() {
                     Phim Ấn Độ
                 </p>
                 <div className="row">
-                    <div className="hanhdongleft col-md-9">
+                    <div className="hanhdongleft col-12 col-md-9">
                         <div className="">
                             <div className="category_phim">
                                 <Suspense fallback={<div>Loadding...</div>}>
@@ -64,7 +64,7 @@ export default function Ando() {
 
                         </div>
                     </div>
-                    <div className="hanhdongright col-md-3">
+                    <div className="hanhdongright col-12 col-md-3">
                         <Homepagebodyright />
                     </div>
                 </div>

@@ -25,7 +25,7 @@ export default function Anh() {
             </Helmet>
 
             <div className="container">
-                <div className="caption mt-3 d-flex">
+                <div className="caption mt-3 d-flex align-items-center gap-2">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p>Anh quốc</p>
@@ -45,7 +45,7 @@ export default function Anh() {
                     Phim Anh
                 </p>
                 <div className="row">
-                    <div className="hanhdongleft col-md-9">
+                    <div className="col-12 col-lg-9 mb-4">
                         <div className="">
                             <div className="category_phim">
                                 <Suspense fallback={<div>Loadding...</div>}>
@@ -64,7 +64,7 @@ export default function Anh() {
 
                         </div>
                     </div>
-                    <div className="hanhdongright col-md-3">
+                    <div className="col-12 col-lg-3">
                         <Homepagebodyright />
                     </div>
                 </div>

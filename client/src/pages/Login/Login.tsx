@@ -68,7 +68,7 @@ export default function Login() {
         <meta name="robots" content="index, follow" />
       </Helmet>
       <div className="container">
-        <div className="caption mt-3 d-flex">
+        <div className="caption mt-3 d-flex align-items-center gap-2">
           <p>
             <IoIosHome /> nghienphim
           </p>
