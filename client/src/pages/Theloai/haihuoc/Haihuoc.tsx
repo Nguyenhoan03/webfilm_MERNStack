@@ -12,14 +12,14 @@ export default function Haihuoc() {
     return (
         <div className="">
             <Helmet>
-  <title>Phim Hài Hước | nghienphim - Xem phim online</title>
-  <meta name="description" content="Tuyển tập phim hài hước, cười thả ga với các bộ phim hài từ khắp nơi trên thế giới tại nghienphim" />
+  <title>Phim Hài Hước | mephim - Xem phim online</title>
+  <meta name="description" content="Tuyển tập phim hài hước, cười thả ga với các bộ phim hài từ khắp nơi trên thế giới tại mephim" />
   <meta name="keywords" content="phim hài, phim hài Việt Nam, phim hài quốc tế, xem phim hài, phim hài mới, phim hài 2024" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p> Hài hước</p>
                 </div>

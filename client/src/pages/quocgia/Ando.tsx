@@ -12,21 +12,21 @@ export default function Ando() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Ấn Độ Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Khám phá phim Ấn Độ mới nhất, đa dạng thể loại: tình cảm, hành động, âm nhạc, và nhiều hơn nữa. Xem phim Ấn Độ tại Nghiện Phim." />
+  <title>Xem Phim Ấn Độ Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Khám phá phim Ấn Độ mới nhất, đa dạng thể loại: tình cảm, hành động, âm nhạc, và nhiều hơn nữa. Xem phim Ấn Độ tại Mê Phim." />
   <meta name="keywords" content="phim Ấn Độ, xem phim Ấn Độ, phim tình cảm Ấn Độ, phim hành động Ấn Độ, phim Bollywood" />
-  <meta property="og:title" content="Xem Phim Ấn Độ Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Tận hưởng những bộ phim Ấn Độ đặc sắc với đa dạng thể loại và chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Ấn Độ Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Tận hưởng những bộ phim Ấn Độ đặc sắc với đa dạng thể loại và chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Ấn_Độ" />
-  <meta property="og:url" content="https://www.nghienphim.com/an-do" />
+  <meta property="og:url" content="https://www.mephim.com/an-do" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/an-do" />
+  <link rel="canonical" href="https://www.mephim.com/an-do" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Ấn Độ</p>
                 </div>

@@ -15,21 +15,21 @@ export default function Nhatban() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Nhật Bản Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Tổng hợp phim Nhật Bản hay nhất, mới nhất với đầy đủ thể loại: hoạt hình, tình cảm, kinh dị và nhiều hơn nữa. Xem phim Nhật Bản tại Nghiện Phim." />
+  <title>Xem Phim Nhật Bản Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Tổng hợp phim Nhật Bản hay nhất, mới nhất với đầy đủ thể loại: hoạt hình, tình cảm, kinh dị và nhiều hơn nữa. Xem phim Nhật Bản tại Mê Phim." />
   <meta name="keywords" content="phim Nhật Bản, xem phim Nhật Bản, phim hoạt hình Nhật Bản, phim tình cảm Nhật Bản, phim kinh dị Nhật Bản, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Nhật Bản Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Khám phá những bộ phim Nhật Bản đặc sắc nhất với nhiều thể loại phong phú. Xem phim chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Nhật Bản Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Khám phá những bộ phim Nhật Bản đặc sắc nhất với nhiều thể loại phong phú. Xem phim chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Nhật_Bản" />
-  <meta property="og:url" content="https://www.nghienphim.com/nhat-ban" />
+  <meta property="og:url" content="https://www.mephim.com/nhat-ban" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/nhat-ban" />
+  <link rel="canonical" href="https://www.mephim.com/nhat-ban" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Nhật Bản</p>
                 </div>

@@ -15,14 +15,14 @@ export default function Thuysi() {
     return (
         <div className="">
             <Helmet>
-            <title>Phim Thụy Sĩ | nghienphim - Xem phim online</title>
-<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Thụy Sĩ tại nghienphim. Xem phim Thụy Sĩ miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+            <title>Phim Thụy Sĩ | mephim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Thụy Sĩ tại mephim. Xem phim Thụy Sĩ miễn phí, chất lượng cao với phụ đề tiếng Việt." />
 <meta name="keywords" content="phim Thụy Sĩ, phim Thụy Sĩ hay, xem phim Thụy Sĩ, phim Thụy Sĩ 2024, phim châu Âu, phim Thụy Sĩ phụ đề tiếng Việt" />
 
             </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Thụy Sỹ</p>
                 </div>

@@ -14,14 +14,14 @@ export default function Phimshows() {
     return (
         <div className="">
             <Helmet>
-  <title>Phim Shows Truyền Hình Hay | nghienphim - Xem Gameshow Trực Tuyến</title>
-  <meta name="description" content="Xem các chương trình truyền hình, gameshow hot nhất từ Việt Nam và thế giới. Cập nhật nhanh các show giải trí, thực tế, hài hước, ca nhạc, thể thao và nhiều thể loại hấp dẫn tại nghienphim" />
+  <title>Phim Shows Truyền Hình Hay | mephim - Xem Gameshow Trực Tuyến</title>
+  <meta name="description" content="Xem các chương trình truyền hình, gameshow hot nhất từ Việt Nam và thế giới. Cập nhật nhanh các show giải trí, thực tế, hài hước, ca nhạc, thể thao và nhiều thể loại hấp dẫn tại mephim" />
   <meta name="keywords" content="phim shows, chương trình truyền hình, gameshow, show truyền hình Việt Nam, show quốc tế, show thực tế, show giải trí, xem gameshow, gameshow Việt Nam, show ca nhạc, show thể thao, show hài hước, xem show truyền hình miễn phí, phim shows mới nhất" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p> TV Shows</p>
                 </div>

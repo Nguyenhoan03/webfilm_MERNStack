@@ -12,14 +12,14 @@ export default function Amnhac() {
     return (
         <div className="">
             <Helmet>
-  <title>Phim Âm Nhạc | nghienphim - Xem phim online</title>
-  <meta name="description" content="Tuyển tập phim âm nhạc hay nhất, từ các bộ phim ca nhạc quốc tế đến phim ca nhạc Việt Nam. Khám phá thế giới âm nhạc qua điện ảnh tại nghienphim" />
+  <title>Phim Âm Nhạc | mephim - Xem phim online</title>
+  <meta name="description" content="Tuyển tập phim âm nhạc hay nhất, từ các bộ phim ca nhạc quốc tế đến phim ca nhạc Việt Nam. Khám phá thế giới âm nhạc qua điện ảnh tại mephim" />
   <meta name="keywords" content="phim âm nhạc, phim ca nhạc, phim ca nhạc quốc tế, phim ca nhạc Việt Nam, xem phim âm nhạc, phim về âm nhạc" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p> Âm nhạc</p>
                 </div>

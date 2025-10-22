@@ -13,14 +13,14 @@ export default function Bian() {
     return (
         <div className="">
             <Helmet>
-  <title>Phim Bí Ẩn | nghienphim - Xem phim online</title>
-  <meta name="description" content="Khám phá những bộ phim bí ẩn với các tình tiết ly kỳ, đầy bất ngờ tại nghienphim Xem phim bí ẩn chất lượng cao, miễn phí." />
+  <title>Phim Bí Ẩn | mephim - Xem phim online</title>
+  <meta name="description" content="Khám phá những bộ phim bí ẩn với các tình tiết ly kỳ, đầy bất ngờ tại mephim Xem phim bí ẩn chất lượng cao, miễn phí." />
   <meta name="keywords" content="phim bí ẩn, phim ly kỳ, phim trinh thám, xem phim bí ẩn, phim bí ẩn 2024, phim huyền bí" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p> Bí ẩn </p>
                 </div>

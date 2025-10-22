@@ -14,14 +14,14 @@ export default function Phimsapchieu() {
     return (
         <div className="">
             <Helmet>
-  <title>Phim Sắp Chiếu | nghienphim - Xem Trailer và Thông Tin Phim Mới</title>
-  <meta name="description" content="Cập nhật thông tin phim sắp chiếu hot nhất, xem trailer và thông tin chi tiết về các bộ phim sắp ra mắt tại nghienphim Khám phá lịch chiếu và những bộ phim bom tấn sắp đổ bộ rạp chiếu phim." />
+  <title>Phim Sắp Chiếu | mephim - Xem Trailer và Thông Tin Phim Mới</title>
+  <meta name="description" content="Cập nhật thông tin phim sắp chiếu hot nhất, xem trailer và thông tin chi tiết về các bộ phim sắp ra mắt tại mephim Khám phá lịch chiếu và những bộ phim bom tấn sắp đổ bộ rạp chiếu phim." />
   <meta name="keywords" content="phim sắp chiếu, phim mới, trailer phim, phim sắp ra mắt, phim bom tấn 2024, phim sắp chiếu rạp, lịch chiếu phim mới, phim sắp ra mắt 2024, phim sắp chiếu Netflix, phim sắp chiếu HBO, xem phim sắp chiếu, tin tức phim mới" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p> Phim sắp chiếu</p>
                 </div>

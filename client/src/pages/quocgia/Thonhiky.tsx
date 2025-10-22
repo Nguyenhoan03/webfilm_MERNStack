@@ -15,21 +15,21 @@ export default function Thonhiky() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Thổ Nhĩ Kỳ Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Xem phim Thổ Nhĩ Kỳ hay nhất với các thể loại: tình cảm, tâm lý, hành động và nhiều thể loại khác tại Nghiện Phim." />
+  <title>Xem Phim Thổ Nhĩ Kỳ Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Xem phim Thổ Nhĩ Kỳ hay nhất với các thể loại: tình cảm, tâm lý, hành động và nhiều thể loại khác tại Mê Phim." />
   <meta name="keywords" content="phim Thổ Nhĩ Kỳ, xem phim Thổ Nhĩ Kỳ, phim tình cảm Thổ Nhĩ Kỳ, phim hành động Thổ Nhĩ Kỳ, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Thổ Nhĩ Kỳ Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Thưởng thức những bộ phim Thổ Nhĩ Kỳ đặc sắc với chất lượng cao và nội dung hấp dẫn tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Thổ Nhĩ Kỳ Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Thưởng thức những bộ phim Thổ Nhĩ Kỳ đặc sắc với chất lượng cao và nội dung hấp dẫn tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Thổ_Nhĩ_Kỳ" />
-  <meta property="og:url" content="https://www.nghienphim.com/tho-nhi-ky" />
+  <meta property="og:url" content="https://www.mephim.com/tho-nhi-ky" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/tho-nhi-ky" />
+  <link rel="canonical" href="https://www.mephim.com/tho-nhi-ky" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Thổ Nhĩ Kỳ</p>
                 </div>

@@ -15,14 +15,14 @@ export default function Philippines() {
     return (
         <div className="">
             <Helmet>
-            <title>Phim Philippines | nghienphim - Xem phim online</title>
-<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Philippines tại nghienphim. Xem phim Philippines miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+            <title>Phim Philippines | mephim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Philippines tại mephim. Xem phim Philippines miễn phí, chất lượng cao với phụ đề tiếng Việt." />
 <meta name="keywords" content="phim Philippines, phim Philippines hay, xem phim Philippines, phim Philippines 2024, phim châu Âu, phim Philippines phụ đề tiếng Việt" />
 
             </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Philippines</p>
                 </div>

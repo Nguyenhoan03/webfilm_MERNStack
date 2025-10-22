@@ -18,7 +18,7 @@ export default function Search() {
     <div className="">
       <div className="container">
         <div className="caption mt-3 d-flex">
-          <p><IoIosHome /> nghienphim</p>
+          <p><IoIosHome /> mephim</p>
           <p> &gt; </p>
           <p>Kết quả tìm kiếm : {params.content_search}</p>
         </div>

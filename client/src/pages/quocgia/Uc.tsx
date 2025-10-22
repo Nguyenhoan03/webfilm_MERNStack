@@ -15,14 +15,14 @@ export default function Uc() {
     return (
         <div className="">
             <Helmet>
-            <title>Phim Úc | nghienphim - Xem phim online</title>
-<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Úc tại nghienphim. Xem phim Úc miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+            <title>Phim Úc | mephim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Úc tại mephim. Xem phim Úc miễn phí, chất lượng cao với phụ đề tiếng Việt." />
 <meta name="keywords" content="phim Úc, phim Úc hay, xem phim Úc, phim Úc 2024, phim châu Âu, phim Úc phụ đề tiếng Việt" />
 
             </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Úc</p>
                 </div>

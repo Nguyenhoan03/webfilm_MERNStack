@@ -15,21 +15,21 @@ export default function Nga() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Nga Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Xem phim Nga mới nhất, chất lượng cao với nhiều thể loại: hành động, tình cảm, tâm lý và nhiều thể loại khác tại Nghiện Phim." />
+  <title>Xem Phim Nga Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Xem phim Nga mới nhất, chất lượng cao với nhiều thể loại: hành động, tình cảm, tâm lý và nhiều thể loại khác tại Mê Phim." />
   <meta name="keywords" content="phim Nga, xem phim Nga, phim hành động Nga, phim tình cảm Nga, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Nga Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Khám phá những bộ phim Nga đặc sắc và hấp dẫn với chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Nga Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Khám phá những bộ phim Nga đặc sắc và hấp dẫn với chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Nga" />
-  <meta property="og:url" content="https://www.nghienphim.com/nga" />
+  <meta property="og:url" content="https://www.mephim.com/nga" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/nga" />
+  <link rel="canonical" href="https://www.mephim.com/nga" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Nga</p>
                 </div>

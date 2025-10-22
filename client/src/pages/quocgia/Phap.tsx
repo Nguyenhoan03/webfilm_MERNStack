@@ -15,21 +15,21 @@ export default function Phap() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Pháp Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Xem phim Pháp mới nhất, chất lượng cao với đa dạng thể loại: tình cảm, hài hước, tâm lý và nhiều thể loại khác tại Nghiện Phim." />
+  <title>Xem Phim Pháp Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Xem phim Pháp mới nhất, chất lượng cao với đa dạng thể loại: tình cảm, hài hước, tâm lý và nhiều thể loại khác tại Mê Phim." />
   <meta name="keywords" content="phim Pháp, xem phim Pháp, phim tình cảm Pháp, phim hài Pháp, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Pháp Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Thưởng thức những bộ phim Pháp đặc sắc với đa dạng thể loại. Xem phim chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Pháp Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Thưởng thức những bộ phim Pháp đặc sắc với đa dạng thể loại. Xem phim chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Pháp" />
-  <meta property="og:url" content="https://www.nghienphim.com/phap" />
+  <meta property="og:url" content="https://www.mephim.com/phap" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/phap" />
+  <link rel="canonical" href="https://www.mephim.com/phap" />
   <meta name="robots" content="index, follow" />
 </Helmet>
         
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Pháp</p>
                 </div>

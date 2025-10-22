@@ -14,14 +14,14 @@ export default function Kinhdi() {
     return (
         <div className="">
             <Helmet>
-  <title>Phim Kinh Dị | nghienphim - Xem phim online</title>
-  <meta name="description" content="Tuyển tập phim kinh dị rùng rợn, đáng sợ với những câu chuyện ma quái, ám ảnh tại nghienphim" />
+  <title>Phim Kinh Dị | mephim - Xem phim online</title>
+  <meta name="description" content="Tuyển tập phim kinh dị rùng rợn, đáng sợ với những câu chuyện ma quái, ám ảnh tại mephim" />
   <meta name="keywords" content="phim kinh dị, phim ma, phim rùng rợn, xem phim kinh dị, phim kinh dị Mỹ, phim kinh dị Hàn Quốc" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p> Kinh dị</p>
                 </div>

@@ -15,14 +15,14 @@ export default function Y() {
     return (
         <div className="">
             <Helmet>
-            <title>Phim Ý | nghienphim - Xem phim online</title>
-<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Ý tại nghienphim. Xem phim Ý miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+            <title>Phim Ý | mephim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Ý tại mephim. Xem phim Ý miễn phí, chất lượng cao với phụ đề tiếng Việt." />
 <meta name="keywords" content="phim Ý, phim Ý hay, xem phim Ý, phim Ý 2024, phim châu Âu, phim Ý phụ đề tiếng Việt" />
 
             </Helmet>
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Ý</p>
                 </div>

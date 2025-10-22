@@ -15,21 +15,21 @@ export default function Dailoan() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Đài Loan Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Tổng hợp phim Đài Loan mới nhất, chất lượng cao. Xem phim tình cảm, hài hước, hành động và nhiều thể loại khác tại Nghiện Phim." />
+  <title>Xem Phim Đài Loan Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Tổng hợp phim Đài Loan mới nhất, chất lượng cao. Xem phim tình cảm, hài hước, hành động và nhiều thể loại khác tại Mê Phim." />
   <meta name="keywords" content="phim Đài Loan, xem phim Đài Loan, phim tình cảm Đài Loan, phim hành động Đài Loan, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Đài Loan Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Khám phá bộ sưu tập phim Đài Loan đặc sắc với nhiều thể loại hấp dẫn. Xem phim chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Đài Loan Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Khám phá bộ sưu tập phim Đài Loan đặc sắc với nhiều thể loại hấp dẫn. Xem phim chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Đài_Loan" />
-  <meta property="og:url" content="https://www.nghienphim.com/dai-loan" />
+  <meta property="og:url" content="https://www.mephim.com/dai-loan" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/dai-loan" />
+  <link rel="canonical" href="https://www.mephim.com/dai-loan" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Đài Loan</p>
                 </div>

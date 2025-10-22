@@ -92,7 +92,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ datadetail, datafilm }) => (
   <div className="caption mt-3 d-flex">
-    <p><IoIosHome /> nghienphim</p>
+    <p><IoIosHome /> mephim</p>
     <p> &gt; </p>
     <p> {datadetail?.theloai}</p>
     <p> &gt; </p>

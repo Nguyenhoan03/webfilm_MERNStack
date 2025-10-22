@@ -15,21 +15,21 @@ export default function Balan() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Ba Lan Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Xem phim Ba Lan mới nhất, đa dạng thể loại: tình cảm, hành động, hài hước và nhiều hơn nữa tại Nghiện Phim." />
+  <title>Xem Phim Ba Lan Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Xem phim Ba Lan mới nhất, đa dạng thể loại: tình cảm, hành động, hài hước và nhiều hơn nữa tại Mê Phim." />
   <meta name="keywords" content="phim Ba Lan, xem phim Ba Lan, phim tình cảm Ba Lan, phim hành động Ba Lan, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Ba Lan Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Khám phá những bộ phim Ba Lan đặc sắc và hấp dẫn với chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Ba Lan Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Khám phá những bộ phim Ba Lan đặc sắc và hấp dẫn với chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Ba_Lan" />
-  <meta property="og:url" content="https://www.nghienphim.com/ba-lan" />
+  <meta property="og:url" content="https://www.mephim.com/ba-lan" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/ba-lan" />
+  <link rel="canonical" href="https://www.mephim.com/ba-lan" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Ba lan</p>
                 </div>

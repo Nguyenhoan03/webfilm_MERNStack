@@ -15,14 +15,14 @@ export default function Khoahoc() {
     return (
         <div className="">
             <Helmet>
-  <title>Phim Khoa Học | nghienphim - Xem phim online</title>
-  <meta name="description" content="Xem phim khoa học đầy kiến thức, từ những khám phá vũ trụ đến các thí nghiệm thú vị tại nghienphim" />
+  <title>Phim Khoa Học | mephim - Xem phim online</title>
+  <meta name="description" content="Xem phim khoa học đầy kiến thức, từ những khám phá vũ trụ đến các thí nghiệm thú vị tại mephim" />
   <meta name="keywords" content="phim khoa học, phim khám phá, phim khoa học viễn tưởng, phim khám phá vũ trụ, xem phim khoa học" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p> Phim 18+</p>
                 </div>

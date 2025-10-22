@@ -15,21 +15,21 @@ export default function Indonesia() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Indonesia Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Xem phim Indonesia mới nhất, đa dạng thể loại: tình cảm, kinh dị, hành động và nhiều hơn nữa tại Nghiện Phim." />
+  <title>Xem Phim Indonesia Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Xem phim Indonesia mới nhất, đa dạng thể loại: tình cảm, kinh dị, hành động và nhiều hơn nữa tại Mê Phim." />
   <meta name="keywords" content="phim Indonesia, xem phim Indonesia, phim tình cảm Indonesia, phim kinh dị Indonesia, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Indonesia Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Thưởng thức bộ sưu tập phim Indonesia đa dạng với chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Indonesia Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Thưởng thức bộ sưu tập phim Indonesia đa dạng với chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Indonesia" />
-  <meta property="og:url" content="https://www.nghienphim.com/indonesia" />
+  <meta property="og:url" content="https://www.mephim.com/indonesia" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/indonesia" />
+  <link rel="canonical" href="https://www.mephim.com/indonesia" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Indonesia</p>
                 </div>

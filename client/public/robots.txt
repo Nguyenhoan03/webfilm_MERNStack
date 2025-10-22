@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
-Sitemap: https://nghienphim.click/sitemap.xml
+Sitemap: https://mephim.io.vn/sitemap.xml

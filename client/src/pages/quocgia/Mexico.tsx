@@ -15,21 +15,21 @@ export default function Mexico() {
     return (
         <div className="">
             <Helmet>
-  <title>Xem Phim Mexico Hay Nhất 2024 | Nghiện Phim</title>
-  <meta name="description" content="Xem phim Mexico mới nhất với đa dạng thể loại: tình cảm, kinh dị, hài hước, hành động tại Nghiện Phim." />
+  <title>Xem Phim Mexico Hay Nhất 2024 | Mê Phim</title>
+  <meta name="description" content="Xem phim Mexico mới nhất với đa dạng thể loại: tình cảm, kinh dị, hài hước, hành động tại Mê Phim." />
   <meta name="keywords" content="phim Mexico, xem phim Mexico, phim tình cảm Mexico, phim kinh dị Mexico, phim hay 2024" />
-  <meta property="og:title" content="Xem Phim Mexico Hay Nhất 2024 | Nghiện Phim" />
-  <meta property="og:description" content="Thưởng thức bộ sưu tập phim Mexico hấp dẫn và chất lượng cao tại Nghiện Phim." />
+  <meta property="og:title" content="Xem Phim Mexico Hay Nhất 2024 | Mê Phim" />
+  <meta property="og:description" content="Thưởng thức bộ sưu tập phim Mexico hấp dẫn và chất lượng cao tại Mê Phim." />
   <meta property="og:image" content="URL_ảnh_đại_diện_trang_Mexico" />
-  <meta property="og:url" content="https://www.nghienphim.com/mexico" />
+  <meta property="og:url" content="https://www.mephim.com/mexico" />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.nghienphim.com/mexico" />
+  <link rel="canonical" href="https://www.mephim.com/mexico" />
   <meta name="robots" content="index, follow" />
 </Helmet>
 
             <div className="container">
                 <div className="caption mt-3 d-flex">
-                    <p><IoIosHome /> nghienphim</p>
+                    <p><IoIosHome /> mephim</p>
                     <p> &gt; </p>
                     <p>Mexico</p>
                 </div>
