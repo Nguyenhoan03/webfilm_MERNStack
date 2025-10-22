@@ -57,18 +57,18 @@ export default function Login() {
         <meta name="keywords" content="đăng nhập tài khoản, tạo tài khoản, xem phim online miễn phí, phim hành động, phim tình cảm, phim khoa học viễn tưởng, phim kinh dị, Motchill" />
         <meta property="og:title" content="Đăng nhập tài khoản tại Motchill" />
         <meta property="og:description" content="Đăng nhập tài khoản để xem phim online miễn phí với chất lượng cao tại Motchill. Trải nghiệm hàng ngàn bộ phim thuộc nhiều thể loại." />
-        <meta property="og:image" content="/motchill.png" />
+        <meta property="og:image" content="https://motchillj.net/motchill.png?v1.0.2" />
         <meta property="og:url" content="https://www.nghienphim.com/dang-ky" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Đăng nhập tài khoản | Motchill" />
         <meta name="twitter:description" content="Tạo tài khoản mới tại Motchill để xem phim online miễn phí. Trải nghiệm nhiều thể loại phim hành động, tình cảm, và nhiều hơn nữa." />
-        <meta name="twitter:image" content="/motchill.png" />
+        <meta name="twitter:image" content="https://motchillj.net/motchill.png?v1.0.2" />
         <link rel="canonical" href="https://nghienphim.com/dang-ky" />
         <meta name="robots" content="index, follow" />
       </Helmet>
       <div className="container">
-        <div className="caption mt-3 d-flex align-items-center gap-2">
+        <div className="caption mt-3 d-flex">
           <p>
             <IoIosHome /> nghienphim
           </p>

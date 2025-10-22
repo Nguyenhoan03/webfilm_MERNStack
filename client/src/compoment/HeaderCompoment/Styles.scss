@@ -123,7 +123,7 @@
 
 .nav-dropdown:hover .dropdown-menu,
 .nav-dropdown:focus-within .dropdown-menu {
-  display: grid;
+  display: grid; /* Show on hover or focus */
 }
 
 .dropdown-item {
@@ -169,14 +169,14 @@
   display: none;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 768px) {
   .tab_menu {
     display: block !important;
     position: absolute;
-    top: 3.5%;
+    margin-top: 76px;
     right: 10px;
+    margin-top: 100px;
   }
-  
   
   .header-nav {
     display: none;
@@ -238,7 +238,11 @@
     border-bottom: 1px solid #ddd;
   }
   
- 
+  .tab_menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 }
 
 

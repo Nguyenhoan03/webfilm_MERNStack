@@ -1,10 +1,9 @@
 {
-     "development": {
+  "development": {
     "username": "root",
-    "password": "secret123",
+    "password": null,
     "database": "chuyenn7_db_webphim",
     "host": "127.0.0.1",
-    "port": "3307",
     "dialect": "mysql"
   },
   "test": {

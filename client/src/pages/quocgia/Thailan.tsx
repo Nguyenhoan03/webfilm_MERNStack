@@ -6,29 +6,29 @@ import { useFilteredData } from "../../hook/FilterData/useFilteredData";
 import { Productquocgia_thailan } from "../../services/Productservices";
 
 import { Helmet } from "react-helmet";
-const FilterfilmCompoment = React.lazy(() => import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+const FilterfilmCompoment = React.lazy(()=>import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 
 export default function Thailan() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productquocgia_thailan);
 
-
+  
     return (
         <div className="">
             <Helmet>
-                <title>Xem Phim Thái Lan Hay Nhất 2024 | Nghiện Phim</title>
-                <meta name="description" content="Tuyển tập phim Thái Lan mới nhất, đầy đủ thể loại từ hành động, tình cảm đến hài hước. Xem phim Thái Lan chất lượng cao tại Nghiện Phim." />
-                <meta name="keywords" content="phim Thái Lan, xem phim Thái Lan, phim tình cảm Thái Lan, phim hài Thái Lan, phim hay 2024, phim lẻ Thái Lan" />
-                <meta property="og:title" content="Xem Phim Thái Lan Hay Nhất 2024 | Nghiện Phim" />
-                <meta property="og:description" content="Thưởng thức những bộ phim Thái Lan hấp dẫn nhất với đa dạng thể loại. Xem phim chất lượng cao tại Nghiện Phim." />
-                <meta property="og:image" content="URL_ảnh_đại_diện_trang_Thái_Lan" />
-                <meta property="og:url" content="https://www.nghienphim.com/thai-lan" />
-                <meta property="og:type" content="website" />
-                <link rel="canonical" href="https://www.nghienphim.com/thai-lan" />
-                <meta name="robots" content="index, follow" />
-            </Helmet>
+  <title>Xem Phim Thái Lan Hay Nhất 2024 | Nghiện Phim</title>
+  <meta name="description" content="Tuyển tập phim Thái Lan mới nhất, đầy đủ thể loại từ hành động, tình cảm đến hài hước. Xem phim Thái Lan chất lượng cao tại Nghiện Phim." />
+  <meta name="keywords" content="phim Thái Lan, xem phim Thái Lan, phim tình cảm Thái Lan, phim hài Thái Lan, phim hay 2024, phim lẻ Thái Lan" />
+  <meta property="og:title" content="Xem Phim Thái Lan Hay Nhất 2024 | Nghiện Phim" />
+  <meta property="og:description" content="Thưởng thức những bộ phim Thái Lan hấp dẫn nhất với đa dạng thể loại. Xem phim chất lượng cao tại Nghiện Phim." />
+  <meta property="og:image" content="URL_ảnh_đại_diện_trang_Thái_Lan" />
+  <meta property="og:url" content="https://www.nghienphim.com/thai-lan" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://www.nghienphim.com/thai-lan" />
+  <meta name="robots" content="index, follow" />
+</Helmet>
 
             <div className="container">
-                <div className="caption mt-3 d-flex align-items-center gap-2">
+                <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p>Thái Lan</p>
@@ -48,26 +48,26 @@ export default function Thailan() {
                     Phim Thái Lan
                 </p>
                 <div className="row">
-                    <div className="col-12 col-lg-9 mb-4">
+                    <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-                                <Suspense fallback={<div>Loadding...</div>}>
+<Suspense fallback={<div>Loadding...</div>}>
 
-                                    <FilterfilmCompoment
-                                        data={data}
-                                        filters={filters}
-                                        setFilters={setFilters}
-                                        appliedFilters={appliedFilters}
-                                        setAppliedFilters={setAppliedFilters}
-                                    />
-                                </Suspense>
+                            <FilterfilmCompoment
+                            data={data}
+                            filters={filters}
+                            setFilters={setFilters}
+                            appliedFilters={appliedFilters}
+                            setAppliedFilters={setAppliedFilters}
+                        />
+</Suspense>
 
                             </div>
 
 
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3">
+                    <div className="hanhdongright col-md-3">
                         <Homepagebodyright />
                     </div>
                 </div>

@@ -49,7 +49,7 @@ export default function Register() {
         <meta name="robots" content="index, follow" />
       </Helmet>
       <div className="container">
-        <div className="caption mt-3 d-flex align-items-center gap-2">
+        <div className="caption mt-3 d-flex">
           <p>
             <IoIosHome /> nghienphim
           </p>

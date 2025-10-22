@@ -1,6 +1,5 @@
 import React from 'react';
 import Itemsdanhmucfilm from '../Itemsdanhmucfilm/Itemsdanhmucfilm';
-import './Filterfilm_Compoment.scss';
 import { useNavigate } from 'react-router-dom';
 interface FilterFilmComponentProps {
     data: any[]; 
@@ -132,7 +131,7 @@ export default function FilterfilmCompoment({ data, filters, setFilters, applied
             </div>
 
             <div className="">
-                <div className="category_phim filterfilm_categories">
+                <div className="category_phim">
                     <Itemsdanhmucfilm data={data} />
                 </div>
             </div>

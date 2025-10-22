@@ -12,7 +12,7 @@
         .news_outstanding_card {
           border-radius: 7px;
           border: 1px solid #ddd;
-          // background-color: #fff;
+          background-color: #fff;
           transition: transform 0.3s;
   
           &:hover {
@@ -149,15 +149,15 @@
       width: 100%;
     }
     
-    // .news_outstanding_card {
-    //   width: 140px !important;
-    //   margin-right: 0;
-    // }
+    .news_outstanding_card {
+      width: 140px !important;
+      margin-right: 0;
+    }
     
-    // .image-container img {
-    //   width: 140px !important; 
-    //   height: auto;
-    // }
+    .image-container img {
+      width: 140px !important; 
+      height: auto;
+    }
     
     .information {
       padding: 9px;

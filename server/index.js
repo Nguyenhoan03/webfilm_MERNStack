@@ -3,47 +3,9 @@ require('dotenv').config();
 const cors = require('cors');
 const http = require('http');
 const initRoutes = require('./routes/index');
+
 const app = express();
 const server = http.createServer(app);
-
-// Create sitemap
-// const db = require('./models');
-// const Product = db.Product;
-// const Linkfilm = db.Linkfilm;
-
-
-// app.get('/sitemap/movies', async (req, res) => {
-//   try {
-//     // Lấy tất cả phim
-//     const products = await Product.findAll({
-//       attributes: ['title'],
-//       raw: true
-//     });
-
-//     // Lấy tất cả tập phim
-//     const links = await Linkfilm.findAll({
-//       attributes: ['title', 'episode'],
-//       raw: true
-//     });
-
-    
-//     const movieMap = {};
-//     links.forEach(link => {
-//       if (!movieMap[link.title]) movieMap[link.title] = [];
-//       movieMap[link.title].push(link.episode);
-//     });
-
-    
-//     const result = products.map(prod => ({
-//       title: prod.title,
-//       episodes: movieMap[prod.title] || []
-//     }));
-
-//     res.json(result);
-//   } catch (err) {
-//     res.status(500).json({ error: 'Server error' });
-//   }
-// });
 
 
 app.use(cors());
@@ -59,4 +21,12 @@ initRoutes(app);
 const port = process.env.PORT || 5000;
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+});
+
+server.on('error', (error) => {
+    console.error(' Server error:', error);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
 });

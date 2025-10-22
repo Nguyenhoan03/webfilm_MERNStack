@@ -6,16 +6,16 @@ import { useFilteredData } from "../../hook/FilterData/useFilteredData";
 import { Productquocgia_ukraina } from "../../services/Productservices";
 
 import { Helmet } from "react-helmet";
-const FilterfilmCompoment = React.lazy(() => import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+const FilterfilmCompoment = React.lazy(()=>import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 
 export default function Ukraina() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productquocgia_ukraina);
 
-
+  
     return (
         <div className="">
             <div className="container">
-                <div className="caption mt-3 d-flex align-items-center gap-2">
+                <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p>Ukraina</p>
@@ -35,26 +35,26 @@ export default function Ukraina() {
                     Phim Ukraina
                 </p>
                 <div className="row">
-                    <div className="col-12 col-lg-9 mb-4">
+                    <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-                                <Suspense fallback={<div>Loadding...</div>}>
+<Suspense fallback={<div>Loadding...</div>}>
 
-                                    <FilterfilmCompoment
-                                        data={data}
-                                        filters={filters}
-                                        setFilters={setFilters}
-                                        appliedFilters={appliedFilters}
-                                        setAppliedFilters={setAppliedFilters}
-                                    />
-                                </Suspense>
+                            <FilterfilmCompoment
+                            data={data}
+                            filters={filters}
+                            setFilters={setFilters}
+                            appliedFilters={appliedFilters}
+                            setAppliedFilters={setAppliedFilters}
+                        />
+</Suspense>
 
                             </div>
 
 
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3">
+                    <div className="hanhdongright col-md-3">
                         <Homepagebodyright />
                     </div>
                 </div>

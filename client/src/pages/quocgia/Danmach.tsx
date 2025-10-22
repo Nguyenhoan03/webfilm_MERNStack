@@ -6,22 +6,22 @@ import { useFilteredData } from "../../hook/FilterData/useFilteredData";
 import { Productquocgia_danmach } from "../../services/Productservices";
 
 import { Helmet } from "react-helmet";
-const FilterfilmCompoment = React.lazy(() => import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+const FilterfilmCompoment = React.lazy(()=>import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 
 export default function Danmach() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productquocgia_danmach);
 
-
+  
     return (
         <div className="">
             <Helmet>
-                <title>Phim Đan Mạch | nghienphim - Xem phim online</title>
-                <meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Đan Mạch tại nghienphim. Xem phim Đan Mạch miễn phí, chất lượng cao với phụ đề tiếng Việt." />
-                <meta name="keywords" content="phim Đan Mạch, phim Đan Mạch hay, xem phim Đan Mạch, phim Đan Mạch 2024, phim châu Âu, phim Đan Mạch phụ đề tiếng Việt" />
+            <title>Phim Đan Mạch | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Đan Mạch tại nghienphim. Xem phim Đan Mạch miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Đan Mạch, phim Đan Mạch hay, xem phim Đan Mạch, phim Đan Mạch 2024, phim châu Âu, phim Đan Mạch phụ đề tiếng Việt" />
 
             </Helmet>
             <div className="container">
-                <div className="caption mt-3 d-flex align-items-center gap-2">
+                <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p>Đan Mạch</p>
@@ -41,26 +41,26 @@ export default function Danmach() {
                     Phim Đan Mạch
                 </p>
                 <div className="row">
-                    <div className="col-12 col-lg-9 mb-4">
+                    <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-                                <Suspense fallback={<div>Loadding...</div>}>
+<Suspense fallback={<div>Loadding...</div>}>
 
-                                    <FilterfilmCompoment
-                                        data={data}
-                                        filters={filters}
-                                        setFilters={setFilters}
-                                        appliedFilters={appliedFilters}
-                                        setAppliedFilters={setAppliedFilters}
-                                    />
-                                </Suspense>
+                            <FilterfilmCompoment
+                            data={data}
+                            filters={filters}
+                            setFilters={setFilters}
+                            appliedFilters={appliedFilters}
+                            setAppliedFilters={setAppliedFilters}
+                        />
+</Suspense>
 
                             </div>
 
 
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3">
+                    <div className="hanhdongright col-md-3">
                         <Homepagebodyright />
                     </div>
                 </div>

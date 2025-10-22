@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import './MovieCard.scss'
 import 'react-lazy-load-image-component/src/effects/blur.css';
 interface ItemData {
-  title: string;
-  trangthai: string;
-  ngonngu: string;
-  hinhanh: string;
-  theloai: string;
-  namphathanh: number;
-  views: number;
-  sotap: string;
-  descripts: string;
+    title: string;
+    trangthai: string;
+    ngonngu: string;
+    hinhanh: string;
+    theloai: string;
+    namphathanh: number;
+    views: number;
+    sotap: string;
+    descripts: string;
 }
 interface MovieCardProps {
-  data: ItemData[];
+    data: ItemData[];
 }
-const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
+const MovieCard : React.FC<MovieCardProps> = ({ data }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
@@ -26,17 +26,17 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           data.map((pbm, index) => (
             <div
               key={index}
-              className="category_phim_card col-6 col-sm-4 col-md-3"
+              className="category_phim_card col-md-3"
               style={{
                 position: "relative",
                 height: "100%",
                 marginBottom: "20px",
-
+                
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Link to={`/${pbm.title}`} style={{ color: "white", height: 255 }}>
+              <Link to={`/${pbm.title}`} style={{ color: "white",height:255}}>
                 <p
                   className="title-badge"
                   style={{
@@ -56,27 +56,27 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                   {pbm.trangthai}-{pbm.ngonngu}
                 </p>
                 <picture>
-                  <source
-                    srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")}
-                    className="lazyload"
-                    type="image/webp"
-                    style={{ width: 175, height: 245 }}
-                  />
-                  <img
-                    style={{
-                      width: 175,
-                      height: 245,
-                      borderRadius: "8px",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                      display: "block"
-                    }}
-                    src={pbm.hinhanh}
-                    alt={pbm.title}
-                    className="lazyload"
-                    width={175}
-                    height={245}
-                  />
-                </picture>
+  <source
+    srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")}
+    className="lazyload"
+    type="image/webp"
+    style={{ width: 175, height: 245 }}
+  />
+  <img
+    style={{
+      width: 175,
+      height: 245,
+      borderRadius: "8px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+      display: "block" 
+    }}
+    src={pbm.hinhanh}
+    alt={pbm.title}
+    className="lazyload"
+    width={175}
+    height={245} 
+  />
+</picture>
 
                 <p
                   className="description-badge2"
@@ -126,10 +126,10 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                     <h5 style={{ fontSize: "18px", marginBottom: "10px" }}>
                       {pbm.title}
                     </h5>
-                    <p><span style={{ fontSize: 'bold' }}> Thể loại:</span> {pbm.theloai}</p>
-                    <p><span style={{ fontSize: 'bold' }}> Năm phát hành:</span> {pbm.namphathanh}</p>
-                    <p><span style={{ fontSize: 'bold' }}> Viewer:</span> {pbm.views}</p>
-                    <p className="description"><span style={{ fontSize: 'bold' }}> Descripts:</span> {pbm.descripts}</p>
+                    <p><span style={{fontSize:'bold'}}> Thể loại:</span> {pbm.theloai}</p>
+                    <p><span style={{fontSize:'bold'}}> Năm phát hành:</span> {pbm.namphathanh}</p>
+                    <p><span style={{fontSize:'bold'}}> Viewer:</span> {pbm.views}</p>
+                    <p className="description"><span style={{fontSize:'bold'}}> Descripts:</span> {pbm.descripts}</p>
                     <p>
                       <Link
                         to={`/${pbm.title}`}

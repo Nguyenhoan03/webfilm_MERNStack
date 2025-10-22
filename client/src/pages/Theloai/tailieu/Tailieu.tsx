@@ -20,7 +20,7 @@ export default function Tailieu() {
 </Helmet>
 
             <div className="container">
-                <div className="caption mt-3 d-flex align-items-center gap-2">
+                <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p> Phim tài liệu</p>
@@ -40,7 +40,7 @@ export default function Tailieu() {
                     Phim tài liệu
                 </p>
                 <div className="row">
-                    <div className="col-12 col-lg-9 mb-4">
+                    <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
 <Suspense fallback={<div>Loadding...</div>}>
@@ -59,7 +59,7 @@ export default function Tailieu() {
 
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3">
+                    <div className="hanhdongright col-md-3">
                         <Homepagebodyright />
                     </div>
                 </div>

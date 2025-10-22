@@ -21,7 +21,7 @@ export default function Khoahoc() {
 </Helmet>
 
             <div className="container">
-                <div className="caption mt-3 d-flex align-items-center gap-2">
+                <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p> Phim 18+</p>
@@ -41,7 +41,7 @@ export default function Khoahoc() {
                     phim 18+
                 </p>
                 <div className="row">
-                    <div className="col-12 col-lg-9 mb-4">
+                    <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
 <Suspense fallback={<div>Loadding...</div>}>
@@ -60,7 +60,7 @@ export default function Khoahoc() {
 
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3">
+                    <div className="hanhdongright col-md-3">
                         <Homepagebodyright />
                     </div>
                 </div>

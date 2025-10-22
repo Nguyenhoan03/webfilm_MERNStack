@@ -1,20 +1,20 @@
 .homepage {
   min-height: 100vh;
-
+  
   .container {
     margin: 0 auto;
   }
 
   .phimhot {
     padding: 20px;
-
+  
     border-radius: 8px;
 
     .slider-container {
       .phim-item {
         padding: 10px;
         text-align: center;
-
+       
 
         .phim-image {
           width: 166px;
@@ -28,9 +28,8 @@
           padding: 10px 0;
           position: absolute;
           bottom: 0;
-          left: 50%;
+          left:50%;
           z-index: 10;
-
           .phim-title {
             font-size: 18px;
             font-weight: bold;
@@ -45,19 +44,17 @@
       }
     }
 
-    .next-arrow,
-    .prev-arrow {
+    .next-arrow, .prev-arrow {
       &:before {
         font-size: 20px;
         color: #fff;
         align-items: center;
 
-        cursor: pointer;
+      cursor: pointer;
 
       }
     }
-
-    .next-arrow {
+    .next-arrow{
       padding-left: 10px;
     }
   }
@@ -65,13 +62,11 @@
 
 
 //thể loại phim bộ
-.category_caption {
-  display: flex;
-  gap: 20px;
-  cursor: pointer;
-
-  p {
-    font-size: 18px;
+.category_caption{
+    display: flex;
+    gap: 20px;
+  p{
+   font-size: 18px;
   }
 }
 
@@ -87,17 +82,14 @@
   width: 57px;
   text-align: center;
 }
-
 .category_phim_card {
   position: relative;
-  width: 100%;
-  max-width: 190px !important;
+  width: 190px;
   height: 260px;
   margin-left: 5px;
   margin-top: 5px;
   transition: transform 0.3s ease, filter 0.3s ease, width 0.3s ease, height 0.3s ease;
-  overflow: hidden;
-  /* Đảm bảo nội dung không tràn ra ngoài */
+  overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
 }
 
 .category_phim_card:hover {
@@ -106,8 +98,7 @@
   // width: 100%; /* Tăng chiều rộng khi hover */
   // height: 290px; /* Tăng chiều cao khi hover */
   z-index: 100;
-
-  p {
+  p{
     font-size: 12px;
     margin-top: -13px;
   }
@@ -125,21 +116,14 @@
 .category_phim_card .description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  /* Limit to 3 lines */
+  -webkit-line-clamp: 4; /* Limit to 3 lines */
   overflow: hidden;
-  text-overflow: ellipsis;
-  /* Show ellipsis for overflowed text */
-  white-space: normal;
-  /* Allow the text to wrap */
-  max-height: calc(4 * 1.5em);
-  /* Adjust the max-height to fit 3 lines */
-  margin-bottom: 10px;
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+  white-space: normal; /* Allow the text to wrap */
+  max-height: calc(4 * 1.5em); /* Adjust the max-height to fit 3 lines */
+  margin-bottom: 10px; 
 }
-.news_outstanding_card {
-  width:100%;
-  max-width: 190px!important; 
-}
+
 
 .title-badge {
   font-size: 12px;
@@ -197,20 +181,20 @@
 .description-badge {
   position: absolute;
   bottom: -17px;
-  padding-top: 0.5rem;
+  padding-top: 4px;
   left: 0px;
   background-color: #181818;
   color: white;
   font-weight: 650;
   font-size: 12px;
+ 
   width: 100%;
-  height: 30px;
+  height:30px;
   text-align: center;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-
 .description-badge2 {
   position: absolute;
   bottom: 20px;
@@ -220,187 +204,114 @@
   color: white;
   font-weight: 650;
   font-size: 12px;
-  border-bottom-right-radius: 15px;
+ border-bottom-right-radius: 15px;
   width: 60%;
-  height: 30px;
+  height:30px;
   text-align: center;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.homepagebodyright_phimmsapchieu_detail {
-
-  p {
-    margin-top: -15px;
-    margin-left: 10px;
-  }
+.homepagebodyright_phimmsapchieu_detail{
+  
+p{
+  margin-top: -15px;
+  margin-left: 10px;
+}
 }
 
 /* src/TrendingList.css */
 
 .trending-list {
-  font-family: Arial, sans-serif;
+font-family: Arial, sans-serif;
 }
 
 h2 {
-  color: #d2691e;
+color: #d2691e;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+list-style: none;
+padding: 0;
 }
 
 
 .rank {
-  font-weight: bold;
+font-weight: bold;
 }
 
 .title {
-  flex-grow: 1;
-  margin-left: 10px;
+flex-grow: 1;
+margin-left: 10px;
 }
 
 .views {
-  color: gray;
+color: gray;
 }
-
-.homepagebodyright_phimmsapchieu {
-  a {
-    color: white;
-  }
+.homepagebodyright_phimmsapchieu{
+a{
+  color: white;
 }
-
+}
 .img_ad {
-  margin: 10px;
-  /* Căn giữa và thêm khoảng cách bên trên dưới */
+  margin: 10px; /* Căn giữa và thêm khoảng cách bên trên dưới */
 
-  width: fit-content;
-  /* Giữ kích thước vừa đủ nội dung */
-  background-color: rgba(0, 0, 0, 0.7);
-  /* Màu nền đen trong suốt */
-  padding: 5px 20px;
-  /* Thêm khoảng cách bên trong */
-  border-radius: 8px;
-  /* Bo tròn góc */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Hiệu ứng đổ bóng */
-
+  width: fit-content; /* Giữ kích thước vừa đủ nội dung */
+  background-color: rgba(0, 0, 0, 0.7); /* Màu nền đen trong suốt */
+  padding: 5px 20px; /* Thêm khoảng cách bên trong */
+  border-radius: 8px; /* Bo tròn góc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+ 
 }
 
 .img_ad_text {
-  color: white;
-  /* Màu chữ trắng */
-  font-size: 18px;
-  /* Cỡ chữ */
+  color: white; /* Màu chữ trắng */
+  font-size: 18px; /* Cỡ chữ */
   font-family: bold;
   animation: blink 4s step-start infinite;
   font-family: 'Roboto', sans-serif;
 
 }
-
 @keyframes blink {
   0% {
     color: yellow;
   }
-
   20% {
     color: pink;
   }
-
   40% {
     color: cyan;
   }
-
   60% {
     color: limegreen;
   }
-
   80% {
     color: violet;
   }
-
   100% {
     color: orangered;
   }
 }
-
 .highlight {
-  color: tomato;
-  /* Màu chữ nổi bật */
-  font-weight: bold;
-  /* Làm đậm chữ */
-  text-decoration: underline;
-  /* Gạch dưới chữ */
+  color: tomato; /* Màu chữ nổi bật */
+  font-weight: bold; /* Làm đậm chữ */
+  text-decoration: underline; /* Gạch dưới chữ */
 }
 
 
 
 @media screen and (max-width: 765px) {
-  .img_ad {
-
-    position: relative;
-    /* Thay đổi từ float: left */
+.img_ad {
+   
+    position: relative; /* Thay đổi từ float: left */
     left: 0;
+    width: 100%; /* Đảm bảo .img_ad chiếm toàn bộ chiều rộng */
+    box-sizing: border-box; /* Đảm bảo padding và border được tính vào chiều rộng */
+}
+img {
     width: 100%;
-    /* Đảm bảo .img_ad chiếm toàn bộ chiều rộng */
-    box-sizing: border-box;
-    /* Đảm bảo padding và border được tính vào chiều rộng */
-  }
-
-  img {
-    width: 100%;
-    display: block;
-    /* Loại bỏ khoảng trống phía dưới ảnh */
-  }
-
+    display: block; /* Loại bỏ khoảng trống phía dưới ảnh */
 }
-
-@media screen and (min-width:765px) and (max-width: 992.98px) {
-  .homepage__body {
-    width: 100% !important;
-
-    .homepagebody_left .col-md-9 {
-      background-color: red !important;
-      width: 100% !important;
-    }
-  }
-}
-
-@media (max-width: 420px) {
-  .news_outstanding_card {
-    width: 40vw !important;
-    max-width: 250px;
-    margin: 0 auto 16px auto !important;
-  }
-
-  .wd_slickslideer {
-    justify-content: center !important;
-  }
-
-  .news_outstanding_card .image-container img {
-    width: 100% !important;
-    height: 250px !important;
-    object-fit: cover;
-  }
-}
-
-@media screen and (min-width: 465px) and (max-width: 765px) {
-  .news_outstanding_card {
-    width: 30vw !important;
-    max-width: 250px;
-    margin: 0 auto 16px auto !important;
-  }
-
-  .wd_slickslideer {
-    justify-content: center !important;
-  }
-
-  .news_outstanding_card .image-container img {
-    width: 100% !important;
-    height: 250px !important;
-    object-fit: cover;
-  }
 
 }

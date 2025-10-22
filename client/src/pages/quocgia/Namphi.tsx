@@ -6,22 +6,22 @@ import { useFilteredData } from "../../hook/FilterData/useFilteredData";
 import { Productquocgia_namphi } from "../../services/Productservices";
 
 import { Helmet } from "react-helmet";
-const FilterfilmCompoment = React.lazy(() => import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
+const FilterfilmCompoment = React.lazy(()=>import("../../compoment/FilterfilmCompoment/FilterfilmCompoment"));
 
 export default function Namphi() {
     const { data, filters, setFilters, appliedFilters, setAppliedFilters } = useFilteredData(Productquocgia_namphi);
 
-
+  
     return (
         <div className="">
             <Helmet>
-                <title>Phim Nam phi | nghienphim - Xem phim online</title>
-                <meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Nam phi tại nghienphim. Xem phim Nam phi miễn phí, chất lượng cao với phụ đề tiếng Việt." />
-                <meta name="keywords" content="phim Nam phi, phim Nam phi hay, xem phim Nam phi, phim Nam phi 2024, phim châu Âu, phim Nam phi phụ đề tiếng Việt" />
+            <title>Phim Nam phi | nghienphim - Xem phim online</title>
+<meta name="description" content="Thưởng thức những bộ phim đặc sắc từ Nam phi tại nghienphim. Xem phim Nam phi miễn phí, chất lượng cao với phụ đề tiếng Việt." />
+<meta name="keywords" content="phim Nam phi, phim Nam phi hay, xem phim Nam phi, phim Nam phi 2024, phim châu Âu, phim Nam phi phụ đề tiếng Việt" />
 
             </Helmet>
             <div className="container">
-                <div className="caption mt-3 d-flex align-items-center gap-2">
+                <div className="caption mt-3 d-flex">
                     <p><IoIosHome /> nghienphim</p>
                     <p> &gt; </p>
                     <p>Nam Phi</p>
@@ -41,26 +41,26 @@ export default function Namphi() {
                     Phim Nam Phi
                 </p>
                 <div className="row">
-                    <div className="col-12 col-lg-9 mb-4">
+                    <div className="hanhdongleft col-md-9">
                         <div className="">
                             <div className="category_phim">
-                                <Suspense fallback={<div>Loadding...</div>}>
+<Suspense fallback={<div>Loadding...</div>}>
 
-                                    <FilterfilmCompoment
-                                        data={data}
-                                        filters={filters}
-                                        setFilters={setFilters}
-                                        appliedFilters={appliedFilters}
-                                        setAppliedFilters={setAppliedFilters}
-                                    />
-                                </Suspense>
+                            <FilterfilmCompoment
+                            data={data}
+                            filters={filters}
+                            setFilters={setFilters}
+                            appliedFilters={appliedFilters}
+                            setAppliedFilters={setAppliedFilters}
+                        />
+</Suspense>
 
                             </div>
 
 
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3">
+                    <div className="hanhdongright col-md-3">
                         <Homepagebodyright />
                     </div>
                 </div>

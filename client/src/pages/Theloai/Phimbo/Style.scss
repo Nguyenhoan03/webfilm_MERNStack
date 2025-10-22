@@ -17,29 +17,6 @@
     .page-item {
       margin: 0 5px;
     }
-    .pagination {
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  max-width: 100%;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: #888 #222;
-}
-
-.pagination .page-item {
-  min-width: 40px;
-  text-align: center;
-}
-
-@media (max-width: 576px) {
-  .pagination {
-    font-size: 13px;
-  }
-  .pagination .page-item:not(.active):not(:first-child):not(:last-child):not(.disabled) {
-    display: none;
-  }
-}
     
     .page-link {
       color: #fff;
