@@ -8,6 +8,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLayoutHeader } from "../../hook/useLayoutHeader";
+import { useEffect, useRef } from "react";
 
 export default function HeaderComponent() {
 const {
@@ -26,7 +27,46 @@ const {
     handleTabMenuToggle,
     hasRole,
     hasPermissions
-  } = useLayoutHeader(); 
+  } = useLayoutHeader();
+
+  // Refs for click outside detection
+  const userMenuRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  // Handle click outside to close dropdowns
+  useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    // Đóng menu user
+    if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+      setShowDropdown(false);
+    }
+
+    // Đóng menu thể loại / quốc gia / danh mục
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    let isInsideDropdown = false;
+
+    dropdowns.forEach((dropdown) => {
+      if (dropdown.contains(event.target as Node)) {
+        isInsideDropdown = true;
+      }
+    });
+
+    if (!isInsideDropdown) {
+      setActiveDropdown(null);
+    }
+  };
+
+  document.addEventListener('mousedown', handleClickOutside);
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, [setShowDropdown, setActiveDropdown]);
+
+
+  // Handle user menu click
+  const handleUserMenuClick = () => {
+    setShowDropdown(!showDropdown);
+  }; 
   const data_theloai = [
     { theloai: "Hành Động", to: "/the-loai/hanh-dong" },
     { theloai: "Cổ Trang", to: "/the-loai/co-trang" },
@@ -105,13 +145,13 @@ const {
       <div className="header-inner">
         <Link to="/" className="logo">
           <img 
-            src="https://motchillj.net/motchill.png?v1.0.2"
+            src={`${process.env.PUBLIC_URL}/motchill.png`}
             alt="Motchill Logo"
             className="logo-image"  
           />
         </Link>
         <div className="header-search">
-          <div className="search-container">
+          <div className="search-container" ref={searchRef}>
             <input
               type="text"
               className="search-input"
@@ -200,28 +240,26 @@ const {
             {isLoggedIn ? (
               <div
                 className="user-menu"
-                onMouseEnter={() => setShowDropdown(true)}
-                onMouseLeave={() => setShowDropdown(false)}
+                ref={userMenuRef}
+                onClick={handleUserMenuClick}
               >
                 <div className="user-info">
                   <RxAvatar size={28} className="avatar" />
                   <span className="username">{name} <FaCaretDown /></span>
                 </div>
-                {showDropdown && (
-                  <ul className="dropdown-menu">
-                    {hasRole('admin') && (
-                      <li><Link to="/admin/dashboard" className="dropdown-item">Truy cập trang quản trị cho admin</Link></li>
-                    )}
-                    {hasPermissions('VIP2') && (
-                      <li><Link to="/admin/dashboard" className="dropdown-item">Truy cập trang quản trị gói VIP2</Link></li>
-                    )}
-                    {hasRole('user') && (
-                      <li><Link to="/dang-ky-goi-vip" className="dropdown-item">Đăng Ký gói VIP</Link></li>
-                    )}
-                    <li><Link to="/account" className="dropdown-item">Thông tin tài khoản</Link></li>
-                    <li><Link to="/" onClick={handleLogout} className="dropdown-item">Đăng xuất</Link></li>
-                  </ul>
-                )}
+                <ul className={`dropdown-menu ${showDropdown ? 'show' : ''}`}>
+                  {hasRole('admin') && (
+                    <li><Link to="/admin/dashboard" className="dropdown-item">Truy cập trang quản trị cho admin</Link></li>
+                  )}
+                  {hasPermissions('VIP2') && (
+                    <li><Link to="/admin/dashboard" className="dropdown-item">Truy cập trang quản trị gói VIP2</Link></li>
+                  )}
+                  {hasRole('user') && (
+                    <li><Link to="/dang-ky-goi-vip" className="dropdown-item">Đăng Ký gói VIP</Link></li>
+                  )}
+                  <li><Link to="/account" className="dropdown-item">Thông tin tài khoản</Link></li>
+                  <li><Link to="/" onClick={handleLogout} className="dropdown-item">Đăng xuất</Link></li>
+                </ul>
               </div>
             ) : (
               <Link to="/dang-nhap" className="login-link mx-2">

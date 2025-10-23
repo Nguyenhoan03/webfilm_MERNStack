@@ -57,13 +57,13 @@ export default function Login() {
         <meta name="keywords" content="đăng nhập tài khoản, tạo tài khoản, xem phim online miễn phí, phim hành động, phim tình cảm, phim khoa học viễn tưởng, phim kinh dị, Motchill" />
         <meta property="og:title" content="Đăng nhập tài khoản tại Motchill" />
         <meta property="og:description" content="Đăng nhập tài khoản để xem phim online miễn phí với chất lượng cao tại Motchill. Trải nghiệm hàng ngàn bộ phim thuộc nhiều thể loại." />
-        <meta property="og:image" content="https://motchillj.net/motchill.png?v1.0.2" />
+        <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD1a_1xPZlgUsS4xyDTlHv4BL4kPVJglN7wA&s" />
         <meta property="og:url" content="https://www.mephim.com/dang-ky" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Đăng nhập tài khoản | Motchill" />
         <meta name="twitter:description" content="Tạo tài khoản mới tại Motchill để xem phim online miễn phí. Trải nghiệm nhiều thể loại phim hành động, tình cảm, và nhiều hơn nữa." />
-        <meta name="twitter:image" content="https://motchillj.net/motchill.png?v1.0.2" />
+        <meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD1a_1xPZlgUsS4xyDTlHv4BL4kPVJglN7wA&s" />
         <link rel="canonical" href="https://mephim.com/dang-ky" />
         <meta name="robots" content="index, follow" />
       </Helmet>
@@ -112,7 +112,8 @@ export default function Login() {
                 </label>
               </div>
               <div className="forgot-password">
-                <a href="#">Quên mật khẩu ? </a> <Link to='/dang-ky'> Đăng kí tài khoản mới</Link>
+                <button type="button" className="forgot-password-btn">Quên mật khẩu ?</button> 
+                <Link to='/dang-ky'> Đăng kí tài khoản mới</Link>
               </div>
             </div>
             <GoogleLogin onSuccess={handleSuccess} onError={handleError}/>

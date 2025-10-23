@@ -73,7 +73,7 @@ export default function Detailpage() {
     slidesToShow: 5,
     slidesToScroll: 2,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 300000000,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -183,13 +183,13 @@ export default function Detailpage() {
   
   <meta property="og:title" content={datadetail ? `${datadetail.title} | Xem Phim Online - Mê Phim` : "Mê Phim | Xem Phim Online Miễn Phí"} />
   <meta property="og:description" content={datadetail ? `Xem phim ${datadetail.title} thể loại ${datadetail.theloai}, phụ đề tiếng Việt, chất lượng cao tại Mê Phim.` : "Khám phá kho phim online miễn phí với đầy đủ các thể loại: hành động, tình cảm, hài hước, kinh dị, cổ trang, khoa học viễn tưởng, phim bộ, phim lẻ, và nhiều hơn nữa. Trải nghiệm phim chất lượng cao tại Mê Phim."} />
-  <meta property="og:image" content={datadetail ? datadetail.hinhanh : "https://motchillj.net/motchill.png?v1.0.2"} />
+  <meta property="og:image" content={datadetail ? datadetail.hinhanh : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD1a_1xPZlgUsS4xyDTlHv4BL4kPVJglN7wA&s"} />
   <meta property="og:url" content={datadetail ? `https://mephim.com/phim/${datadetail.title}` : "https://mephim.com/"} />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={datadetail ? `${datadetail.title} | Xem Phim Online - Mê Phim` : "Mê Phim | Xem Phim Online Miễn Phí"} />
   <meta name="twitter:description" content={datadetail ? `Xem phim ${datadetail.title}, thể loại ${datadetail.theloai}, phụ đề tiếng Việt tại Mê Phim.` : "Xem phim online miễn phí với nhiều thể loại: hành động, tình cảm, hài hước, kinh dị, cổ trang, khoa học viễn tưởng, và nhiều thể loại khác tại Mê Phim."} />
-  <meta name="twitter:image" content={datadetail ? datadetail.hinhanh : "https://motchillj.net/motchill.png?v1.0.2"} />
+  <meta name="twitter:image" content={datadetail ? datadetail.hinhanh : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD1a_1xPZlgUsS4xyDTlHv4BL4kPVJglN7wA&s"} />
   <link rel="canonical" href={datadetail ? `https://mephim.com/phim/${datadetail.title}` : "https://mephim.com/"} />
   <meta name="robots" content="index, follow" />
 </Helmet>

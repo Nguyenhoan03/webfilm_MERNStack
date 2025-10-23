@@ -249,29 +249,57 @@
 .user-menu {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 
-  &:hover .dropdown-menu {
-    display: block; 
+  .dropdown-menu {
+    display: none; 
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    right: 0;
+    top: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.2s ease-out;
+
+    &.show {
+      display: block;
+    }
   }
 }
 
-.dropdown-menu {
-  display: none; 
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 130px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dropdown-item {
-  color: black;
-  padding: 7px 10px;
+  color: #333;
+  padding: 12px 16px;
   text-decoration: none;
   display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
 
   &:hover {
-    background-color: #f1f1f1;
+    background-color: #f8f9fa;
+    color: #007bff;
+    transform: translateX(4px);
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 }
 
@@ -287,4 +315,96 @@
   font-size: 14px;
   text-decoration: none;
   animation: colorChange 2s infinite; /* 2 seconds for a full cycle, infinite loop */
+}
+/* ======= FIX DROPDOWN MENU LỖI MỜ / KHÔNG BẤM ĐƯỢC ======= */
+.header-component {
+  .header-nav {
+    .nav-dropdown {
+      position: relative;
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #1e1e1e;
+        color: #fff;
+        border-radius: 10px;
+        list-style: none;
+        padding: 12px;
+        width: 320px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        display: none;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        z-index: 9999;
+
+        &.show,
+        .nav-dropdown:hover & {
+          display: grid;
+        }
+
+        .dropdown-item {
+          color: #ccc;
+          text-decoration: none;
+          padding: 6px 10px;
+          display: block;
+          border-radius: 6px;
+          font-size: 14px;
+          transition: all 0.2s ease;
+          opacity: 1;
+          pointer-events: all;
+
+          &:hover {
+            background-color: #495057;
+            color: #fff;
+            transform: translateX(3px);
+          }
+        }
+      }
+
+      .dropdown-toggle {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+          color: #ffd700;
+        }
+      }
+    }
+  }
+}
+
+/* Giữ lại style riêng cho user-menu */
+.user-menu .dropdown-menu {
+  background-color: #fff;
+  color: #000;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  .dropdown-item {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #f8f9fa;
+      color: #007bff;
+      transform: translateX(4px);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }

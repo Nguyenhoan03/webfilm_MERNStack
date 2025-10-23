@@ -36,7 +36,7 @@ const MovieCard : React.FC<MovieCardProps> = ({ data }) => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Link to={`/${pbm.title}`} style={{ color: "white",height:255}}>
+              <Link to={`/${pbm.title}`} style={{ color: "white", height: 255 }}>
                 <p
                   className="title-badge"
                   style={{

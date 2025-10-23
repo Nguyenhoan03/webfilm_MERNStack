@@ -35,6 +35,7 @@ export default function Itemsdanhmucfilm({ data }: ItemsdanhmucfilmProps) {
       <div className="row">
         {currentItems.map((pbm:any, index:number) => (
           <div key={pbm.id || index} className="category_phim_card_itemdanhmuc col-md-3" style={{ position: 'relative', height: '100%' }}>
+            <Link to={`/${pbm.title}`} >
             <p className="title-badge" style={{
               position: 'absolute',
               top: 5,
@@ -122,6 +123,7 @@ export default function Itemsdanhmucfilm({ data }: ItemsdanhmucfilmProps) {
                 {pbm.title}
               </Link>
             </p>
+            </Link>
           </div>
         ))}
       </div>
