@@ -4,3 +4,17 @@ a {
     color: inherit; /* Optionally, maintain the link color */
   }
   
+  @media screen and (max-width: 992px) {
+    .homepage {
+      .container {
+        padding: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+      }
+  
+      .row {
+        margin: 0 !important;
+      }
+    }
+  }

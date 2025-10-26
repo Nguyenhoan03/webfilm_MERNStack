@@ -26,9 +26,7 @@ export default function usePageHome() {
       setphimtamlytinhcam(data.phimtamlytimcam);
       setphimvientuong(data.phimvientuong);
       setDataphim(data.phimbomoicapnhat); 
-      console.log(data,"dataaaaa");
-      console.log(settings,"dataaaaacontext");
-      console.log(phimhot,"dataaaaa");
+     
     };
     fetchData();
   }, []);
