@@ -20,25 +20,43 @@
 
   a {
     color: white;
+  }
+}
 
+.image_card_detailpage {
+  display: inline-block;
+  position: relative;
+  width: 290px;
+
+  img {
+    width: 290px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
   }
 }
 
 .content_detailpage_card_button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 75px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 
   button {
-
     &:nth-child(2) {
       background-color: #d9534f;
       color: white;
       border: none;
       margin-left: 10px;
-      border-radius: 5px; // Bo góc nếu cần
-      cursor: pointer; // Con trỏ chuột;
-
+      border-radius: 5px;
+      cursor: pointer;
     }
   }
 }
@@ -49,6 +67,10 @@
   font-family: 'UTMCafetaRegular';
   color: #ff9658;
   font-weight: 650;
+}
+
+.card_detailpage_film {
+  margin-left: 15px;
 }
 
 
@@ -109,8 +131,29 @@
 
 
 .movie-details-evaluate {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 40px;
+  flex-wrap: wrap;
 
-  height: 20px;
+  form {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.evaluatestar_detail_page {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0;
+    padding-left: 8px;
+    font-size: 16px;
+    color: white;
+  }
 }
 
 .movie-details-button button {
@@ -363,45 +406,89 @@
 
 @media screen and (max-width: 765px) {
   .image_card_detailpage {
-    margin: auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+
+    img {
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 2/3;
+      max-height: 500px;
+    }
   }
 
   .card_detailpage_film {
-    margin: auto;
-    margin-top: 10px;
+    margin: 15px auto 0 auto !important;
     justify-content: center;
     text-align: center;
+    width: 100% !important;
+  }
+
+  .movie-details-evaluate {
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px !important;
+
+    form {
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .evaluatestar_detail_page {
-    margin: auto;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .movie-details-button {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+
+    button {
+      margin-left: 0 !important;
+    }
   }
 
   .content_detailpage_card_button {
-    width: 200px;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
-@media screen and (max-width: 991px) {
-
+@media screen and (min-width: 766px) and (max-width: 991px) {
   .content_detail_card_child {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
   }
 
-
-
-  .image_card_detailpage img {
+  .image_card_detailpage {
     width: 80%;
-    max-width: 250px;
-    height: auto;
+    max-width: 300px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
-
   .content_detailpage_card_button {
-    width: 80%;
-    max-width: 250px;
+    width: 100%;
   }
 
   .movie-title {
@@ -436,41 +523,24 @@
   }
 }
 
-@media screen and (max-width: 1400px) {
-  .content_detail_card_child {
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-    overflow: hidden;
-    /* Prevent content overflow */
-  }
+// Desktop Large (> 1400px) - Giữ nguyên base styles
 
-  .image_card_detailpage {
-    width: 100%;
-    height: auto;
-  }
-
+// Desktop Medium (1200px - 1400px) - Giữ layout row nhưng điều chỉnh
+@media screen and (min-width: 992px) and (max-width: 1400px) {
   .card_detailpage_film {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 15px;
-    max-width: 100%;
-    /* Ensure it doesn't exceed the container width */
+    margin-left: 10px !important;
   }
 
-  .content_detailpage_card_button {
-    width: 100%;
+  .movie-title {
+    font-size: 22px;
   }
 
-  img {
-    width: 100%;
-    height: auto;
+  .movie-subtitle {
+    font-size: 16px;
   }
 
-  /* Additional rule to prevent overflow on the right */
-  .phim-hanh-dong {
-    overflow: hidden;
-    max-width: 100%;
+  .movie-details li {
+    font-size: 13px;
   }
 }
 

@@ -43,37 +43,59 @@
   .namphathanh a{
     color: white
   }.homepagebodyright_trending {
-    background-color: #121212;
-    padding: 15px;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+    padding: 20px;
+    border-radius: 12px;
     color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
   
     h2 {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
-      color: #ff7f00;
-      margin-bottom: 15px;
+      color: #ff9601;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
   
     .tabs {
       display: flex;
       gap: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
   
       .tab-button {
         flex: 1;
-        padding: 8px 12px;
-        background-color: #333;
+        padding: 10px 8px;
+        background-color: #2a2a2a;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         cursor: pointer;
         text-align: center;
-        transition: background-color 0.3s;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        min-width: 0;
+        white-space: nowrap;
   
-        &.active,
+        &.active {
+          background: linear-gradient(135deg, #ff9601 0%, #ff7f00 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(255, 150, 1, 0.4);
+        }
+  
         &:hover {
           background-color: #ff7f00;
+          transform: translateY(-2px);
+        }
+  
+        &:active {
+          transform: translateY(0);
         }
       }
     }
@@ -83,27 +105,233 @@
       padding: 0;
       margin: 0;
   
+      a {
+        text-decoration: none;
+        color: white;
+      }
+  
       .trending-item {
         display: flex;
         justify-content: space-between;
-        padding: 10px 0;
-        border-bottom: 1px solid #555;
+        align-items: center;
+        padding: 12px 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 14px;
-        transition: color 0.3s;
+        transition: all 0.3s;
+        border-radius: 4px;
   
         .title {
           font-weight: 500;
+          flex: 1;
+          margin-right: 10px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
   
         .views {
           color: #888;
+          font-size: 12px;
+          white-space: nowrap;
         }
   
         &:hover {
-          color: #ff7f00;
+          background-color: rgba(255, 150, 1, 0.1);
+          color: #ff9601;
+          padding-left: 12px;
   
           .views {
-            color: #ff7f00;
+            color: #ff9601;
+          }
+        }
+  
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  // ==================== RESPONSIVE ====================
+
+  // TABLET & MOBILE (< 992px)
+  @media screen and (max-width: 991px) {
+    .homepagebody_right {
+      display: block !important;
+      width: 100% !important;
+      margin-top: 30px;
+      padding: 0 15px;
+    }
+
+    .homepagebodyright_trending {
+      padding: 18px;
+      width: 100%;
+      box-sizing: border-box;
+
+      h2 {
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+
+      .tabs {
+        gap: 6px;
+        margin-bottom: 18px;
+
+        .tab-button {
+          padding: 10px 6px;
+          font-size: 13px;
+        }
+      }
+
+      .trending-list {
+        .trending-item {
+          padding: 12px 5px;
+          font-size: 14px;
+
+          .title {
+            font-size: 14px;
+          }
+
+          .views {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  // MOBILE (< 768px)
+  @media screen and (max-width: 767px) {
+    .homepagebody_right {
+      padding: 0 10px;
+      margin-top: 25px;
+    }
+
+    .homepagebodyright_trending {
+      padding: 15px;
+      border-radius: 10px;
+
+      h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+        text-align: center;
+      }
+
+      .tabs {
+        gap: 5px;
+        margin-bottom: 15px;
+
+        .tab-button {
+          padding: 9px 5px;
+          font-size: 12px;
+          border-radius: 6px;
+        }
+      }
+
+      .trending-list {
+        .trending-item {
+          padding: 10px 4px;
+          font-size: 13px;
+
+          .title {
+            font-size: 13px;
+            margin-right: 8px;
+          }
+
+          .views {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+
+  // MOBILE SMALL (< 576px)
+  @media screen and (max-width: 575px) {
+    .homepagebody_right {
+      padding: 0 8px;
+      margin-top: 20px;
+    }
+
+    .homepagebodyright_trending {
+      padding: 12px;
+
+      h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      .tabs {
+        gap: 4px;
+        flex-wrap: nowrap;
+
+        .tab-button {
+          padding: 8px 4px;
+          font-size: 11px;
+          border-radius: 5px;
+        }
+      }
+
+      .trending-list {
+        .trending-item {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 10px 6px;
+          gap: 4px;
+
+          .title {
+            font-size: 12px;
+            white-space: normal;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-right: 0;
+          }
+
+          .views {
+            font-size: 10px;
+            color: #999;
+          }
+
+          &:hover {
+            padding-left: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  // MOBILE EXTRA SMALL (< 390px)
+  @media screen and (max-width: 389px) {
+    .homepagebodyright_trending {
+      padding: 10px;
+
+      h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .tabs {
+        gap: 3px;
+
+        .tab-button {
+          padding: 7px 3px;
+          font-size: 10px;
+        }
+      }
+
+      .trending-list {
+        .trending-item {
+          padding: 8px 4px;
+
+          .title {
+            font-size: 11px;
+          }
+
+          .views {
+            font-size: 9px;
           }
         }
       }

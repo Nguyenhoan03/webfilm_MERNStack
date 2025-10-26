@@ -207,77 +207,69 @@ export default function Detailpage() {
         <div className="detailpage_left col-md-9 ">
             <div className="content_detailpage_card ">
             <div className="d-flex flex-column flex-md-row content_detail_card_child">
-  <div className="col-md-4 image_card_detailpage" style={{display:'inline-block',position:'relative',width:290}}>
-    <img style={{width: 290,height: 400}} src={datadetail?.hinhanh ? datadetail.hinhanh : ''} alt="" />
-    <div className="content_detailpage_card_button" style={{position:'absolute',bottom: 0, left:0,height:75,width:'100%',backgroundColor:'rgba(0,0,0,0.8)'}}>
+  <div className="col-md-4 image_card_detailpage">
+    <img src={datadetail?.hinhanh ? datadetail.hinhanh : ''} alt="" />
+    <div className="content_detailpage_card_button">
       <button className='btn btn-primary'><Link to="">Tải phim</Link></button>
       <button className='btn btn-tomato' onClick={handlebuttonxemfilm}>
         Xem phim
       </button>
     </div>
   </div>
-  <div className='col-md-8 card_detailpage_film' style={{marginLeft:15}}>
-                  <div className="">
-                <h1 className="movie-title">{datadetail?.title}</h1>
-          <h2 className="movie-subtitle text-light">{datadetail?.nameenglish}</h2>
-          <ul className="movie-details">
-            <li><strong>Trạng thái:</strong> {datadetail?.trangthai}</li>
-            <li><strong>Thời luọng:</strong> {datadetail?.thoiluong}</li>
-            <li><strong>Đạo diễn:</strong> {datadetail?.daodien}</li>
-            <li><strong>Thời lượng:</strong> {datadetail?.thoiluong}</li>
-            <li><strong>Số tập:</strong> {datadetail?.sotap}</li>
-            <li><strong>Chất lượng:</strong>{datadetail?.chatluong} </li>
-            <li><strong>Ngôn ngữ:</strong> {datadetail?.ngonngu}</li>
-            <li><strong>Năm phát hành:</strong> {datadetail?.namphathanh}</li>
-            <li><strong>Quốc gia:</strong> {datadetail?.quocgia}</li>
-            <li><strong>Thể loại:</strong> {datadetail?.theloai}</li>
-            <li><strong>Diễn viên:</strong> {datadetail?.dienvien}</li>
-          </ul>
-          </div>
-          <div className="mt-1">
-              <div className="movie-details-button">
-                  <button style={{width:100}}><AiFillLike /> Thích 3</button>
-                  <button style={{width:60}}> Chia sẻ</button>
-                  <button><IoBookmark /> Lưu vào facebook</button>
-              </div>
-              <div className="d-flex align-items-center movie-details-evaluate mt-2">
-              <div>
-  
-  </div>
-  
-    <form action="" className="d-flex align-items-center">
-      {[...Array(10)].map((_, index) => (
-        <FaStar
-          key={index}
-          style={{
-            color: index < (hoveredStar || selectedStar) ? "#1876f2" : "#555555",
-            fontSize: 22,
-            marginRight: 4,
-            cursor: 'pointer',
-          }}
-          onMouseEnter={() => setHoveredStar(index + 1)}
-          onMouseLeave={() => setHoveredStar(0)}
-          onClick={(e: React.MouseEvent<SVGElement>) => handleFormSubmit(e as any, index + 1)}
-        />
-      ))}
-    </form>
-  
-  <div className='evaluatestar_detail_page'>  
-    <p className="text-white pl-2 mb-0" style={{ fontSize: '16px', color: 'white !important' }}>
-      {typeof averageRating === 'number' && !isNaN(averageRating) 
-        ? averageRating.toFixed(1) 
-        : 'N/A'} 
-      <span className="text-primary">★</span> ({ratingtotal} đánh giá)
-    </p>
-  </div>
-
-
-
-  </div>
-
-          </div>
+  <div className='col-md-8 card_detailpage_film'>
+    <div>
+      <h1 className="movie-title">{datadetail?.title}</h1>
+      <h2 className="movie-subtitle text-light">{datadetail?.nameenglish}</h2>
+      <ul className="movie-details">
+        <li><strong>Trạng thái:</strong> {datadetail?.trangthai}</li>
+        <li><strong>Thời luọng:</strong> {datadetail?.thoiluong}</li>
+        <li><strong>Đạo diễn:</strong> {datadetail?.daodien}</li>
+        <li><strong>Thời lượng:</strong> {datadetail?.thoiluong}</li>
+        <li><strong>Số tập:</strong> {datadetail?.sotap}</li>
+        <li><strong>Chất lượng:</strong>{datadetail?.chatluong} </li>
+        <li><strong>Ngôn ngữ:</strong> {datadetail?.ngonngu}</li>
+        <li><strong>Năm phát hành:</strong> {datadetail?.namphathanh}</li>
+        <li><strong>Quốc gia:</strong> {datadetail?.quocgia}</li>
+        <li><strong>Thể loại:</strong> {datadetail?.theloai}</li>
+        <li><strong>Diễn viên:</strong> {datadetail?.dienvien}</li>
+      </ul>
+    </div>
+    
+    <div className="mt-1">
+      <div className="movie-details-button">
+        <button style={{width:100}}><AiFillLike /> Thích 3</button>
+        <button style={{width:60}}> Chia sẻ</button>
+        <button><IoBookmark /> Lưu vào facebook</button>
+      </div>
       
-                </div>
+      <div className="movie-details-evaluate mt-2">
+        <form>
+          {[...Array(10)].map((_, index) => (
+            <FaStar
+              key={index}
+              style={{
+                color: index < (hoveredStar || selectedStar) ? "#1876f2" : "#555555",
+                fontSize: 22,
+                cursor: 'pointer',
+              }}
+              onMouseEnter={() => setHoveredStar(index + 1)}
+              onMouseLeave={() => setHoveredStar(0)}
+              onClick={(e: React.MouseEvent<SVGElement>) => handleFormSubmit(e as any, index + 1)}
+            />
+          ))}
+        </form>
+        
+        <div className='evaluatestar_detail_page'>  
+          <p>
+            {typeof averageRating === 'number' && !isNaN(averageRating) 
+              ? averageRating.toFixed(1) 
+              : '0.0'} 
+            <span className="text-primary">★</span> ({ratingtotal} đánh giá)
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
                   
                 </div>
               <div className="mt-3">
