@@ -7,7 +7,7 @@ namespace App\Application\AdultCategory;
 use App\Application\Query;
 use App\Application\Command;
 
-class ListAdultCategoryQuery implements Query, Command
+class ListAdultCategoryQuery implements Query
 {
     public function __construct(
         private int $page = 1,

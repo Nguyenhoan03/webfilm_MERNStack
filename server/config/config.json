@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "chuyenn7_db_webphim",
-    "host": "127.0.0.1",
+    "username": "ghie_ghienphimtoday",
+    "password": "Seoking2024@",
+    "database": "ghie_ghienphimtoday",
+    "host": "72.60.192.18",
     "dialect": "mysql"
   },
   "test": {

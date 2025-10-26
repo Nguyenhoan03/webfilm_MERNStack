@@ -34,95 +34,51 @@ export default function Itemsdanhmucfilm({ data }: ItemsdanhmucfilmProps) {
     <div>
       <div className="row">
         {currentItems.map((pbm:any, index:number) => (
-          <div key={pbm.id || index} className="category_phim_card_itemdanhmuc col-md-3" style={{ position: 'relative', height: '100%' }}>
-            <Link to={`/${pbm.title}`} >
-            <p className="title-badge" style={{
-              position: 'absolute',
-              top: 5,
-              left: 15,
-              backgroundColor: '#BF1D28',
-              color: 'white',
-              fontWeight: 650,
-              fontSize: 12,
-              borderRadius: 4,
-              width: 117,
-              textAlign: 'center'
-            }}>
-              {pbm.trangthai}-{pbm.ngonngu}
-            </p>
-            
-            <div style={{ position: 'relative', width: 175, height: 245 }}>
-              {/* Loading placeholder */}
-              {!loadedImages[pbm.id] && !errorImages[pbm.id] && (
-                <div className="loading-placeholder" style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: '#f0f0f0'
-                }}>
-                  <img src="/progress-loading-bar-buffering-download-upload-and-loading-icon-vector.jpg" alt="Loading..." style={{ width: 50, height: 50 }}/>
+          <div key={pbm.id || index} className="category_phim_card_itemdanhmuc col-md-3">
+            <Link to={`/${pbm.title}`} className="movie-link">
+              <div className="movie-card-wrapper">
+                {/* Status Badge */}
+                <div className="status-badge">
+                  {pbm.trangthai}-{pbm.ngonngu}
                 </div>
-              )}
+                
+                {/* Image Container */}
+                <div className="image-container">
+                  {/* Loading placeholder */}
+                  {!loadedImages[pbm.id] && !errorImages[pbm.id] && (
+                    <div className="loading-placeholder">
+                      <img src="/progress-loading-bar-buffering-download-upload-and-loading-icon-vector.jpg" alt="Loading..." style={{ width: 50, height: 50 }}/>
+                    </div>
+                  )}
 
-              {/* Error placeholder */}
-              {errorImages[pbm.id] ? (
-                <img 
-                  src="/error-icon-24.png" 
-                  alt="Error loading image"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-              ) : (
-                <picture>
-                  <source 
-                    srcSet={pbm.hinhanh.replace(/\.(jpeg|png)$/, ".webp")} 
-                    type="image/webp" 
-                    className="lazyload"
-                  />
-                  <img 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                    className={`img-fluid lazyload ${loadedImages[pbm.id] ? 'loaded' : ''}`}
-                    src={pbm.hinhanh} 
-                    alt={pbm.title}
-                    onLoad={() => handleImageLoad(pbm.id)}
-                    onError={() => handleImageError(pbm.id)}
-                  />
-                </picture>
-              )}
+                  {/* Error placeholder */}
+                  {errorImages[pbm.id] ? (
+                    <img 
+                      src="/error-icon-24.png" 
+                      alt="Error loading image"
+                      className="movie-image error-image"
+                    />
+                  ) : (
+                    <img 
+                      className={`movie-image ${loadedImages[pbm.id] ? 'loaded' : ''}`}
+                      src={pbm.hinhanh} 
+                      alt={pbm.title}
+                      onLoad={() => handleImageLoad(pbm.id)}
+                      onError={() => handleImageError(pbm.id)}
+                    />
+                  )}
 
-              <p className="description-badge2" style={{ 
-                marginLeft: 12,
-                color: 'white',
-                position: 'absolute',
-                bottom: 40,
-                width: 100,
-                height: 30,
-                borderRadius: 10,
-                alignContent: 'center',
-                textAlign: 'center',
-                backgroundColor: '#522e75'
-              }}>
-                {pbm.sotap && pbm.sotap.includes('Tập') ? pbm.sotap : `${pbm.sotap} Tập`}
-              </p>
-            </div>
+                  {/* Episode Badge */}
+                  <div className="episode-badge">
+                    {pbm.sotap && pbm.sotap.includes('Tập') ? pbm.sotap : `${pbm.sotap} Tập`}
+                  </div>
+                </div>
 
-            <p className="description-badge" style={{ 
-              marginLeft: 12,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-              backgroundColor: '#181818',
-              color: 'white',
-              fontSize: 17,
-              fontWeight: 550,
-              borderRadius: 5
-            }}>
-              <Link to={`/${pbm.title}`} style={{ color: 'white' }}>
-                {pbm.title}
-              </Link>
-            </p>
+                {/* Title */}
+                <div className="movie-title">
+                  {pbm.title}
+                </div>
+              </div>
             </Link>
           </div>
         ))}

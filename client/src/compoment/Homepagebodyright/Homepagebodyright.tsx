@@ -32,7 +32,7 @@ export default function Homepagebodyright() {
         ))}
       </div>
 
-      <div className="homepagebodyright_trending">
+      <div className="homepagebodyright_trending mt-3">
   <h2>Trending</h2>
   <div className="tabs">
     <button className="tab-button active">Ngày</button>
@@ -51,7 +51,7 @@ export default function Homepagebodyright() {
   </ul>
 </div>
 
-      <div className="namphathanh">
+      <div className="namphathanh mt-3">
       <h2 style={{ fontSize: 25, fontFamily: 'roboto', fontWeight: 300, textTransform: 'uppercase', color: '#ff9601' }}>
           NĂM PHÁT HÀNH
         </h2>

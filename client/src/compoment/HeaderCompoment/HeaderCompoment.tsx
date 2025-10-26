@@ -11,7 +11,7 @@ import { useLayoutHeader } from "../../hook/useLayoutHeader";
 import { useEffect, useRef } from "react";
 
 export default function HeaderComponent() {
-const {
+  const {
     isLoggedIn,
     showDropdown,
     setShowDropdown,
@@ -35,38 +35,38 @@ const {
 
   // Handle click outside to close dropdowns
   useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    // Đóng menu user
-    if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
-      setShowDropdown(false);
-    }
-
-    // Đóng menu thể loại / quốc gia / danh mục
-    const dropdowns = document.querySelectorAll('.nav-dropdown');
-    let isInsideDropdown = false;
-
-    dropdowns.forEach((dropdown) => {
-      if (dropdown.contains(event.target as Node)) {
-        isInsideDropdown = true;
+    const handleClickOutside = (event: MouseEvent) => {
+      // Đóng menu user
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
       }
-    });
 
-    if (!isInsideDropdown) {
-      setActiveDropdown(null);
-    }
-  };
+      // Đóng menu thể loại / quốc gia / danh mục
+      const dropdowns = document.querySelectorAll('.nav-dropdown');
+      let isInsideDropdown = false;
 
-  document.addEventListener('mousedown', handleClickOutside);
-  return () => {
-    document.removeEventListener('mousedown', handleClickOutside);
-  };
-}, [setShowDropdown, setActiveDropdown]);
+      dropdowns.forEach((dropdown) => {
+        if (dropdown.contains(event.target as Node)) {
+          isInsideDropdown = true;
+        }
+      });
+
+      if (!isInsideDropdown) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setShowDropdown, setActiveDropdown]);
 
 
   // Handle user menu click
   const handleUserMenuClick = () => {
     setShowDropdown(!showDropdown);
-  }; 
+  };
   const data_theloai = [
     { theloai: "Hành Động", to: "/the-loai/hanh-dong" },
     { theloai: "Cổ Trang", to: "/the-loai/co-trang" },
@@ -144,10 +144,10 @@ const {
     <header className="header-component">
       <div className="header-inner">
         <Link to="/" className="logo">
-          <img 
+          <img
             src={`${process.env.PUBLIC_URL}/motchill.png`}
             alt="Motchill Logo"
-            className="logo-image"  
+            className="logo-image"
           />
         </Link>
         <div className="header-search">
@@ -167,7 +167,7 @@ const {
               <div className="search-results">
                 {filteredData.map((item, index) => (
                   <div key={index} className="search-result-item">
-                    <img className="result-image" src={item.hinhanh} alt="search result"/>
+                    <img className="result-image" src={item.hinhanh} alt="search result" />
                     <div>
                       <Link to={`/${item.title}`} className="result-title">{item.title}</Link>
                       <p className="result-subtitle">{item.nameenglish}</p>
@@ -181,7 +181,7 @@ const {
             )}
           </div>
         </div>
-      
+
         <nav className={`header-nav ${tabMenuVisible ? 'visible' : 'hidden'}`}>
           <div className="nav-dropdown">
             <button
@@ -230,11 +230,6 @@ const {
               ))}
             </div>
           </div>
-          <div className="">
-            <Link className="dynamic-text" to="/dang-ky-goi-vip">
-              Đăng ký gói VIP
-            </Link>
-          </div>
 
           <div className="header-icons">
             {isLoggedIn ? (
@@ -254,9 +249,7 @@ const {
                   {hasPermissions('VIP2') && (
                     <li><Link to="/admin/dashboard" className="dropdown-item">Truy cập trang quản trị gói VIP2</Link></li>
                   )}
-                  {hasRole('user') && (
-                    <li><Link to="/dang-ky-goi-vip" className="dropdown-item">Đăng Ký gói VIP</Link></li>
-                  )}
+                  <li><Link to="/dang-ky-goi-vip" className="dropdown-item">Đăng ký gói phiên bản</Link></li>
                   <li><Link to="/account" className="dropdown-item">Thông tin tài khoản</Link></li>
                   <li><Link to="/" onClick={handleLogout} className="dropdown-item">Đăng xuất</Link></li>
                 </ul>
