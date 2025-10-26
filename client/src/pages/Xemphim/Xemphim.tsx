@@ -122,21 +122,21 @@ interface VideoControlsProps {
 }
 
 const VideoControls: React.FC<VideoControlsProps> = ({ handlenextepisode, ktranextepisode }) => (
-  <div className="container mt-2 d-flex justify-content-between">
-    <div className="d-flex">
-      <button className='btn text-white' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
+  <div className="video-controls-wrapper">
+    <div className="video-controls-left">
+      <button className='btn-control'>
         <BsArrowsFullscreen /> Phóng to
       </button>
-      <button className='btn text-white ms-2' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
+      <button className='btn-control'>
         <MdError /> Báo lỗi
       </button>
     </div>
     <ServerSwitch />
-    <div className="d-flex">
-      <button className='btn text-white' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12 }}>
+    <div className="video-controls-right">
+      <button className='btn-control'>
         <FaRegLightbulb /> Tắt đèn
       </button>
-      <button onClick={handlenextepisode} className='btn ms-2' style={{ backgroundColor: '#27272A', fontWeight: 550, fontSize: 12, color: ktranextepisode ? 'gray' : 'white' }}>
+      <button onClick={handlenextepisode} className={`btn-control ${ktranextepisode ? 'disabled' : ''}`}>
         <TbPlayerTrackNext /> Tập tiếp
       </button>
     </div>
@@ -144,12 +144,12 @@ const VideoControls: React.FC<VideoControlsProps> = ({ handlenextepisode, ktrane
 );
 
 const ServerSwitch: React.FC = () => (
-  <div className="xemphim_btnserver text-center">
-    <p style={{ textTransform: 'uppercase', fontWeight: 500, color: 'white' }}>Đổi Server (Nếu Lag)</p>
-    <div className="d-flex justify-content-center">
-      <button className='btn mx-2' style={{ backgroundColor: '#27272A', color: 'white' }}>Server 1</button>
-      <button className='btn mx-2' style={{ backgroundColor: '#27272A', color: 'white' }}>Server 2</button>
-      <button className='btn mx-2' style={{ backgroundColor: '#27272A', color: 'white' }}>Server 3</button>
+  <div className="xemphim_btnserver">
+    <p className="server-title">Đổi Server (Nếu Lag)</p>
+    <div className="server-buttons">
+      <button className='btn-server'>Server 1</button>
+      <button className='btn-server'>Server 2</button>
+      <button className='btn-server'>Server 3</button>
     </div>
   </div>
 );
@@ -161,7 +161,7 @@ interface EpisodeListProps {
 
 const EpisodeList: React.FC<EpisodeListProps> = ({ datadetail, numbertapfilmcurent }) => (
   <div className="danhsachtap mt-5 px-3" style={{ borderBottom: '2px solid gray' }}>
-    <p style={{ color: 'tomato', paddingTop: 5 }}>Nếu không xem được vui lòng đổi server hoặc tải lại trang !</p>
+    <p style={{ color: 'tomato' }}>Nếu không xem được vui lòng đổi server hoặc tải lại trang !</p>
     <p style={{ textTransform: 'uppercase', color: 'white', fontWeight: 550 }}>Danh sách tập</p>
     <div className="list_episodexemphim pb-3">
       {datadetail?.linkfilms.map((episodelist, key) => (

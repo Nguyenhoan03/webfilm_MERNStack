@@ -31,14 +31,103 @@ $btn-font-size: 12px;
   }
 }
 
-// Button server styles
-.xemphim_btnserver {
-  .xemphim_btnserverparent {
-    position: absolute;
-    margin-left: -35px;
+// ==================== VIDEO CONTROLS ====================
 
-    button {
-      font-size: $btn-font-size;
+.video-controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 0 15px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.video-controls-left,
+.video-controls-right {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-control {
+  background-color: #27272A;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  font-weight: 550;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #3a3a3d;
+    transform: translateY(-2px);
+  }
+
+  &.disabled {
+    color: gray;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: #27272A;
+      transform: none;
+    }
+  }
+
+  svg {
+    font-size: 14px;
+  }
+}
+
+// ==================== SERVER SWITCH ====================
+
+.xemphim_btnserver {
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+
+  .server-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .server-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn-server {
+    background-color: #27272A;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 80px;
+
+    &:hover {
+      background: linear-gradient(135deg, #ff9601 0%, #ff7f00 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(255, 150, 1, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 }
@@ -54,8 +143,21 @@ $btn-font-size: 12px;
   }
 }
 
-// Responsive styles
-@media screen and (max-width: 992px) {
+// ==================== RESPONSIVE ====================
+
+// TABLET & MOBILE (< 992px)
+@media screen and (max-width: 991px) {
+  .container {
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .row {
+    margin: 0 !important;
+  }
+
   .pagexemphim {
     display: flex;
     flex-direction: column;
@@ -69,28 +171,147 @@ $btn-font-size: 12px;
   .xemphim_right {
     margin-top: 28px;
   }
-}
-@media (max-width: 765px) {
-  .container.mt-2 {
-    display: block; // Hiển thị dưới dạng khối để dễ dàng căn chỉnh
-  }
 
-  .container.mt-2 > div {
-    margin-bottom: 15px; 
-    text-align: center;
+  .video-controls-wrapper {
+    justify-content: center;
+    padding: 0 10px;
+    gap: 12px;
   }
 
   .xemphim_btnserver {
-    text-align: center; 
+    width: 100%;
+    order: -1;
+    margin-bottom: 10px;
+  }
+}
+
+// MOBILE (< 768px)
+@media screen and (max-width: 767px) {
+  .video-controls-wrapper {
+    flex-direction: column;
+    padding: 0 8px;
+    gap: 10px;
   }
 
-  .xemphim_btnserverparent {
-    display: flex;
-    justify-content: center; // Căn giữa các nút server
-    flex-wrap: wrap; // Cho phép các nút xuống dòng nếu không đủ chỗ
+  .video-controls-left,
+  .video-controls-right {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
   }
 
-  .xemphim_btnserverparent button {
-    margin: 5px; // Thêm khoảng cách giữa các nút
+  .btn-control {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 11px;
+
+    svg {
+      font-size: 13px;
+    }
+  }
+
+  .xemphim_btnserver {
+    width: 100%;
+    min-width: 100%;
+    margin: 10px 0;
+
+    .server-title {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .server-buttons {
+      gap: 6px;
+      width: 100%;
+    }
+
+    .btn-server {
+      flex: 1;
+      min-width: 0;
+      padding: 8px 12px;
+      font-size: 11px;
+    }
+  }
+}
+
+// MOBILE SMALL (< 576px)
+@media screen and (max-width: 575px) {
+  .video-controls-wrapper {
+    padding: 0 5px;
+    gap: 8px;
+  }
+
+  .video-controls-left,
+  .video-controls-right {
+    gap: 6px;
+  }
+
+  .btn-control {
+    padding: 7px 10px;
+    font-size: 10px;
+    gap: 4px;
+
+    svg {
+      font-size: 12px;
+    }
+  }
+
+  .xemphim_btnserver {
+    .server-title {
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .server-buttons {
+      gap: 5px;
+    }
+
+    .btn-server {
+      padding: 7px 10px;
+      font-size: 10px;
+    }
+  }
+}
+
+// MOBILE EXTRA SMALL (< 390px)
+@media screen and (max-width: 389px) {
+  .video-controls-wrapper {
+    padding: 0;
+  }
+
+  .video-controls-left,
+  .video-controls-right {
+    flex-direction: column;
+    width: 100%;
+
+    .btn-control {
+      width: 100%;
+    }
+  }
+
+  .btn-control {
+    padding: 6px 8px;
+    font-size: 9px;
+
+    svg {
+      font-size: 11px;
+    }
+  }
+
+  .xemphim_btnserver {
+    .server-title {
+      font-size: 11px;
+    }
+
+    .server-buttons {
+      gap: 4px;
+    }
+
+    .btn-server {
+      padding: 6px 8px;
+      font-size: 9px;
+    }
   }
 }

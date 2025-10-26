@@ -167,4 +167,9 @@
       font-size: 12px;
     }
   }
+  @media screen and (min-width:765px) {
+    .image-container img {
+      width: 100%;
+    }
+  }
   
