@@ -32,9 +32,9 @@ export default function Itemsdanhmucfilm({ data }: ItemsdanhmucfilmProps) {
 
   return (
     <div>
-      <div className="row">
+      <div className="row movie-grid-container">
         {currentItems.map((pbm:any, index:number) => (
-          <div key={pbm.id || index} className="category_phim_card_itemdanhmuc col-md-3">
+          <div key={pbm.id || index} className="category_phim_card_itemdanhmuc">
             <Link to={`/${pbm.title}`} className="movie-link">
               <div className="movie-card-wrapper">
                 {/* Status Badge */}
