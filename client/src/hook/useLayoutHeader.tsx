@@ -48,6 +48,24 @@ useEffect(() => {
   }
 }, [token, name]);
 
+// Đóng dropdown khi scroll
+useEffect(() => {
+  const handleScroll = () => {
+    if (showDropdown) {
+      setShowDropdown(false);
+    }
+    if (tabMenuVisible) {
+      setTabMenuVisible(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, [showDropdown, tabMenuVisible]);
+
 const handleLogout = () => {
   const confirmLogout = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
   if (confirmLogout) {
